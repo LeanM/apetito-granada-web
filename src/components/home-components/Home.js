@@ -55,11 +55,14 @@ export default function Home() {
             width: "100%",
             height: "10rem",
             display: "flex",
+            flexDirection: "column",
             justifyContent: "center",
             alignItems: "center",
             zIndex: 50,
+            gap: "2rem",
           }}
         >
+          <p>Elige entre nuestros distintos tipos de menu!</p>
           <CategoryCarousel categoriesData={categories} />
         </div>
         <div
