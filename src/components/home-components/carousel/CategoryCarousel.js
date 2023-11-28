@@ -82,7 +82,7 @@ export default function CategoryCarousel(props) {
 
 const useStyles = createUseStyles({
   container: {
-    width: "80%",
+    width: "85%",
     display: "flex",
     justifyContent: "center",
     alignItems: "center",

@@ -118,8 +118,9 @@ export default function PageWrapper(props) {
   };
 
   const styleNavBarSolid = {
-    backgroundColor: cssVariables.getPropertyValue("--nav-color"),
+    backgroundColor: colors.navLight,
     color: "black",
+    borderBottom: `solid 1px ${colors.blackLight}`,
   };
 
   return (

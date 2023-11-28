@@ -1,8 +1,11 @@
 export const colors = {
   bg: "rgb(255, 255, 255)",
   bgDark: "rgb(38, 38, 65)",
+  black: "black",
+  blackLight: "#756f6f",
   bgTransparent: "rgba(255, 255, 255,0.7)",
   nav: "rgb(228, 189, 99)",
+  navLight: "#c7ae74",
   navEnterprise: "#d6c7b5",
   navEnterpriseTransparent: "rgba(214, 199, 181, 0.4)",
   notification: "rgba(216, 57, 57, 0.7)",

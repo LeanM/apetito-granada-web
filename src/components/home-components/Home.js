@@ -11,6 +11,7 @@ import CategoryCarousel from "./carousel/CategoryCarousel";
 import { colors } from "../../assets/colors";
 import HomeTop from "./landing/HomeTop";
 import ReviewCarousel from "./reviewCarousel/ReviewCarousel";
+import HomeInfo from "./landing/HomeInfo";
 
 export default function Home() {
   const navigate = useNavigate();
@@ -45,6 +46,7 @@ export default function Home() {
   return (
     <div className="home__section">
       <HomeTop />
+      <HomeInfo />
       <div
         style={{
           zIndex: 50,
@@ -63,7 +65,10 @@ export default function Home() {
             gap: "2rem",
           }}
         >
-          <p>Elige entre nuestros distintos tipos de menu!</p>
+          <p style={{ fontSize: "1rem" }}>
+            Observe nuestros distintos tipos de menus disponibles por nuestro
+            servicio!
+          </p>
           <CategoryCarousel categoriesData={categories} />
         </div>
         <div

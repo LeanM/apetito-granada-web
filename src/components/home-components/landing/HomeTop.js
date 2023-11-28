@@ -2,13 +2,14 @@ import "../../../css/home.css";
 import { colors } from "../../../assets/colors";
 import asado from "../../../assets/ASADO.jpg";
 import { createUseStyles } from "react-jss";
+import homePhoto from "../../../assets/home.jpg";
 
 export default function HomeTop() {
   const classes = useStyles();
 
   return (
     <div className="home__top">
-      <img className={classes.image} src={asado}></img>
+      <img className={classes.image} src={homePhoto}></img>
       <div className={classes.dataContainer}>
         <p
           style={{
