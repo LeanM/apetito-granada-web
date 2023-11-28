@@ -77,7 +77,6 @@ export default function HomeInfo() {
           </div>
           <div
             style={{
-              fontSize: "1.2rem",
               height: "50%",
               textAlign: "center",
               display: "flex",
@@ -85,7 +84,7 @@ export default function HomeInfo() {
               alignItems: "center",
             }}
           >
-            <p>
+            <p style={{ fontSize: "1.2rem" }}>
               iasndiasndasm kadj ask dask dasjkdk asdkasd asdas dlaskdjklas
               alksdjaskl
             </p>
@@ -103,6 +102,8 @@ const useStyles = createUseStyles({
     display: "flex",
     justifyContent: "space-evenly",
     alignItems: "center",
+    zIndex: "15",
+    backgroundColor: "white",
 
     "@media screen and (max-width: 1000px)": {
       flexWrap: "wrap",
@@ -111,11 +112,11 @@ const useStyles = createUseStyles({
 
     "@media screen and (max-width: 750px)": {
       flexDirection: "column",
-      height: "120vh",
+      height: "130vh",
       justifyContent: "center",
       flexWrap: "nowrap",
       gap: "1rem",
-      marginTop: "2rem",
+      padding: "2rem",
     },
   },
   subContainer: {
@@ -147,5 +148,9 @@ const useStyles = createUseStyles({
     justifyContent: "center",
     alignItems: "center",
     gap: "3rem",
+
+    "@media screen and (max-width: 1000px)": {
+      gap: "5rem",
+    },
   },
 });

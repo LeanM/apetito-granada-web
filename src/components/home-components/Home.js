@@ -4,7 +4,6 @@ import { toast } from "react-hot-toast";
 import LandingVideo from "./LandingVideo";
 import { getPackages } from "../../connection/requests";
 import { useNavigate } from "react-router-dom";
-import asado from "../../assets/ASADO.jpg";
 import LeftCategoryCard from "./categoryCards/LeftCategoryCard";
 import RightCategoryCard from "./categoryCards/RightCategoryCard";
 import CategoryCarousel from "./carousel/CategoryCarousel";
@@ -50,6 +49,7 @@ export default function Home() {
       <div
         style={{
           zIndex: 50,
+          backgroundColor: "white",
         }}
         className="home__body"
       >
