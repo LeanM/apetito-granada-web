@@ -1,0 +1,17 @@
+export const colors = {
+  bg: "rgb(255, 255, 255)",
+  bgDark: "rgb(38, 38, 65)",
+  bgTransparent: "rgba(255, 255, 255,0.7)",
+  nav: "rgb(228, 189, 99)",
+  navEnterprise: "#d6c7b5",
+  navEnterpriseTransparent: "rgba(214, 199, 181, 0.4)",
+  notification: "rgba(216, 57, 57, 0.7)",
+  notificationLight: "rgba(235, 168, 168, 0.7)",
+  transparent: "rgba(228, 189, 99, 0)",
+  navSemiTransparent: "rgba(228, 189, 99,0.4)",
+  price: "rgb(71, 165, 71)",
+  priceLight: "rgb(151, 223, 151)",
+  text: "white",
+  button: "#a2a2cc",
+  hover: "#f8f1b0",
+};
