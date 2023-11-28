@@ -136,7 +136,7 @@ export default function PageWrapper(props) {
   const styleNavBarSolid = {
     backgroundColor: colors.navLight,
     color: "black",
-    borderBottom: `solid 1px ${colors.blackLight}`,
+    borderBottom: `solid 2px ${colors.nav}`,
   };
 
   return (
