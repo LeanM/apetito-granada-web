@@ -34,7 +34,7 @@ const useStyles = createUseStyles({
     alignItems: "center",
     padding: "0.5rem",
     justifyContent: "center",
-    gap: "4rem",
+    gap: "2rem",
   },
   dataContainer: {
     display: "flex",
@@ -46,7 +46,8 @@ const useStyles = createUseStyles({
     gap: "2rem",
     fontSize: "1.1rem",
     backgroundColor: colors.navSemiTransparent,
-    color: colors.text,
+    color: colors.nav,
+    textShadow: "0 0 10px black",
 
     "@media screen and (max-width: 1100px)": {
       width: "90%",
@@ -56,12 +57,30 @@ const useStyles = createUseStyles({
       width: "100%",
     },
   },
+  imageContainer: {
+    width: "45%",
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+
+    "@media screen and (max-width: 1100px)": {
+      display: "none",
+    },
+  },
   imageStyle: {
-    width: "30rem",
-    height: "28rem",
+    width: "27rem",
+    height: "25rem",
     borderRadius: "100%",
     border: `solid 5px ${colors.nav}`,
     objectFit: "cover",
+    transition: "width 0.5s, height 0.5s, border 0.5s, box-shadow 0.5s",
+
+    "&:hover": {
+      width: "29rem",
+      height: "27rem",
+      boxShadow: "0 0 50px black",
+      borderWidth: "2px",
+    },
 
     "@media screen and (max-width: 1100px)": {
       display: "none",

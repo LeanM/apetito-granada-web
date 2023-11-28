@@ -16,12 +16,15 @@ export default function LeftCategoryCard(props) {
       className={classes.container}
     >
       <div className={classes.innerLeftContainer}>
-        <img src={asado} className={classes.imageStyle} />
+        <div className={classes.imageContainer}>
+          <img src={asado} className={classes.imageStyle} />
+        </div>
+
         <div
           className={classes.dataContainer}
           style={{ borderRight: `solid 10px ${colors.nav}` }}
         >
-          <div style={{ fontWeight: "800", fontSize: "1.2rem" }}>
+          <div style={{ fontWeight: "800", fontSize: "2rem" }}>
             {props.categoryData}
           </div>
           <div>

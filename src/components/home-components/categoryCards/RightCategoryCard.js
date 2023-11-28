@@ -21,7 +21,7 @@ export default function RightCategoryCard(props) {
           className={classes.dataContainer}
           style={{ borderLeft: `solid 10px ${colors.nav}` }}
         >
-          <div style={{ fontWeight: "800", fontSize: "1.2rem" }}>
+          <div style={{ fontWeight: "800", fontSize: "2rem" }}>
             {props.categoryData}
           </div>
           <div>
@@ -32,7 +32,9 @@ export default function RightCategoryCard(props) {
             <button className={classes.button}>Precio</button>
           </div>
         </div>
-        <img src={asado} className={classes.imageStyle} />
+        <div className={classes.imageContainer}>
+          <img src={asado} className={classes.imageStyle} />
+        </div>
       </div>
     </div>
   );
