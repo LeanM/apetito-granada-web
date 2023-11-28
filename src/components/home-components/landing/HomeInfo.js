@@ -103,6 +103,20 @@ const useStyles = createUseStyles({
     display: "flex",
     justifyContent: "space-evenly",
     alignItems: "center",
+
+    "@media screen and (max-width: 1000px)": {
+      flexWrap: "wrap",
+      height: "100vh",
+    },
+
+    "@media screen and (max-width: 750px)": {
+      flexDirection: "column",
+      height: "120vh",
+      justifyContent: "center",
+      flexWrap: "nowrap",
+      gap: "1rem",
+      marginTop: "2rem",
+    },
   },
   subContainer: {
     width: "25%",
@@ -111,6 +125,18 @@ const useStyles = createUseStyles({
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
+
+    "@media screen and (max-width: 1000px)": {
+      width: "40%",
+      height: "45%",
+      border: "dotted 1px grey",
+      borderRadius: "50px",
+    },
+
+    "@media screen and (max-width: 750px)": {
+      width: "80%",
+      height: "25%",
+    },
   },
   dataContainer: {
     width: "80%",
@@ -120,6 +146,6 @@ const useStyles = createUseStyles({
     color: "black",
     justifyContent: "center",
     alignItems: "center",
-    gap: "2rem",
+    gap: "3rem",
   },
 });

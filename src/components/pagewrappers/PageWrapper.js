@@ -63,7 +63,7 @@ export default function PageWrapper(props) {
                 className="page__wrapper__navbar__list__item-account__dropdown-link"
                 to="/prompts"
               >
-                Prompts
+                HOME
               </Link>
             </MDBDropdownItem>
             <MDBDropdownItem className="page__wrapper__navbar__list__item-account__dropdown-item">
@@ -71,7 +71,7 @@ export default function PageWrapper(props) {
                 className="page__wrapper__navbar__list__item-account__dropdown-link"
                 to="/checkout"
               >
-                Payment
+                MENU
               </Link>
             </MDBDropdownItem>
             <MDBDropdownItem className="page__wrapper__navbar__list__item-account__dropdown-item">
@@ -79,16 +79,32 @@ export default function PageWrapper(props) {
                 className="page__wrapper__navbar__list__item-account__dropdown-link"
                 to="/userorders"
               >
-                My Orders
+                ORDER
               </Link>
             </MDBDropdownItem>
-            <MDBDropdownItem
-              className="page__wrapper__navbar__list__item-account__dropdown-item"
-              onClick={() => logout()}
-            >
-              <span className="page__wrapper__navbar__list__item-account__dropdown-link-logout">
-                Logout
-              </span>
+            <MDBDropdownItem className="page__wrapper__navbar__list__item-account__dropdown-item">
+              <Link
+                className="page__wrapper__navbar__list__item-account__dropdown-link"
+                to="/userorders"
+              >
+                ABOUT
+              </Link>
+            </MDBDropdownItem>
+            <MDBDropdownItem className="page__wrapper__navbar__list__item-account__dropdown-item">
+              <Link
+                className="page__wrapper__navbar__list__item-account__dropdown-link"
+                to="/userorders"
+              >
+                CONTACT
+              </Link>
+            </MDBDropdownItem>
+            <MDBDropdownItem className="page__wrapper__navbar__list__item-account__dropdown-item">
+              <Link
+                className="page__wrapper__navbar__list__item-account__dropdown-link"
+                to="/userorders"
+              >
+                GALLERY
+              </Link>
             </MDBDropdownItem>
           </MDBDropdownMenu>
         </MDBDropdown>,

@@ -262,7 +262,9 @@
       height: 70%;
     }
 
-    
+    .page__wrapper__navbar__list__category{
+      display: none;
+    }
 
     .page__wrapper__navbar__list__item{
       width: 4rem;
