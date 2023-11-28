@@ -19,9 +19,10 @@ const useStyles = createUseStyles((theme) => ({
     justifyContent: "center",
     alignItems: "center",
     borderRadius: "50px",
-    border: "solid 1px black",
+    border: "solid 1px grey",
     textDecoration: "none !important",
-    color: colors.nav,
+    backgroundColor: colors.nav,
+    color: colors.text,
     transition: "background 0.5s ease-in-out, color 0.5s",
 
     "&:hover": {

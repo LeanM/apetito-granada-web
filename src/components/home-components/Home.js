@@ -2,7 +2,6 @@ import { useState, useEffect } from "react";
 import "../../css/home.css";
 import { toast } from "react-hot-toast";
 import LandingVideo from "./LandingVideo";
-import Showcase from "./Showcase";
 import { getPackages } from "../../connection/requests";
 import { useNavigate } from "react-router-dom";
 import asado from "../../assets/ASADO.jpg";
@@ -10,6 +9,7 @@ import LeftCategoryCard from "./categoryCards/LeftCategoryCard";
 import RightCategoryCard from "./categoryCards/RightCategoryCard";
 import CategoryCarousel from "./carousel/CategoryCarousel";
 import { colors } from "../../assets/colors";
+import HomeTop from "./landing/HomeTop";
 
 export default function Home() {
   const navigate = useNavigate();
@@ -43,44 +43,7 @@ export default function Home() {
 
   return (
     <div className="home__section">
-      <div className="home__top">
-        <img
-          style={{
-            width: "100%",
-            height: "100%",
-            objectFit: "cover",
-            filter: "brightness(80%)",
-          }}
-          src={asado}
-        ></img>
-        <div
-          style={{
-            color: "white",
-            width: "47rem",
-            height: "20rem",
-            fontSize: "3rem",
-            zIndex: 20,
-            position: "absolute",
-            textAlign: "center",
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-            top: "15%",
-            borderTop: `solid 20px ${colors.nav}`,
-            backgroundColor: colors.navSemiTransparent,
-          }}
-        >
-          <p
-            style={{
-              fontWeight: "800",
-              color: colors.nav,
-              textShadow: "black 0 0 10px",
-            }}
-          >
-            Bienvenidos a Apetito Granada!
-          </p>
-        </div>
-      </div>
+      <HomeTop />
       <div
         style={{
           zIndex: 50,
@@ -127,9 +90,6 @@ export default function Home() {
               Get ALL Prompts for ${packages[0].total_price}
             </button>
           )}
-        </div>
-        <div className="home__body__showcase-section">
-          <Showcase></Showcase>
         </div>
       </div>
       <div className="home__contacts"></div>
