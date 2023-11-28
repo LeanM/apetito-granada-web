@@ -18,11 +18,11 @@ const useStyles = createUseStyles((theme) => ({
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
-    borderRadius: "50px",
-    border: "solid 1px grey",
+    borderBottom: "solid 1px grey",
+    borderTopLeftRadius: "10px",
+    borderTopRightRadius: "10px",
     textDecoration: "none !important",
-    backgroundColor: colors.nav,
-    color: colors.text,
+    color: "black",
     transition: "background 0.5s ease-in-out, color 0.5s",
 
     "&:hover": {

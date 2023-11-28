@@ -11,12 +11,16 @@ import { useContext, useEffect, useState } from "react";
 import useAuth from "../../hooks/useAuth";
 import "../../css/pagewrapper.css";
 import createUseStyles from "react-jss";
+import logo from "../../assets/logo.png";
+import { colors } from "../../assets/colors";
+import { color } from "framer-motion";
 
 export default function PageWrapper(props) {
   const { auth, logOutAuth } = useAuth();
   const [navStyle, setNavStyle] = useState({});
 
   const [loginRegisterAccess, setLoginRegisterAccess] = useState([]);
+  const [showScrollButton, setShowScrollButton] = useState(false);
 
   const rootStyle = document.querySelector(":root");
   const cssVariables = getComputedStyle(rootStyle);
@@ -98,6 +102,10 @@ export default function PageWrapper(props) {
     } else {
       setNavStyle(styleNavBarSolid);
     }
+
+    if (window.pageYOffset > 600) {
+      setShowScrollButton(true);
+    } else setShowScrollButton(false);
   };
 
   const handleMouseOver = () => {
@@ -122,14 +130,30 @@ export default function PageWrapper(props) {
         id="home__wrapper__section"
         onMouseOver={handleMouseOver}
       >
+        <button
+          style={{
+            position: "fixed",
+            bottom: "100px",
+            width: "3rem",
+            height: "3rem",
+            color: "black",
+            backgroundColor: colors.navSemiTransparent,
+            right: "20px",
+            borderRadius: "100%",
+            border: "solid 2px " + colors.nav,
+            display: showScrollButton ? "block" : "none",
+          }}
+          onClick={() => {
+            window.scrollTo(0, 450);
+          }}
+        >
+          ▲
+        </button>
         <nav className="page__wrapper__navbar">
           <div className="page__wrapper__navbar__container">
             <div className="page__wrapper__navbar__enterpriseName">
               <Link className="nav__brand__link" to="/">
-                <img
-                  className="nav__brand__img"
-                  src="/images/logo-youticket.png"
-                ></img>
+                <img className="nav__brand__img" src={logo}></img>
               </Link>
             </div>
           </div>
