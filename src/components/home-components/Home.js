@@ -55,13 +55,29 @@ export default function Home() {
         <div
           style={{
             color: "white",
+            width: "47rem",
+            height: "20rem",
             fontSize: "3rem",
             zIndex: 20,
             position: "absolute",
-            top: "30%",
+            textAlign: "center",
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            top: "15%",
+            borderTop: `solid 20px ${colors.nav}`,
+            backgroundColor: colors.navSemiTransparent,
           }}
         >
-          Bienvenidos a Apetito Granada!
+          <p
+            style={{
+              fontWeight: "800",
+              color: colors.nav,
+              textShadow: "black 0 0 10px",
+            }}
+          >
+            Bienvenidos a Apetito Granada!
+          </p>
         </div>
       </div>
       <div
