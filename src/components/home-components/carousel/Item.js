@@ -35,7 +35,7 @@ const useStyles = createUseStyles((theme) => ({
     },
 
     "@media screen and (max-width: 800px)": {
-      width: "9rem",
+      width: "7rem",
     },
   },
   text: {

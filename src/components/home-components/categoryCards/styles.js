@@ -15,6 +15,7 @@ const useStyles = createUseStyles({
       marginBottom: "0rem",
       width: "100%",
       borderBottom: `solid 1px ${colors.nav}`,
+      height: "50vh",
     },
   },
   innerLeftContainer: {

@@ -33,7 +33,7 @@ export default function CategoryCarousel(props) {
   }, []);
 
   useEffect(() => {
-    if (viewportSize.width < 500) setSlidesToShow(1);
+    if (viewportSize.width < 500) setSlidesToShow(2);
     else if (viewportSize.width < 800) setSlidesToShow(2);
     else if (viewportSize.width < 1100) setSlidesToShow(3);
     else setSlidesToShow(4);
