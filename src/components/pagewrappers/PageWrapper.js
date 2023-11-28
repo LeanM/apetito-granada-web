@@ -119,6 +119,7 @@ export default function PageWrapper(props) {
 
   const styleNavBarSolid = {
     backgroundColor: cssVariables.getPropertyValue("--nav-color"),
+    color: "black",
   };
 
   return (

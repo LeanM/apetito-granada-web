@@ -10,6 +10,7 @@ import RightCategoryCard from "./categoryCards/RightCategoryCard";
 import CategoryCarousel from "./carousel/CategoryCarousel";
 import { colors } from "../../assets/colors";
 import HomeTop from "./landing/HomeTop";
+import ReviewCarousel from "./reviewCarousel/ReviewCarousel";
 
 export default function Home() {
   const navigate = useNavigate();
@@ -95,7 +96,9 @@ export default function Home() {
           )}
         </div>
       </div>
+
       <div className="home__contacts"></div>
+      <ReviewCarousel />
     </div>
   );
 }
