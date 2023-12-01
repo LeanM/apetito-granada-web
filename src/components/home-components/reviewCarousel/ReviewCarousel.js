@@ -5,8 +5,32 @@ import Review from "./Review";
 
 export default function ReviewCarousel() {
   const [reviews, setReviews] = useState([]);
+  const [viewportSize, setViewportSize] = useState({
+    width: window.innerWidth,
+    height: window.innerHeight,
+  });
   const classes = useStyles();
   const [slidesToShow, setSlidesToShow] = useState(5);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setViewportSize({ width: window.innerWidth, height: window.innerHeight });
+    };
+
+    // Agregar un event listener para manejar cambios en el tamaño de la ventana
+    window.addEventListener("resize", handleResize);
+
+    // Limpieza del event listener cuando el componente se desmonta
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
+  useEffect(() => {
+    if (viewportSize.width < 400) setSlidesToShow(1);
+    else if (viewportSize.width < 800) setSlidesToShow(3);
+    else setSlidesToShow(5);
+  }, [viewportSize]);
 
   useEffect(() => {
     setReviews([

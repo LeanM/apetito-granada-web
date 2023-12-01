@@ -6,8 +6,10 @@ import { useState, useRef, useEffect, useContext } from "react";
 import useAuth from "../../hooks/useAuth";
 import { useNavigate, useLocation } from "react-router-dom";
 import { Link } from "react-router-dom";
-import { GoogleLogin, useGoogleLogin } from "@react-oauth/google";
+import { useGoogleLogin } from "@react-oauth/google";
 import { socialLogIn } from "../../connection/requests";
+import GoogleButton from "react-google-button";
+import { MDBBtn, MDBIcon } from "mdb-react-ui-kit";
 
 function LogIn() {
   const { logInAuth, setAuth } = useAuth();
@@ -38,15 +40,18 @@ function LogIn() {
   };
 
   const login = useGoogleLogin({
-    onSuccess: (tokenResponse) => {
-      let accessToken = tokenResponse.access_token;
+    flow: "auth-code",
+    onSuccess: (response) => {
+      let authCode = response.code;
       let socialCredentials = {
-        access_token: accessToken,
+        value: authCode,
       };
+
       toast.promise(socialLogIn(socialCredentials), {
         loading: "Logging In...",
         success: (response) => {
-          const accessToken = response.data.access_token;
+          console.log(response.data);
+          const accessToken = response.data.accessToken;
           navigate(from, { replace: true });
           setAuth({ accessToken });
 
@@ -76,8 +81,24 @@ function LogIn() {
             {errMsg}
           </p>
           <h1>Log In</h1>
-          <btn className="google-button" onClick={() => login()}>
-            Sign in with Google 🚀{" "}
+          <btn
+            onClick={() => login()}
+            style={{
+              display: "flex",
+              width: "10rem",
+              height: "2rem",
+              borderRadius: "20px",
+              boxShadow: "0 0 10px black",
+              justifyContent: "space-evenly",
+              alignItems: "center",
+              gap: "0.5rem",
+              backgroundColor: "white",
+            }}
+          >
+            <MDBIcon style={{ color: "red" }} fab icon="google"></MDBIcon>
+            <p style={{ color: "red", fontWeight: "600" }}>
+              Sign In With Google
+            </p>
           </btn>
           <form className="login-register__form" onSubmit={handleSubmit}>
             <label className="login-register__label" htmlFor="email">

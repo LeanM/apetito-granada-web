@@ -2,7 +2,6 @@ import { useState, useEffect } from "react";
 import "../../css/home.css";
 import { toast } from "react-hot-toast";
 import LandingVideo from "./LandingVideo";
-import { getPackages } from "../../connection/requests";
 import { useNavigate } from "react-router-dom";
 import LeftCategoryCard from "./categoryCards/LeftCategoryCard";
 import RightCategoryCard from "./categoryCards/RightCategoryCard";
@@ -23,11 +22,7 @@ export default function Home() {
     getCategories();
   }, []);
 
-  const getStartupData = async () => {
-    getPackages()
-      .then((response) => setPackages(response.data.data))
-      .catch((error) => toast.error(error.message));
-  };
+  const getStartupData = async () => {};
 
   const getCategories = () => {
     const categoriasDeComida = [
@@ -83,8 +78,13 @@ export default function Home() {
         >
           {categories.map((category) => {
             if (categories.indexOf(category) % 2 === 0)
-              return <LeftCategoryCard categoryData={category} />;
-            else return <RightCategoryCard categoryData={category} />;
+              return (
+                <LeftCategoryCard key={category} categoryData={category} />
+              );
+            else
+              return (
+                <RightCategoryCard key={category} categoryData={category} />
+              );
           })}
         </div>
         <div className="home__body__package-info">
