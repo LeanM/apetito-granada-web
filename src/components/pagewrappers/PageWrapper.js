@@ -14,12 +14,15 @@ import createUseStyles from "react-jss";
 import logo from "../../assets/logo.png";
 import { colors } from "../../assets/colors";
 import { color } from "framer-motion";
+import { useNavigate } from "react-router-dom";
 
 export default function PageWrapper(props) {
+  const navigate = useNavigate();
   const { auth, logOutAuth } = useAuth();
   const [navStyle, setNavStyle] = useState({});
 
   const [loginRegisterAccess, setLoginRegisterAccess] = useState([]);
+  const [dropdownNav, setDropdownNav] = useState([]);
   const [showScrollButton, setShowScrollButton] = useState(false);
 
   const rootStyle = document.querySelector(":root");
@@ -37,6 +40,66 @@ export default function PageWrapper(props) {
 
   const logout = async () => {
     logOutAuth();
+  };
+
+  const createDropdownNav = () => {
+    setDropdownNav([
+      <MDBDropdown className="page__wrapper__navbar__list__item-account">
+        <MDBDropdownToggle tag="a" className="nav-link" role="button">
+          <i class="fas fa-user-tag page__wrapper__navbar__list__item-account__icon"></i>
+        </MDBDropdownToggle>
+        <MDBDropdownMenu>
+          <MDBDropdownItem className="page__wrapper__navbar__list__item-account__dropdown-item">
+            <Link
+              className="page__wrapper__navbar__list__item-account__dropdown-link"
+              to="/prompts"
+            >
+              HOME
+            </Link>
+          </MDBDropdownItem>
+          <MDBDropdownItem className="page__wrapper__navbar__list__item-account__dropdown-item">
+            <Link
+              className="page__wrapper__navbar__list__item-account__dropdown-link"
+              to="/checkout"
+            >
+              MENU
+            </Link>
+          </MDBDropdownItem>
+          <MDBDropdownItem className="page__wrapper__navbar__list__item-account__dropdown-item">
+            <Link
+              className="page__wrapper__navbar__list__item-account__dropdown-link"
+              to="/userorders"
+            >
+              ORDER
+            </Link>
+          </MDBDropdownItem>
+          <MDBDropdownItem className="page__wrapper__navbar__list__item-account__dropdown-item">
+            <Link
+              className="page__wrapper__navbar__list__item-account__dropdown-link"
+              to="/userorders"
+            >
+              ABOUT
+            </Link>
+          </MDBDropdownItem>
+          <MDBDropdownItem className="page__wrapper__navbar__list__item-account__dropdown-item">
+            <Link
+              className="page__wrapper__navbar__list__item-account__dropdown-link"
+              to="/userorders"
+            >
+              CONTACT
+            </Link>
+          </MDBDropdownItem>
+          <MDBDropdownItem className="page__wrapper__navbar__list__item-account__dropdown-item">
+            <Link
+              className="page__wrapper__navbar__list__item-account__dropdown-link"
+              to="/userorders"
+            >
+              GALLERY
+            </Link>
+          </MDBDropdownItem>
+        </MDBDropdownMenu>
+      </MDBDropdown>,
+    ]);
   };
 
   const verifyLoginRegisterAccess = () => {
@@ -63,47 +126,7 @@ export default function PageWrapper(props) {
                 className="page__wrapper__navbar__list__item-account__dropdown-link"
                 to="/prompts"
               >
-                HOME
-              </Link>
-            </MDBDropdownItem>
-            <MDBDropdownItem className="page__wrapper__navbar__list__item-account__dropdown-item">
-              <Link
-                className="page__wrapper__navbar__list__item-account__dropdown-link"
-                to="/checkout"
-              >
-                MENU
-              </Link>
-            </MDBDropdownItem>
-            <MDBDropdownItem className="page__wrapper__navbar__list__item-account__dropdown-item">
-              <Link
-                className="page__wrapper__navbar__list__item-account__dropdown-link"
-                to="/userorders"
-              >
-                ORDER
-              </Link>
-            </MDBDropdownItem>
-            <MDBDropdownItem className="page__wrapper__navbar__list__item-account__dropdown-item">
-              <Link
-                className="page__wrapper__navbar__list__item-account__dropdown-link"
-                to="/userorders"
-              >
-                ABOUT
-              </Link>
-            </MDBDropdownItem>
-            <MDBDropdownItem className="page__wrapper__navbar__list__item-account__dropdown-item">
-              <Link
-                className="page__wrapper__navbar__list__item-account__dropdown-link"
-                to="/userorders"
-              >
-                CONTACT
-              </Link>
-            </MDBDropdownItem>
-            <MDBDropdownItem className="page__wrapper__navbar__list__item-account__dropdown-item">
-              <Link
-                className="page__wrapper__navbar__list__item-account__dropdown-link"
-                to="/userorders"
-              >
-                GALLERY
+                Review
               </Link>
             </MDBDropdownItem>
           </MDBDropdownMenu>
@@ -192,7 +215,12 @@ export default function PageWrapper(props) {
             <div className="page__wrapper__navbar__list__category">
               <p>CONTACT</p>
             </div>
-            <div className="page__wrapper__navbar__list__category">
+            <div
+              className="page__wrapper__navbar__list__category"
+              onClick={() => {
+                navigate("/login");
+              }}
+            >
               <p>GALLERY</p>
             </div>
             <div className="page__wrapper__navbar__list__item__user-block">

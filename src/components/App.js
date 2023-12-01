@@ -6,7 +6,6 @@ import Missing from "./Missing";
 import RequireAuth from "./login-components/RequireAuth";
 import LogIn from "./login-components/Login";
 import Register from "./login-components/Register";
-import Checkout from "./checkoutComponents/Checkout";
 
 function App() {
   return (
@@ -19,9 +18,7 @@ function App() {
         <Route path="/register" element={<Register />} />
 
         {/* Want to protect these routes */}
-        <Route element={<RequireAuth />}>
-          <Route path="/checkout" element={<Checkout />} />
-        </Route>
+        <Route element={<RequireAuth />}></Route>
 
         {/* Catch all (pages that doesnt exists) */}
         <Route path="*" element={<Missing />} />
