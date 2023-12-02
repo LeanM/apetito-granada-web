@@ -3,6 +3,7 @@ import { colors } from "../../../assets/colors";
 import asado from "../../../assets/ASADO.jpg";
 import { createUseStyles } from "react-jss";
 import homePhoto from "../../../assets/home.jpg";
+import { Button } from "rsuite";
 
 export default function HomeTop() {
   const classes = useStyles();
@@ -21,19 +22,12 @@ export default function HomeTop() {
         >
           Bienvenidos!
         </p>
-        <p
-          style={{
-            width: "60%",
-            fontWeight: "300",
-            fontSize: "1.1rem",
-            color: "white",
-            textShadow: `0 0 10px ${colors.black}`,
-          }}
-        >
-          El negocio de Apetito Granada proveerá servicio de catering a la
-          ciudad y alrededores de Granada. Produciendo estándares alimentarios
-          de alta calidad utilizando ingredientes básicos de origen local.
+        <p className={classes.infoText}>
+          En Apetito Granada proveemos el servicio de catering a la ciudad y
+          alrededores de Granada. Produciendo estándares alimentarios de alta
+          calidad utilizando ingredientes básicos de origen local.
         </p>
+        <Button className={classes.bookButton}>BOOK NOW</Button>
       </div>
     </div>
   );
@@ -62,10 +56,31 @@ const useStyles = createUseStyles({
     backgroundColor: colors.navSemiTransparent,
     borderRadius: "100%",
 
-    "@media screen and (max-width: 1000px)": {},
+    "@media screen and (max-width: 1000px)": {
+      width: "30rem",
+      height: "20rem",
+      fontSize: "1.8rem",
+    },
 
-    "@media screen and (max-width: 700px)": {
-      fontSize: "2rem",
+    "@media screen and (max-width: 500px)": {
+      width: "19rem",
+      height: "18rem",
+      fontSize: "1.5rem",
+    },
+  },
+  infoText: {
+    width: "60%",
+    fontWeight: "300",
+    fontSize: "1.1rem",
+    color: "white",
+    textShadow: `0 0 10px ${colors.black}`,
+
+    "@media screen and (max-width: 1000px)": {
+      fontSize: "1rem",
+    },
+
+    "@media screen and (max-width: 500px)": {
+      fontSize: "0.7rem",
     },
   },
   background: {
@@ -102,5 +117,10 @@ const useStyles = createUseStyles({
       bottom: "400px",
       left: "-300px",
     },
+  },
+  bookButton: {
+    marginTop: "1rem",
+    backgroundColor: colors.nav,
+    color: "white",
   },
 });

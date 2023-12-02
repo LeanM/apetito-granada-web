@@ -1,93 +1,56 @@
 import { createUseStyles } from "react-jss";
+import { colors } from "../../../assets/colors";
 
 export default function HomeInfo() {
   const classes = useStyles();
   return (
-    <div className={classes.container}>
-      <div className={classes.subContainer}>
-        <div className={classes.dataContainer}>
-          <div style={{ fontSize: "5rem", fontWeight: "800", height: "20%" }}>
-            1.
-          </div>
-          <div
-            style={{
-              fontSize: "1.2rem",
-              height: "50%",
-              textAlign: "center",
-              display: "flex",
-              justifyContent: "center",
-              alignItems: "center",
-            }}
-          >
-            <p>
-              iasndiasndasm kadj ask dask dasjkdk asdkasd asdas dlaskdjklas
-              alksdjaskl
-            </p>
+    <div className={classes.mainContainer}>
+      <p className={classes.titleText}>COMO TRABAJAMOS</p>
+      <div className={classes.container}>
+        <div className={classes.subContainer}>
+          <div className={classes.dataContainer}>
+            <div className={classes.numberContainer}>1.</div>
+            <div className={classes.textContainer}>
+              <p className={classes.text}>
+                Observe y elija entre las diferentes opciones, combinaciones o
+                menús a medida con una completa selección de platos
+                internacionales. Pudiendo conocer los valores de cada opcion.
+              </p>
+            </div>
           </div>
         </div>
-      </div>
-      <div className={classes.subContainer}>
-        <div className={classes.dataContainer}>
-          <div style={{ fontSize: "5rem", fontWeight: "800", height: "20%" }}>
-            2.
-          </div>
-          <div
-            style={{
-              fontSize: "1.2rem",
-              height: "50%",
-              textAlign: "center",
-              display: "flex",
-              justifyContent: "center",
-              alignItems: "center",
-            }}
-          >
-            <p>
-              iasndiasndasm kadj ask dask dasjkdk asdkasd asdas dlaskdjklas
-              alksdjaskl
-            </p>
+        <div className={classes.subContainer}>
+          <div className={classes.dataContainer}>
+            <div className={classes.numberContainer}>2.</div>
+            <div className={classes.textContainer}>
+              <p className={classes.text}>
+                Una vez analizado las posibilidades, comuniquese con nosotros a
+                traves de la seccion de contacto, especificando la fecha
+                deseada, y la cantidad de gente estimada para el evento.
+              </p>
+            </div>
           </div>
         </div>
-      </div>
-      <div className={classes.subContainer}>
-        <div className={classes.dataContainer}>
-          <div style={{ fontSize: "5rem", fontWeight: "800", height: "20%" }}>
-            3.
-          </div>
-          <div
-            style={{
-              fontSize: "1.2rem",
-              height: "50%",
-              textAlign: "center",
-              display: "flex",
-              justifyContent: "center",
-              alignItems: "center",
-            }}
-          >
-            <p>
-              iasndiasndasm kadj ask dask dasjkdk asdkasd asdas dlaskdjklas
-              alksdjaskl
-            </p>
+        <div className={classes.subContainer}>
+          <div className={classes.dataContainer}>
+            <div className={classes.numberContainer}>3.</div>
+            <div className={classes.textContainer}>
+              <p className={classes.text}>
+                iasndiasndasm kadj ask dask dasjkdk asdkasd asdas dlaskdjklas
+                alksdjaskl
+              </p>
+            </div>
           </div>
         </div>
-      </div>
-      <div className={classes.subContainer}>
-        <div className={classes.dataContainer}>
-          <div style={{ fontSize: "5rem", fontWeight: "800", height: "20%" }}>
-            4.
-          </div>
-          <div
-            style={{
-              height: "50%",
-              textAlign: "center",
-              display: "flex",
-              justifyContent: "center",
-              alignItems: "center",
-            }}
-          >
-            <p style={{ fontSize: "1.2rem" }}>
-              iasndiasndasm kadj ask dask dasjkdk asdkasd asdas dlaskdjklas
-              alksdjaskl
-            </p>
+        <div className={classes.subContainer} style={{ border: "none" }}>
+          <div className={classes.dataContainer}>
+            <div className={classes.numberContainer}>4.</div>
+            <div className={classes.textContainer}>
+              <p className={classes.text}>
+                iasndiasndasm kadj ask dask dasjkdk asdkasd asdas dlaskdjklas
+                alksdjaskl
+              </p>
+            </div>
           </div>
         </div>
       </div>
@@ -96,14 +59,40 @@ export default function HomeInfo() {
 }
 
 const useStyles = createUseStyles({
+  mainContainer: {
+    width: "100%",
+    height: "55vh",
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "center",
+    alignItems: "center",
+    marginTop: "2rem",
+    //backgroundColor: colors.navUltraLight,
+    backgroundColor: "white",
+    //borderTop: `solid 3px ${colors.nav}`,
+    borderBottom: `solid 3px ${colors.nav}`,
+
+    "@media screen and (max-width: 1000px)": {
+      height: "110vh",
+    },
+
+    "@media screen and (max-width: 750px)": {
+      height: "120vh",
+    },
+  },
+  titleText: {
+    fontSize: "1.8rem",
+    fontWeight: "800",
+    color: colors.black,
+    marginTop: "1rem",
+  },
   container: {
-    height: "50vh",
+    height: "90%",
     width: "100%",
     display: "flex",
     justifyContent: "space-evenly",
     alignItems: "center",
     zIndex: "15",
-    backgroundColor: "white",
 
     "@media screen and (max-width: 1000px)": {
       flexWrap: "wrap",
@@ -130,27 +119,79 @@ const useStyles = createUseStyles({
     "@media screen and (max-width: 1000px)": {
       width: "40%",
       height: "45%",
-      border: "dotted 1px grey",
-      borderRadius: "50px",
+      boxShadow: "0 0 5px black",
+      border: "none",
+      borderRadius: "20px",
     },
 
     "@media screen and (max-width: 750px)": {
       width: "80%",
-      height: "25%",
+      height: "22%",
+      borderTop: "solid 1px black",
+      boxShadow: "none",
+      borderRadius: "0",
+    },
+
+    "@media screen and (max-width: 450px)": {
+      width: "100%",
+      height: "22%",
+      borderRadius: "0",
     },
   },
   dataContainer: {
-    width: "80%",
-    height: "80%",
+    width: "95%",
+    height: "100%",
     display: "flex",
     flexDirection: "column",
     color: "black",
     justifyContent: "center",
     alignItems: "center",
-    gap: "3rem",
+    gap: "0.5rem",
 
     "@media screen and (max-width: 1000px)": {
-      gap: "5rem",
+      gap: "1rem",
+    },
+  },
+  numberContainer: {
+    fontSize: "5rem",
+    fontWeight: "800",
+    height: "40%",
+
+    "@media screen and (max-width: 750px)": {
+      fontSize: "4rem",
+    },
+
+    "@media screen and (max-width: 600px)": {
+      fontSize: "3.5rem",
+    },
+  },
+  textContainer: {
+    height: "50%",
+    width: "100%",
+    textAlign: "center",
+    display: "flex",
+    justifyContent: "flex-start",
+    flexDirection: "column",
+    alignItems: "center",
+
+    "@media screen and (max-width: 1000px)": {
+      width: "85%",
+    },
+
+    "@media screen and (max-width: 750px)": {
+      width: "80%",
+    },
+  },
+  text: {
+    fontSize: "1rem",
+    color: colors.black,
+
+    "@media screen and (max-width: 1100px)": {
+      fontSize: "0.9rem",
+    },
+
+    "@media screen and (max-width: 600px)": {
+      fontSize: "0.6rem",
     },
   },
 });
