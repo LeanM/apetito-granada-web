@@ -1,7 +1,7 @@
 import { Route, Routes } from "react-router-dom";
 import Home from "./home-components/Home";
 import Layout from "./pagewrappers/Layout";
-import Contact from "./Contact";
+import Contact from "./contact-components/Contact";
 import Missing from "./Missing";
 import RequireAuth from "./login-components/RequireAuth";
 import LogIn from "./login-components/Login";

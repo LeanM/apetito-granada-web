@@ -10,16 +10,17 @@ import {
 import { useContext, useEffect, useState } from "react";
 import useAuth from "../../hooks/useAuth";
 import "../../css/pagewrapper.css";
-import createUseStyles from "react-jss";
+import { createUseStyles } from "react-jss";
 import logo from "../../assets/logo.png";
 import { colors } from "../../assets/colors";
-import { color } from "framer-motion";
 import { useNavigate } from "react-router-dom";
+import Selection from "./Selection";
 
 export default function PageWrapper(props) {
   const navigate = useNavigate();
   const { auth, logOutAuth } = useAuth();
   const [navStyle, setNavStyle] = useState({});
+  const [navButtonStyle, setNavButtonStyle] = useState({});
 
   const [loginRegisterAccess, setLoginRegisterAccess] = useState([]);
   const [dropdownNav, setDropdownNav] = useState([]);
@@ -30,6 +31,7 @@ export default function PageWrapper(props) {
 
   useEffect(() => {
     setNavStyle(styleNavBarTransparent);
+    setNavButtonStyle(styleButtonsTransparent);
     window.addEventListener("scroll", listenToScroll);
     return () => window.removeEventListener("scroll", listenToScroll);
   }, []);
@@ -138,8 +140,10 @@ export default function PageWrapper(props) {
   const listenToScroll = () => {
     if (window.pageYOffset <= 50) {
       setNavStyle(styleNavBarTransparent);
+      setNavButtonStyle(styleButtonsTransparent);
     } else {
       setNavStyle(styleNavBarSolid);
+      setNavButtonStyle(styleButtonsSolid);
     }
 
     if (window.pageYOffset > 600) {
@@ -157,9 +161,19 @@ export default function PageWrapper(props) {
   };
 
   const styleNavBarSolid = {
-    backgroundColor: colors.navLight,
+    backgroundColor: colors.navSemiTransparent,
     color: "black",
     borderBottom: `solid 2px ${colors.nav}`,
+  };
+
+  const styleButtonsTransparent = {
+    color: "white",
+    textShadow: "0 0 5px black",
+  };
+
+  const styleButtonsSolid = {
+    color: "white",
+    textShadow: "0 0 5px black",
   };
 
   return (
@@ -171,6 +185,7 @@ export default function PageWrapper(props) {
         id="home__wrapper__section"
         onMouseOver={handleMouseOver}
       >
+        <Selection />
         <button
           style={{
             position: "fixed",
@@ -200,22 +215,32 @@ export default function PageWrapper(props) {
           </div>
 
           <div className="page__wrapper__navbar__list">
-            <div className="page__wrapper__navbar__list__category">
+            <div
+              className="page__wrapper__navbar__list__category"
+              style={navButtonStyle}
+              onClick={() => {
+                navigate("/");
+              }}
+            >
               <p>HOME</p>
             </div>
-            <div className="page__wrapper__navbar__list__category">
-              <p>MENU</p>
-            </div>
-            <div className="page__wrapper__navbar__list__category">
+            <div
+              className="page__wrapper__navbar__list__category"
+              style={navButtonStyle}
+            >
               <p>ORDER</p>
             </div>
-            <div className="page__wrapper__navbar__list__category">
-              <p>ABOUT</p>
-            </div>
-            <div className="page__wrapper__navbar__list__category">
+            <div
+              className="page__wrapper__navbar__list__category"
+              style={navButtonStyle}
+              onClick={() => {
+                navigate("/contact");
+              }}
+            >
               <p>CONTACT</p>
             </div>
             <div
+              style={navButtonStyle}
               className="page__wrapper__navbar__list__category"
               onClick={() => {
                 navigate("/login");
