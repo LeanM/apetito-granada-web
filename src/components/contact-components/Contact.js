@@ -1,11 +1,16 @@
 import { createUseStyles } from "react-jss";
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { Form, ButtonToolbar, Button, Input } from "rsuite";
 import { Steps } from "rsuite";
 
 export default function Contact() {
   const classes = useStyles();
   const [step, setStep] = useState(1);
+  const [errMsg, setErrMsg] = useState("");
+
+  const userRef = useRef();
+  const errorRef = useRef();
+
   const [email, setEmail] = useState("");
   const [name, setName] = useState("");
   const [eventDate, setEventDate] = useState("");
@@ -24,16 +29,79 @@ export default function Contact() {
     verticalAlign: "top",
   };
 
+  useEffect(() => {
+    console.log(name);
+  }, [name]);
+
   return (
     <div className={classes.container}>
       <div className={classes.dataContainer}>
+        <form className={classes.form}>
+          <label className="login-register__label" htmlFor="name">
+            Name
+          </label>
+          <input
+            type="text"
+            id="name"
+            ref={userRef}
+            autoComplete="off"
+            onChange={(e) => setName(e.target.value)}
+            value={name}
+            required
+          />
+          <label className="login-register__label" htmlFor="email">
+            Email
+          </label>
+          <input
+            type="text"
+            id="email"
+            ref={userRef}
+            autoComplete="off"
+            onChange={(e) => setEmail(e.target.value)}
+            value={email}
+            required
+          />
+          <label className="login-register__label" htmlFor="date">
+            Date
+          </label>
+          <input
+            type="date"
+            id="date"
+            ref={userRef}
+            autoComplete="off"
+            onChange={(e) => setEventDate(e.target.value)}
+            value={eventDate}
+            required
+          />
+          <label className="login-register__label" htmlFor="time">
+            Time
+          </label>
+          <input
+            type="time"
+            id="time"
+            ref={userRef}
+            autoComplete="off"
+            onChange={(e) => setEventTime(e.target.value)}
+            value={eventTime}
+            required
+          />
+          <label className="login-register__label" htmlFor="people">
+            People
+          </label>
+          <input
+            type="number"
+            id="people"
+            ref={userRef}
+            autoComplete="off"
+            onChange={(e) => setPeople(e.target.value)}
+            value={people}
+            required
+          />
+        </form>
         <Form ref={formRef} className={classes.form} onCheck={() => setStep(2)}>
           <Form.Group controlId="name">
             <Form.ControlLabel>Your Name</Form.ControlLabel>
-            <Form.Control
-              onChange={(e) => setName(e.target.value)}
-              name="name"
-            />
+            <Form.Control name="name" />
           </Form.Group>
           <Form.Group controlId="email">
             <Form.ControlLabel>Email</Form.ControlLabel>
@@ -103,5 +171,8 @@ const useStyles = createUseStyles({
     gap: "8rem",
     alignItems: "center",
   },
-  form: {},
+  form: {
+    display: "flex",
+    flexDirection: "column",
+  },
 });
