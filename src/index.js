@@ -8,6 +8,7 @@ import "rsuite/dist/rsuite.min.css";
 import { AuthProvider } from "./context/AuthProvider";
 import { Toaster } from "react-hot-toast";
 import { GoogleOAuthProvider } from "@react-oauth/google";
+import { CartProvider } from "./context/CartProvider";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -15,10 +16,12 @@ root.render(
     <React.StrictMode>
       <BrowserRouter>
         <AuthProvider>
-          <Toaster position="bottom-center" reverseOrder={false}></Toaster>
-          <Routes>
-            <Route path="/*" element={<App />} />
-          </Routes>
+          <CartProvider>
+            <Toaster position="bottom-center" reverseOrder={false}></Toaster>
+            <Routes>
+              <Route path="/*" element={<App />} />
+            </Routes>
+          </CartProvider>
         </AuthProvider>
       </BrowserRouter>
     </React.StrictMode>

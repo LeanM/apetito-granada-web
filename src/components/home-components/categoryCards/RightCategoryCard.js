@@ -3,9 +3,12 @@ import asado from "../../../assets/ASADO.jpg";
 import { createUseStyles } from "react-jss";
 import styles from "./styles";
 import { colors } from "../../../assets/colors";
+import { useContext } from "react";
+import CartContext from "../../../context/CartProvider";
 
 export default function RightCategoryCard(props) {
   const classes = styles();
+  const { addToCart } = useContext(CartContext);
 
   return (
     <div
@@ -29,7 +32,12 @@ export default function RightCategoryCard(props) {
           </div>
           <div className={classes.buttonsContainer}>
             <button className={classes.button}>Menu</button>
-            <button className={classes.button}>Precio</button>
+            <button
+              className={classes.button}
+              onClick={() => addToCart(props.categoryData)}
+            >
+              Add
+            </button>
           </div>
         </div>
         <div className={classes.imageContainer}>

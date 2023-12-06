@@ -96,6 +96,7 @@
     text-align: center;
     margin-top: auto;
     margin-bottom: auto;
+    cursor: pointer;
 
     transition: border 0.2s ease-in-out;
   }

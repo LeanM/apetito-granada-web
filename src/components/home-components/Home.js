@@ -60,7 +60,7 @@ export default function Home() {
             gap: "2rem",
           }}
         >
-          <p style={{ fontSize: "1rem" }}>
+          <p style={{ fontSize: "1rem", color: colors.black }}>
             Observe nuestros distintos tipos de menus disponibles por nuestro
             servicio!
           </p>

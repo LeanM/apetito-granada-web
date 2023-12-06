@@ -6,6 +6,7 @@ export const colors = {
   bgTransparent: "rgba(255, 255, 255,0.7)",
   nav: "rgb(228, 189, 99)",
   navLight: "#c7ae74",
+  navUltraLight: "#fff2d3",
   navEnterprise: "#d6c7b5",
   navEnterpriseTransparent: "rgba(214, 199, 181, 0.4)",
   notification: "rgba(216, 57, 57, 0.7)",
