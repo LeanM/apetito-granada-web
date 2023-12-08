@@ -20,7 +20,7 @@ export default function HomeTop() {
             textShadow: "black 0 0 10px",
           }}
         >
-          Bienvenidos!
+          Bienvenidos
         </p>
         <p className={classes.infoText}>
           En Apetito Granada proveemos el servicio de catering a la ciudad y
