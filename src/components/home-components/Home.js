@@ -10,6 +10,7 @@ import { colors } from "../../assets/colors";
 import HomeTop from "./landing/HomeTop";
 import ReviewCarousel from "./reviewCarousel/ReviewCarousel";
 import HomeInfo from "./landing/HomeInfo";
+import BookSection from "./categoryCards/BookSection";
 
 export default function Home() {
   const navigate = useNavigate();
@@ -77,14 +78,39 @@ export default function Home() {
           }}
         >
           {categories.map((category) => {
-            if (categories.indexOf(category) % 2 === 0)
-              return (
-                <LeftCategoryCard key={category} categoryData={category} />
-              );
-            else
-              return (
-                <RightCategoryCard key={category} categoryData={category} />
-              );
+            if (categories.indexOf(category) % 2 === 0) {
+              if (
+                categories.indexOf(category) !== 0 &&
+                categories.indexOf(category) % 3 === 0
+              ) {
+                return (
+                  <>
+                    <LeftCategoryCard key={category} categoryData={category} />
+                    <BookSection />
+                  </>
+                );
+              } else {
+                return (
+                  <LeftCategoryCard key={category} categoryData={category} />
+                );
+              }
+            } else {
+              if (
+                categories.indexOf(category) !== 0 &&
+                categories.indexOf(category) % 3 === 0
+              ) {
+                return (
+                  <>
+                    <RightCategoryCard key={category} categoryData={category} />
+                    <BookSection />
+                  </>
+                );
+              } else {
+                return (
+                  <RightCategoryCard key={category} categoryData={category} />
+                );
+              }
+            }
           })}
         </div>
       </div>
