@@ -79,7 +79,7 @@ const useStyles = createUseStyles({
       width: "29rem",
       height: "27rem",
       boxShadow: "0 0 50px black",
-      borderWidth: "2px",
+      borderWidth: "3px",
     },
 
     "@media screen and (max-width: 1100px)": {
@@ -96,7 +96,7 @@ const useStyles = createUseStyles({
   },
   button: {
     width: "40%",
-    height: "100%",
+    height: "80%",
     borderRadius: "20px",
     backgroundColor: colors.nav,
     color: colors.textNav,
@@ -104,7 +104,7 @@ const useStyles = createUseStyles({
 
     "&:hover": {
       backgroundColor: colors.navLight,
-      color: colors.black,
+      color: colors.textNav,
     },
   },
 });
