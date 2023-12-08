@@ -122,5 +122,9 @@ const useStyles = createUseStyles({
     marginTop: "1rem",
     backgroundColor: colors.nav,
     color: colors.textNav,
+    "&:hover": {
+      backgroundColor: colors.textNav,
+      color: colors.nav,
+    },
   },
 });
