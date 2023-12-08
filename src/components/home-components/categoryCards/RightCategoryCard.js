@@ -9,13 +9,14 @@ import CartContext from "../../../context/CartProvider";
 export default function RightCategoryCard(props) {
   const classes = styles();
   const { addToCart } = useContext(CartContext);
-
+  const firstWord = props.categoryData.split(" ")[0];
   return (
     <div
       id={props.categoryData}
       style={{
-        backgroundImage: `url(${asado})`,
+        backgroundImage: `url(./categories/${firstWord}.jpg)`,
         borderRight: `solid 20px ${colors.nav}`,
+        borderLeft: `solid 2px ${colors.nav}`,
       }}
       className={classes.container}
     >
@@ -41,7 +42,10 @@ export default function RightCategoryCard(props) {
           </div>
         </div>
         <div className={classes.imageContainer}>
-          <img src={asado} className={classes.imageStyle} />
+          <img
+            src={"./categories/" + firstWord + ".jpg"}
+            className={classes.imageStyle}
+          />
         </div>
       </div>
     </div>

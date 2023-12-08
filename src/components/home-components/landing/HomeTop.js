@@ -1,6 +1,4 @@
-import "../../../css/home.css";
 import { colors } from "../../../assets/colors";
-import asado from "../../../assets/ASADO.jpg";
 import { createUseStyles } from "react-jss";
 import homePhoto from "../../../assets/home.jpg";
 import { Button } from "rsuite";
@@ -9,7 +7,7 @@ export default function HomeTop() {
   const classes = useStyles();
 
   return (
-    <div className="home__top">
+    <div className={classes.homeTop}>
       <div className={classes.background}></div>
       <img className={classes.image} src={homePhoto}></img>
       <div className={classes.dataContainer}>
@@ -34,6 +32,16 @@ export default function HomeTop() {
 }
 
 const useStyles = createUseStyles({
+  homeTop: {
+    width: "100%",
+    height: "70vh",
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    boxShadow: "black 0 0 5px",
+    overflow: "hidden",
+    zIndex: "10",
+  },
   image: {
     width: "100%",
     height: "100%",
@@ -63,9 +71,9 @@ const useStyles = createUseStyles({
     },
 
     "@media screen and (max-width: 500px)": {
-      width: "19rem",
+      width: "20rem",
       height: "18rem",
-      fontSize: "1.5rem",
+      fontSize: "1.7rem",
     },
   },
   infoText: {
@@ -80,7 +88,7 @@ const useStyles = createUseStyles({
     },
 
     "@media screen and (max-width: 500px)": {
-      fontSize: "0.7rem",
+      fontSize: "0.9rem",
     },
   },
   background: {

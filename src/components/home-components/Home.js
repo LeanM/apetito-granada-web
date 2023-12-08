@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react";
-import "../../css/home.css";
 import { toast } from "react-hot-toast";
 import LandingVideo from "./LandingVideo";
 import { useNavigate } from "react-router-dom";
@@ -11,11 +10,14 @@ import HomeTop from "./landing/HomeTop";
 import ReviewCarousel from "./reviewCarousel/ReviewCarousel";
 import HomeInfo from "./landing/HomeInfo";
 import BookSection from "./categoryCards/BookSection";
+import { createUseStyles } from "react-jss";
 
 export default function Home() {
   const navigate = useNavigate();
   const [packages, setPackages] = useState([]);
   const [categories, setCategories] = useState([]);
+
+  const classes = useStyles();
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -27,56 +29,35 @@ export default function Home() {
 
   const getCategories = () => {
     const categoriasDeComida = [
-      "CARNE",
-      "PESCADO",
+      "MEZE & SALSAS",
+      "CARNES BBQ & PARRILLA",
       "ENSALADAS",
-      "PASTA",
-      "PIZZA",
-      "SUSHI",
+      "PESCADOS BBQ & PARRILLA",
+      "VEGETALES BBQ & PARRILLA",
+      "LISTOS PARA SERVIR",
+      "POSTRES",
+      "PANES",
+      "BEBIDAS",
+      "SALSAS Y ADEREZOS",
+      "MARINADOS",
     ];
 
     setCategories(categoriasDeComida);
   };
 
   return (
-    <div className="home__section">
+    <div className={classes.container}>
       <HomeTop />
       <HomeInfo />
-      <div
-        style={{
-          zIndex: 50,
-          backgroundColor: "white",
-        }}
-        className="home__body"
-      >
-        <div
-          style={{
-            width: "100%",
-            height: "10rem",
-            display: "flex",
-            flexDirection: "column",
-            justifyContent: "center",
-            alignItems: "center",
-            zIndex: 50,
-            gap: "2rem",
-          }}
-        >
-          <p style={{ fontSize: "1rem", color: colors.black }}>
+      <div className={classes.homeBody}>
+        <div className={classes.categoryCarouselContainer}>
+          <p className={classes.categoryCarouselText}>
             Observe nuestros distintos tipos de menus disponibles por nuestro
             servicio!
           </p>
           <CategoryCarousel categoriesData={categories} />
         </div>
-        <div
-          style={{
-            height: "100%",
-            width: "100%",
-            display: "flex",
-            flexWrap: "wrap",
-            alignItems: "center",
-            justifyContent: "center",
-          }}
-        >
+        <div className={classes.resultsContainer}>
           {categories.map((category) => {
             if (categories.indexOf(category) % 2 === 0) {
               if (
@@ -114,8 +95,65 @@ export default function Home() {
           })}
         </div>
       </div>
-      <div className="home__contacts"></div>
+      <div></div>
       <ReviewCarousel />
     </div>
   );
 }
+
+const useStyles = createUseStyles({
+  container: {
+    display: "flex",
+    width: "100%",
+    height: "100%",
+    backgroundColor: "white",
+    alignItems: "center",
+    justifyContent: "center",
+    flexDirection: "column",
+    fontFamily: "Oswald",
+  },
+  homeBody: {
+    display: "flex",
+    width: "100%",
+    minHeight: "70vh",
+    zIndex: "50",
+    position: "relative",
+    left: "0px",
+    top: "60%",
+    right: "0px",
+    bottom: "0px",
+    flexDirection: "column",
+    backgroundColor: "white",
+  },
+  categoryCarouselContainer: {
+    width: "100%",
+    height: "10rem",
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "center",
+    alignItems: "center",
+    zIndex: 50,
+    gap: "2rem",
+  },
+  categoryCarouselText: {
+    textAlign: "center",
+    fontSize: "1.2rem",
+    color: colors.black,
+
+    "@media screen and (max-width: 600px)": {
+      fontSize: "1rem",
+    },
+
+    "@media screen and (max-width: 600px)": {
+      fontSize: "0.8rem",
+    },
+  },
+  resultsContainer: {
+    height: "100%",
+    width: "100%",
+    display: "flex",
+    flexWrap: "wrap",
+    alignItems: "center",
+    justifyContent: "center",
+  },
+});
