@@ -1,20 +1,11 @@
-import "../../css/pagewrapper.css";
-import { Link } from "react-router-dom";
-import PageFooter from "./PageFooter";
-import {
-  MDBDropdown,
-  MDBDropdownMenu,
-  MDBDropdownItem,
-  MDBDropdownToggle,
-} from "mdb-react-ui-kit";
 import { useContext, useEffect, useState } from "react";
 import useAuth from "../../hooks/useAuth";
-import "../../css/pagewrapper.css";
+
 import { createUseStyles } from "react-jss";
 import logo from "../../assets/apetito.png";
 import { colors } from "../../assets/colors";
 import { useNavigate } from "react-router-dom";
-import Selection from "./Selection";
+import DropdownNav from "./DropdownNav";
 
 export default function PageWrapper(props) {
   const navigate = useNavigate();
@@ -24,7 +15,6 @@ export default function PageWrapper(props) {
   const [logoStyle, setLogoStyle] = useState({});
 
   const [loginRegisterAccess, setLoginRegisterAccess] = useState([]);
-  const [dropdownNav, setDropdownNav] = useState([]);
   const [showScrollButton, setShowScrollButton] = useState(false);
 
   const rootStyle = document.querySelector(":root");
@@ -35,123 +25,34 @@ export default function PageWrapper(props) {
     setNavStyle(styleNavBarTransparent);
     setNavButtonStyle(styleButtonsTransparent);
     setLogoStyle(styleLogoTransparent);
+
+    // Agregar un event listener para manejar cambios en el tamaño de la ventana
+    window.addEventListener("resize", listenToScroll);
     window.addEventListener("scroll", listenToScroll);
-    return () => window.removeEventListener("scroll", listenToScroll);
+    return () => {
+      window.removeEventListener("scroll", listenToScroll);
+      window.removeEventListener("resize", listenToScroll);
+    };
   }, []);
 
-  useEffect(() => {
-    verifyLoginRegisterAccess();
-  }, [auth]);
-
-  const logout = async () => {
-    logOutAuth();
-  };
-
-  const createDropdownNav = () => {
-    setDropdownNav([
-      <MDBDropdown className="page__wrapper__navbar__list__item-account">
-        <MDBDropdownToggle tag="a" className="nav-link" role="button">
-          <i class="fas fa-user-tag page__wrapper__navbar__list__item-account__icon"></i>
-        </MDBDropdownToggle>
-        <MDBDropdownMenu>
-          <MDBDropdownItem className="page__wrapper__navbar__list__item-account__dropdown-item">
-            <Link
-              className="page__wrapper__navbar__list__item-account__dropdown-link"
-              to="/prompts"
-            >
-              HOME
-            </Link>
-          </MDBDropdownItem>
-          <MDBDropdownItem className="page__wrapper__navbar__list__item-account__dropdown-item">
-            <Link
-              className="page__wrapper__navbar__list__item-account__dropdown-link"
-              to="/checkout"
-            >
-              MENU
-            </Link>
-          </MDBDropdownItem>
-          <MDBDropdownItem className="page__wrapper__navbar__list__item-account__dropdown-item">
-            <Link
-              className="page__wrapper__navbar__list__item-account__dropdown-link"
-              to="/userorders"
-            >
-              ORDER
-            </Link>
-          </MDBDropdownItem>
-          <MDBDropdownItem className="page__wrapper__navbar__list__item-account__dropdown-item">
-            <Link
-              className="page__wrapper__navbar__list__item-account__dropdown-link"
-              to="/userorders"
-            >
-              ABOUT
-            </Link>
-          </MDBDropdownItem>
-          <MDBDropdownItem className="page__wrapper__navbar__list__item-account__dropdown-item">
-            <Link
-              className="page__wrapper__navbar__list__item-account__dropdown-link"
-              to="/userorders"
-            >
-              CONTACT
-            </Link>
-          </MDBDropdownItem>
-          <MDBDropdownItem className="page__wrapper__navbar__list__item-account__dropdown-item">
-            <Link
-              className="page__wrapper__navbar__list__item-account__dropdown-link"
-              to="/userorders"
-            >
-              GALLERY
-            </Link>
-          </MDBDropdownItem>
-        </MDBDropdownMenu>
-      </MDBDropdown>,
-    ]);
-  };
-
-  const verifyLoginRegisterAccess = () => {
-    if (!auth?.accessToken) {
-      setLoginRegisterAccess([
-        <div key={1} className="page__wrapper__navbar__list__item-account">
-          <Link
-            to="/login"
-            className="page__wrapper__navbar__list__item__account__link"
-          >
-            <i class="fas fa-user page__wrapper__navbar__list__item-account__icon"></i>
-          </Link>
-        </div>,
-      ]);
-    } else {
-      setLoginRegisterAccess([
-        <MDBDropdown className="page__wrapper__navbar__list__item-account">
-          <MDBDropdownToggle tag="a" className="nav-link" role="button">
-            <i class="fas fa-user-tag page__wrapper__navbar__list__item-account__icon"></i>
-          </MDBDropdownToggle>
-          <MDBDropdownMenu>
-            <MDBDropdownItem className="page__wrapper__navbar__list__item-account__dropdown-item">
-              <Link
-                className="page__wrapper__navbar__list__item-account__dropdown-link"
-                to="/prompts"
-              >
-                Review
-              </Link>
-            </MDBDropdownItem>
-          </MDBDropdownMenu>
-        </MDBDropdown>,
-      ]);
-    }
-  };
-
   const listenToScroll = () => {
-    if (window.pageYOffset <= 50) {
+    if (window.innerWidth > 800) {
+      if (window.pageYOffset <= 50) {
+        setNavStyle(styleNavBarTransparent);
+        setNavButtonStyle(styleButtonsTransparent);
+        setLogoStyle(styleLogoTransparent);
+      } else {
+        setNavStyle(styleNavBarSolid);
+        setNavButtonStyle(styleButtonsSolid);
+        setLogoStyle(styleLogoSolid);
+      }
+    } else {
       setNavStyle(styleNavBarTransparent);
       setNavButtonStyle(styleButtonsTransparent);
       setLogoStyle(styleLogoTransparent);
-    } else {
-      setNavStyle(styleNavBarSolid);
-      setNavButtonStyle(styleButtonsSolid);
-      setLogoStyle(styleLogoSolid);
     }
 
-    if (window.pageYOffset > 600) {
+    if (window.pageYOffset > 950) {
       setShowScrollButton(true);
     } else setShowScrollButton(false);
   };
@@ -161,7 +62,7 @@ export default function PageWrapper(props) {
   };
 
   const styleNavBarTransparent = {
-    backgroundColor: cssVariables.getPropertyValue("--nav-color-transparent"),
+    backgroundColor: colors.transparent,
     height: "6rem",
   };
 
@@ -192,37 +93,28 @@ export default function PageWrapper(props) {
   };
 
   return (
-    <div className="page__container">
-      <div id="page__background"></div>
+    <div className={classes.container}>
+      <div className={classes.background}></div>
       <div
         style={navStyle}
-        className="page__wrapper__section"
-        id="home__wrapper__section"
+        className={classes.section}
         onMouseOver={handleMouseOver}
       >
         <button
           style={{
-            position: "fixed",
-            bottom: "100px",
-            width: "3rem",
-            height: "3rem",
-            color: "black",
-            backgroundColor: colors.navSemiTransparent,
-            right: "20px",
-            borderRadius: "100%",
-            border: "solid 2px " + colors.nav,
             display: showScrollButton ? "block" : "none",
           }}
+          className={classes.scrollButton}
           onClick={() => {
-            window.scrollTo(0, 450);
+            window.scrollTo(0, 750);
           }}
         >
           ▲
         </button>
-        <nav className="page__wrapper__navbar">
-          <div className="page__wrapper__navbar__list">
+        <nav className={classes.navBar}>
+          <div className={classes.navBarList}>
             <div
-              className="page__wrapper__navbar__list__category"
+              className={classes.navBarListItem}
               style={navButtonStyle}
               onClick={() => {
                 navigate("/");
@@ -230,25 +122,21 @@ export default function PageWrapper(props) {
             >
               <p>HOME</p>
             </div>
-            <div
-              className="page__wrapper__navbar__list__category"
-              style={navButtonStyle}
-            >
+            <div className={classes.navBarListItem} style={navButtonStyle}>
               <p>ORDER</p>
             </div>
-            <div className="page__wrapper__navbar__container">
-              <div className="page__wrapper__navbar__enterpriseName">
-                <Link className="nav__brand__link" to="/">
-                  <img
-                    className={classes.logo}
-                    style={logoStyle}
-                    src={logo}
-                  ></img>
-                </Link>
+            <div className={classes.enterpriseListItem}>
+              <div className={classes.enterpriseContainer}>
+                <img
+                  className={classes.logo}
+                  style={logoStyle}
+                  src={logo}
+                  onClick={() => navigate("/")}
+                ></img>
               </div>
             </div>
             <div
-              className="page__wrapper__navbar__list__category"
+              className={classes.navBarListItem}
               style={navButtonStyle}
               onClick={() => {
                 navigate("/contact");
@@ -256,9 +144,12 @@ export default function PageWrapper(props) {
             >
               <p>CONTACT</p>
             </div>
+
+            <DropdownNav />
+
             <div
               style={navButtonStyle}
-              className="page__wrapper__navbar__list__category"
+              className={classes.navBarListItem}
               onClick={() => {
                 navigate("/login");
               }}
@@ -274,11 +165,150 @@ export default function PageWrapper(props) {
 }
 
 const useStyles = createUseStyles({
+  container: {
+    width: "100%",
+    height: "100%",
+  },
+  background: {
+    backgroundColor: "white",
+    position: "fixed",
+    zIndex: -1,
+    left: 0,
+    top: 0,
+    width: "100%",
+    height: "100%",
+    backgroundSize: "cover",
+  },
+  section: {
+    width: "100%",
+    height: "5rem",
+    display: "flex",
+    position: "fixed",
+    justifyContent: "center",
+    alignItems: "center",
+    zIndex: "1000",
+    top: "0",
+    transition: "background 0.5s, height 0.5s, border 0.5s",
+
+    "@media screen and (max-width: 800px)": {
+      position: "absolute",
+    },
+  },
+  navBar: {
+    width: "60%",
+    height: "80%",
+    display: "flex",
+    marginTop: "auto",
+    marginBottom: "auto",
+    justifyContent: "space-evenly",
+    alignItems: "center",
+    gap: "5rem",
+
+    "@media screen and (max-width: 800px)": {
+      width: "90%",
+    },
+  },
+  navBarList: {
+    width: "100%",
+    height: "90%",
+    display: "flex",
+    marginTop: "auto",
+    marginBottom: "auto",
+    justifyContent: "center",
+    alignItems: "center",
+    gap: "2rem",
+
+    "@media screen and (max-width: 800px)": {
+      justifyContent: "space-around",
+    },
+  },
+  navBarListItem: {
+    width: "20rem",
+    height: "70%",
+    display: "flex",
+    fontSize: "1rem",
+    fontWeight: "600",
+    marginTop: "auto",
+    marginBottom: "auto",
+    justifyContent: "center",
+    color: "white",
+    alignItems: "center",
+    textAlign: "center",
+    cursor: "pointer",
+    backgroundColor: colors.transparent,
+    borderBottom: `1px solid ${colors.transparent}`,
+
+    transition: "border 0.2s ease-in-out",
+
+    "@media screen and (max-width: 800px)": {
+      display: "none",
+    },
+  },
+  enterpriseListItem: {
+    width: "25rem",
+    height: "90%",
+    display: "flex",
+    fontSize: "1rem",
+    fontWeight: "600",
+    marginBottom: "1.5rem",
+    justifyContent: "center",
+    color: "white",
+    alignItems: "center",
+    textAlign: "center",
+    cursor: "pointer",
+    backgroundColor: colors.transparent,
+    borderBottom: `1px solid ${colors.transparent}`,
+
+    transition: "border 0.2s ease-in-out",
+
+    "@media screen and (max-width: 800px)": {
+      width: "10rem",
+    },
+  },
+  enterpriseContainer: {
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    width: "6rem",
+    height: "6rem",
+    marginTop: "auto",
+    marginBottom: "auto",
+
+    "@media screen and (max-width: 800px)": {
+      width: "6.5rem",
+      height: "6.5rem",
+    },
+
+    "@media screen and (max-width: 500px)": {
+      width: "5.5rem",
+      height: "5.5rem",
+    },
+  },
   logo: {
     borderRadius: "100%",
+    width: "100%",
+    height: "100%",
     transition: "width 0.5s, height 0.5s, box-shadow 0.3s",
     "&:hover": {
       boxShadow: "white 0 0 8px",
+    },
+  },
+  scrollButton: {
+    position: "fixed",
+    bottom: "100px",
+    width: "3rem",
+    height: "3rem",
+    color: colors.nav,
+    backgroundColor: colors.textNav,
+    right: "20px",
+    borderRadius: "100%",
+    border: "solid 1px " + colors.navLight,
+    transition: "background 0.3s, border 0.3s, color 0.3s",
+
+    "&:hover": {
+      backgroundColor: colors.nav,
+      border: `solid 1px ${colors.navLight}`,
+      color: colors.textNav,
     },
   },
 });

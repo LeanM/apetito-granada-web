@@ -1,6 +1,5 @@
 import { createUseStyles } from "react-jss";
 import { colors } from "../../../assets/colors";
-import { color } from "framer-motion";
 
 const useStyles = createUseStyles({
   container: {
@@ -11,7 +10,11 @@ const useStyles = createUseStyles({
     alignItems: "center",
     marginBottom: "5rem",
     backgroundSize: "cover",
-    "@media screen and (max-width: 500px)": {
+
+    borderTop: `solid 2px ${colors.nav}`,
+    borderBottom: `solid 2px ${colors.nav}`,
+
+    "@media screen and (max-width: 900px)": {
       marginBottom: "0rem",
       width: "100%",
       borderBottom: `solid 1px ${colors.nav}`,

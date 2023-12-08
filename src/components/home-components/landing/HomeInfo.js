@@ -132,8 +132,11 @@ const useStyles = createUseStyles({
       borderRadius: "0",
     },
 
-    "@media screen and (max-width: 450px)": {
+    "@media screen and (max-width: 600px)": {
       width: "100%",
+    },
+
+    "@media screen and (max-width: 450px)": {
       height: "22%",
       borderRadius: "0",
     },
