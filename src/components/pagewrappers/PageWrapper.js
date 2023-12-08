@@ -120,10 +120,14 @@ export default function PageWrapper(props) {
                 navigate("/");
               }}
             >
-              <p>HOME</p>
+              <div className={classes.navBarListItemTextContainer}>
+                <p className={classes.navBarListItemText}>HOME</p>
+              </div>
             </div>
             <div className={classes.navBarListItem} style={navButtonStyle}>
-              <p>ORDER</p>
+              <div className={classes.navBarListItemTextContainer}>
+                <p>ORDER</p>
+              </div>
             </div>
             <div className={classes.enterpriseListItem}>
               <div className={classes.enterpriseContainer}>
@@ -142,7 +146,9 @@ export default function PageWrapper(props) {
                 navigate("/contact");
               }}
             >
-              <p>CONTACT</p>
+              <div className={classes.navBarListItemTextContainer}>
+                <p>CONTACT</p>
+              </div>
             </div>
 
             <DropdownNav />
@@ -154,7 +160,9 @@ export default function PageWrapper(props) {
                 navigate("/login");
               }}
             >
-              <p>GALLERY</p>
+              <div className={classes.navBarListItemTextContainer}>
+                <p>GALLERY</p>
+              </div>
             </div>
           </div>
         </nav>
@@ -223,7 +231,7 @@ const useStyles = createUseStyles({
     },
   },
   navBarListItem: {
-    width: "20rem",
+    width: "10rem",
     height: "70%",
     display: "flex",
     fontSize: "1rem",
@@ -236,16 +244,28 @@ const useStyles = createUseStyles({
     textAlign: "center",
     cursor: "pointer",
     backgroundColor: colors.transparent,
-    borderBottom: `1px solid ${colors.transparent}`,
-
-    transition: "border 0.2s ease-in-out",
 
     "@media screen and (max-width: 800px)": {
       display: "none",
     },
   },
+  navBarListItemTextContainer: {
+    height: "110%",
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    borderBottom: `1px solid ${colors.transparent}`,
+    transition: "border 0.2s ease-in-out",
+
+    "&:hover": {
+      borderColor: colors.textNav,
+    },
+  },
+  navBarListItemText: {
+    textAlign: "center",
+  },
   enterpriseListItem: {
-    width: "25rem",
+    maxWidth: "25rem",
     height: "90%",
     display: "flex",
     fontSize: "1rem",
@@ -258,8 +278,6 @@ const useStyles = createUseStyles({
     cursor: "pointer",
     backgroundColor: colors.transparent,
     borderBottom: `1px solid ${colors.transparent}`,
-
-    transition: "border 0.2s ease-in-out",
 
     "@media screen and (max-width: 800px)": {
       width: "10rem",
