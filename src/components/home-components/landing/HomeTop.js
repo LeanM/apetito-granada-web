@@ -16,7 +16,7 @@ export default function HomeTop() {
         <p
           style={{
             fontWeight: "800",
-            color: colors.nav,
+            color: colors.textNav,
             textShadow: "black 0 0 10px",
           }}
         >
@@ -121,6 +121,6 @@ const useStyles = createUseStyles({
   bookButton: {
     marginTop: "1rem",
     backgroundColor: colors.nav,
-    color: "white",
+    color: colors.textNav,
   },
 });

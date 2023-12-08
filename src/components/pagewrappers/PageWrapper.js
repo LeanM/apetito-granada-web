@@ -11,7 +11,7 @@ import { useContext, useEffect, useState } from "react";
 import useAuth from "../../hooks/useAuth";
 import "../../css/pagewrapper.css";
 import { createUseStyles } from "react-jss";
-import logo from "../../assets/logo.png";
+import logo from "../../assets/apetito.png";
 import { colors } from "../../assets/colors";
 import { useNavigate } from "react-router-dom";
 import Selection from "./Selection";
@@ -21,6 +21,7 @@ export default function PageWrapper(props) {
   const { auth, logOutAuth } = useAuth();
   const [navStyle, setNavStyle] = useState({});
   const [navButtonStyle, setNavButtonStyle] = useState({});
+  const [logoStyle, setLogoStyle] = useState({});
 
   const [loginRegisterAccess, setLoginRegisterAccess] = useState([]);
   const [dropdownNav, setDropdownNav] = useState([]);
@@ -28,10 +29,12 @@ export default function PageWrapper(props) {
 
   const rootStyle = document.querySelector(":root");
   const cssVariables = getComputedStyle(rootStyle);
+  const classes = useStyles();
 
   useEffect(() => {
     setNavStyle(styleNavBarTransparent);
     setNavButtonStyle(styleButtonsTransparent);
+    setLogoStyle(styleLogoTransparent);
     window.addEventListener("scroll", listenToScroll);
     return () => window.removeEventListener("scroll", listenToScroll);
   }, []);
@@ -141,9 +144,11 @@ export default function PageWrapper(props) {
     if (window.pageYOffset <= 50) {
       setNavStyle(styleNavBarTransparent);
       setNavButtonStyle(styleButtonsTransparent);
+      setLogoStyle(styleLogoTransparent);
     } else {
       setNavStyle(styleNavBarSolid);
       setNavButtonStyle(styleButtonsSolid);
+      setLogoStyle(styleLogoSolid);
     }
 
     if (window.pageYOffset > 600) {
@@ -176,16 +181,25 @@ export default function PageWrapper(props) {
     textShadow: "0 0 5px black",
   };
 
+  const styleLogoTransparent = {
+    width: "100%",
+    height: "100%",
+  };
+
+  const styleLogoSolid = {
+    width: "90%",
+    height: "90%",
+  };
+
   return (
     <div className="page__container">
       <div id="page__background"></div>
-      <section
+      <div
         style={navStyle}
         className="page__wrapper__section"
         id="home__wrapper__section"
         onMouseOver={handleMouseOver}
       >
-        <Selection />
         <button
           style={{
             position: "fixed",
@@ -206,14 +220,6 @@ export default function PageWrapper(props) {
           ▲
         </button>
         <nav className="page__wrapper__navbar">
-          <div className="page__wrapper__navbar__container">
-            <div className="page__wrapper__navbar__enterpriseName">
-              <Link className="nav__brand__link" to="/">
-                <img className="nav__brand__img" src={logo}></img>
-              </Link>
-            </div>
-          </div>
-
           <div className="page__wrapper__navbar__list">
             <div
               className="page__wrapper__navbar__list__category"
@@ -229,6 +235,17 @@ export default function PageWrapper(props) {
               style={navButtonStyle}
             >
               <p>ORDER</p>
+            </div>
+            <div className="page__wrapper__navbar__container">
+              <div className="page__wrapper__navbar__enterpriseName">
+                <Link className="nav__brand__link" to="/">
+                  <img
+                    className={classes.logo}
+                    style={logoStyle}
+                    src={logo}
+                  ></img>
+                </Link>
+              </div>
             </div>
             <div
               className="page__wrapper__navbar__list__category"
@@ -248,13 +265,20 @@ export default function PageWrapper(props) {
             >
               <p>GALLERY</p>
             </div>
-            <div className="page__wrapper__navbar__list__item__user-block">
-              {/*loginRegisterAccess*/}
-            </div>
           </div>
         </nav>
-      </section>
-      {props.children},<PageFooter></PageFooter>
+      </div>
+      {props.children}
     </div>
   );
 }
+
+const useStyles = createUseStyles({
+  logo: {
+    borderRadius: "100%",
+    transition: "width 0.5s, height 0.5s, box-shadow 0.3s",
+    "&:hover": {
+      boxShadow: "white 0 0 8px",
+    },
+  },
+});

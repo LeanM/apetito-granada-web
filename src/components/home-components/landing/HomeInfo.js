@@ -42,7 +42,7 @@ export default function HomeInfo() {
             </div>
           </div>
         </div>
-        <div className={classes.subContainer} style={{ border: "none" }}>
+        <div className={classes.subContainer}>
           <div className={classes.dataContainer}>
             <div className={classes.numberContainer}>4.</div>
             <div className={classes.textContainer}>

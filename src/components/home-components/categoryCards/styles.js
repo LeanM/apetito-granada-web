@@ -46,7 +46,7 @@ const useStyles = createUseStyles({
     gap: "2rem",
     fontSize: "1.1rem",
     backgroundColor: colors.navSemiTransparent,
-    color: colors.nav,
+    color: colors.textNav,
     textShadow: "0 0 10px black",
 
     "@media screen and (max-width: 1100px)": {
@@ -99,11 +99,12 @@ const useStyles = createUseStyles({
     height: "100%",
     borderRadius: "20px",
     backgroundColor: colors.nav,
-    color: "black",
-    transition: "background 0.5s ease-in-out",
+    color: colors.textNav,
+    transition: "background 0.5s ease-in-out, color 0.5s",
 
     "&:hover": {
-      backgroundColor: colors.hover,
+      backgroundColor: colors.navLight,
+      color: colors.black,
     },
   },
 });

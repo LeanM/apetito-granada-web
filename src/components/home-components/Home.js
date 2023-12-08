@@ -87,21 +87,7 @@ export default function Home() {
               );
           })}
         </div>
-        <div className="home__body__package-info">
-          <div className="home__body__package-info__text">Our Package</div>
-          {packages.length === 0 ? (
-            <p></p>
-          ) : (
-            <button
-              onClick={() => navigate("/checkout")}
-              className="home__body__package-info__button"
-            >
-              Get ALL Prompts for ${packages[0].total_price}
-            </button>
-          )}
-        </div>
       </div>
-
       <div className="home__contacts"></div>
       <ReviewCarousel />
     </div>
