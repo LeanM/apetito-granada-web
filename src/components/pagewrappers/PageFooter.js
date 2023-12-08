@@ -1,4 +1,5 @@
 import "../../css/footer.css";
+import { createUseStyles } from "react-jss";
 
 export default function PageFooter() {
   return (
@@ -34,3 +35,7 @@ export default function PageFooter() {
     </footer>
   );
 }
+
+const useStyles = createUseStyles({
+  container: {},
+});

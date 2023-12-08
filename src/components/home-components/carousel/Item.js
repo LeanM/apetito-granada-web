@@ -23,10 +23,10 @@ const useStyles = createUseStyles((theme) => ({
     borderTopRightRadius: "10px",
     textDecoration: "none !important",
     color: "black",
-    transition: "background 0.5s ease-in-out, color 0.5s",
+    transition: "background 0.3s ease-in-out, color 0.3s",
 
     "&:hover": {
-      backgroundColor: colors.hover,
+      backgroundColor: colors.navSemiTransparent,
       color: "black",
     },
 
