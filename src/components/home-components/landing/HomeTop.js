@@ -2,6 +2,7 @@ import { colors } from "../../../assets/colors";
 import { createUseStyles } from "react-jss";
 import homePhoto from "../../../assets/home.jpg";
 import { Button } from "rsuite";
+import Reveal from "../../animation/Reveal";
 
 export default function HomeTop() {
   const classes = useStyles();
@@ -10,23 +11,26 @@ export default function HomeTop() {
     <div className={classes.homeTop}>
       <div className={classes.background}></div>
       <img className={classes.image} src={homePhoto}></img>
-      <div className={classes.dataContainer}>
-        <p
-          style={{
-            fontWeight: "800",
-            color: colors.textNav,
-            textShadow: "black 0 0 10px",
-          }}
-        >
-          Bienvenidos
-        </p>
-        <p className={classes.infoText}>
-          En Apetito Granada proveemos el servicio de catering a la ciudad y
-          alrededores de Granada. Produciendo estándares alimentarios de alta
-          calidad utilizando ingredientes básicos de origen local.
-        </p>
-        <Button className={classes.bookButton}>BOOK NOW</Button>
-      </div>
+
+      <Reveal styles={classes.revealContainer}>
+        <div className={classes.dataContainer}>
+          <p
+            style={{
+              fontWeight: "800",
+              color: colors.textNav,
+              textShadow: "black 0 0 10px",
+            }}
+          >
+            Bienvenidos
+          </p>
+          <p className={classes.infoText}>
+            En Apetito Granada proveemos el servicio de catering a la ciudad y
+            alrededores de Granada. Produciendo estándares alimentarios de alta
+            calidad utilizando ingredientes básicos de origen local.
+          </p>
+          <Button className={classes.bookButton}>BOOK NOW</Button>
+        </div>
+      </Reveal>
     </div>
   );
 }
@@ -48,6 +52,16 @@ const useStyles = createUseStyles({
     objectFit: "cover",
     filter: "brightness(80%)",
   },
+  revealContainer: {
+    width: "100%",
+    height: "100%",
+    position: "absolute",
+    zIndex: 20,
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "center",
+    alignItems: "center",
+  },
   dataContainer: {
     width: "35rem",
     height: "22rem",
@@ -59,7 +73,7 @@ const useStyles = createUseStyles({
     flexDirection: "column",
     justifyContent: "center",
     alignItems: "center",
-    top: "15%",
+    top: "30%",
     borderTop: `solid 20px ${colors.nav}`,
     backgroundColor: colors.navSemiTransparent,
     borderRadius: "100%",
