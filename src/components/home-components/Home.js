@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
-import { toast } from "react-hot-toast";
-import LandingVideo from "./LandingVideo";
+
 import { useNavigate } from "react-router-dom";
 import LeftCategoryCard from "./categoryCards/LeftCategoryCard";
 import RightCategoryCard from "./categoryCards/RightCategoryCard";
@@ -11,6 +10,7 @@ import ReviewCarousel from "./reviewCarousel/ReviewCarousel";
 import HomeInfo from "./landing/HomeInfo";
 import BookSection from "./categoryCards/BookSection";
 import { createUseStyles } from "react-jss";
+import Reveal from "../animation/Reveal";
 
 export default function Home() {
   const navigate = useNavigate();
@@ -48,6 +48,7 @@ export default function Home() {
   return (
     <div className={classes.container}>
       <HomeTop />
+
       <HomeInfo />
       <div className={classes.homeBody}>
         <div className={classes.categoryCarouselContainer}>
@@ -65,14 +66,16 @@ export default function Home() {
                 categories.indexOf(category) % 3 === 0
               ) {
                 return (
-                  <>
+                  <Reveal styles={classes.resultItem}>
                     <LeftCategoryCard key={category} categoryData={category} />
                     <BookSection />
-                  </>
+                  </Reveal>
                 );
               } else {
                 return (
-                  <LeftCategoryCard key={category} categoryData={category} />
+                  <Reveal styles={classes.resultItem}>
+                    <LeftCategoryCard key={category} categoryData={category} />
+                  </Reveal>
                 );
               }
             } else {
@@ -81,14 +84,16 @@ export default function Home() {
                 categories.indexOf(category) % 3 === 0
               ) {
                 return (
-                  <>
+                  <Reveal styles={classes.resultItem}>
                     <RightCategoryCard key={category} categoryData={category} />
                     <BookSection />
-                  </>
+                  </Reveal>
                 );
               } else {
                 return (
-                  <RightCategoryCard key={category} categoryData={category} />
+                  <Reveal styles={classes.resultItem}>
+                    <RightCategoryCard key={category} categoryData={category} />
+                  </Reveal>
                 );
               }
             }
@@ -153,6 +158,13 @@ const useStyles = createUseStyles({
     width: "100%",
     display: "flex",
     flexWrap: "wrap",
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  resultItem: {
+    width: "100%",
+    display: "flex",
+    flexDirection: "column",
     alignItems: "center",
     justifyContent: "center",
   },

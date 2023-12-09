@@ -2,6 +2,7 @@ import { colors } from "../../../assets/colors";
 import { createUseStyles } from "react-jss";
 import homePhoto from "../../../assets/home.jpg";
 import { Button } from "rsuite";
+import Reveal from "../../animation/Reveal";
 
 export default function HomeTop() {
   const classes = useStyles();
@@ -10,7 +11,8 @@ export default function HomeTop() {
     <div className={classes.homeTop}>
       <div className={classes.background}></div>
       <img className={classes.image} src={homePhoto}></img>
-      <div className={classes.dataContainer}>
+
+      <Reveal styles={classes.dataContainer}>
         <p
           style={{
             fontWeight: "800",
@@ -26,7 +28,7 @@ export default function HomeTop() {
           calidad utilizando ingredientes básicos de origen local.
         </p>
         <Button className={classes.bookButton}>BOOK NOW</Button>
-      </div>
+      </Reveal>
     </div>
   );
 }
