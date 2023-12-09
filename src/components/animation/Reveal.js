@@ -12,6 +12,7 @@ export default function Reveal(props) {
   useEffect(() => {
     if (isInView) {
       mainControls.start("visible");
+      mainControls.start("stand");
     }
   }, [isInView]);
 
@@ -25,7 +26,7 @@ export default function Reveal(props) {
       }}
       initial="hidden"
       animate={mainControls}
-      transition={{ duration: 0.3, delay: 0.3 }}
+      transition={{ duration: 0.5, delay: 0.3 }}
     >
       {props.children}
     </motion.div>
