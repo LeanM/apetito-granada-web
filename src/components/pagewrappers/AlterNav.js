@@ -6,7 +6,7 @@ import logo from "../../assets/apetito.png";
 import { colors } from "../../assets/colors";
 import { useNavigate } from "react-router-dom";
 
-export default function Nav(props) {
+export default function AlterNav(props) {
   const navigate = useNavigate();
   const { auth, logOutAuth } = useAuth();
   const [navStyle, setNavStyle] = useState({});
@@ -17,71 +17,8 @@ export default function Nav(props) {
 
   const classes = useStyles();
 
-  useEffect(() => {
-    setNavStyle(styleNavBarTransparent);
-    setNavButtonStyle(styleButtonsTransparent);
-    setLogoStyle(styleLogoTransparent);
-
-    // Agregar un event listener para manejar cambios en el tamaño de la ventana
-    window.addEventListener("resize", listenToScroll);
-    window.addEventListener("scroll", listenToScroll);
-    return () => {
-      window.removeEventListener("scroll", listenToScroll);
-      window.removeEventListener("resize", listenToScroll);
-    };
-  }, []);
-
-  const listenToScroll = () => {
-    if (window.innerWidth > 800) {
-      if (window.pageYOffset <= 50) {
-        setNavStyle(styleNavBarTransparent);
-        setNavButtonStyle(styleButtonsTransparent);
-        setLogoStyle(styleLogoTransparent);
-      } else {
-        setNavStyle(styleNavBarSolid);
-        setNavButtonStyle(styleButtonsSolid);
-        setLogoStyle(styleLogoSolid);
-      }
-    } else {
-      setNavStyle(styleNavBarTransparent);
-      setNavButtonStyle(styleButtonsTransparent);
-      setLogoStyle(styleLogoTransparent);
-    }
-  };
-
   const handleMouseOver = () => {
     //setNavStyle(styleNavBarSolid);
-  };
-
-  const styleNavBarTransparent = {
-    backgroundColor: colors.transparent,
-    height: "6rem",
-  };
-
-  const styleNavBarSolid = {
-    backgroundColor: colors.navSemiTransparent,
-    color: "black",
-    borderBottom: `solid 2px ${colors.nav}`,
-  };
-
-  const styleButtonsTransparent = {
-    color: "white",
-    textShadow: "0 0 5px black",
-  };
-
-  const styleButtonsSolid = {
-    color: "white",
-    textShadow: "0 0 5px black",
-  };
-
-  const styleLogoTransparent = {
-    width: "100%",
-    height: "100%",
-  };
-
-  const styleLogoSolid = {
-    width: "90%",
-    height: "90%",
   };
 
   return (
@@ -166,18 +103,16 @@ const useStyles = createUseStyles({
   },
   section: {
     width: "100%",
-    height: "5rem",
+    height: "6rem",
     display: "flex",
-    position: "fixed",
+    position: "absolute",
     justifyContent: "center",
+    backgroundColor: colors.nav,
+    borderBottom: `solid 1px ${colors.black}`,
     alignItems: "center",
     zIndex: "1000",
     top: "0",
     transition: "background 0.5s, height 0.5s, border 0.5s",
-
-    "@media screen and (max-width: 800px)": {
-      position: "absolute",
-    },
   },
   navBar: {
     width: "60%",
@@ -216,7 +151,7 @@ const useStyles = createUseStyles({
     marginTop: "auto",
     marginBottom: "auto",
     justifyContent: "center",
-    color: "white",
+    color: colors.black,
     alignItems: "center",
     textAlign: "center",
     cursor: "pointer",
@@ -231,15 +166,17 @@ const useStyles = createUseStyles({
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
-    borderBottom: `1px solid ${colors.transparent}`,
+    borderBottom: `1px solid ${colors.black}`,
     transition: "border 0.2s ease-in-out",
 
     "&:hover": {
       borderColor: colors.textNav,
+      color: colors.textNav,
     },
   },
   navBarListItemText: {
     textAlign: "center",
+    transition: "color 0.3s",
   },
   enterpriseListItem: {
     maxWidth: "25rem",
@@ -254,7 +191,6 @@ const useStyles = createUseStyles({
     textAlign: "center",
     cursor: "pointer",
     backgroundColor: colors.transparent,
-    borderBottom: `1px solid ${colors.transparent}`,
 
     "@media screen and (max-width: 800px)": {
       width: "10rem",
