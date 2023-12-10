@@ -1,12 +1,15 @@
 import { createUseStyles } from "react-jss";
 import React, { useEffect, useRef, useState } from "react";
-import { Form, ButtonToolbar, Button, Input } from "rsuite";
-import { Steps } from "rsuite";
 import AlterNav from "../pagewrappers/AlterNav";
 import FormInput from "./FormInput";
+import { MDBIcon } from "mdb-react-ui-kit";
+import { colors } from "../../assets/colors";
+import ProgressBar from "@ramonak/react-progress-bar";
+import { Button } from "rsuite";
 
 export default function Contact() {
-  const [step, setStep] = useState(0);
+  const formRef = useRef(null);
+  const [completion, setCompletion] = useState(0);
   const [values, setValues] = useState({
     name: "",
     email: "",
@@ -61,6 +64,10 @@ export default function Contact() {
     },
   ];
 
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log(values);
@@ -75,13 +82,13 @@ export default function Contact() {
   }, [values]);
 
   const verifyStep = () => {
-    let step = 0;
-    if (values.name !== "") step += 1;
-    if (values.email !== "") step += 1;
-    if (values.date !== "") step += 1;
-    if (values.time !== "") step += 1;
+    let newCompletion = 0;
+    if (values.name !== "") newCompletion += 25;
+    if (values.email !== "") newCompletion += 25;
+    if (values.date !== "") newCompletion += 25;
+    if (values.time !== "") newCompletion += 25;
 
-    setStep(step);
+    setCompletion(newCompletion);
   };
 
   return (
@@ -89,28 +96,63 @@ export default function Contact() {
       <AlterNav />
       <div className={classes.container}>
         <div className={classes.dataContainer}>
-          <form onSubmit={handleSubmit}>
-            <h1>Contact us!</h1>
-            {inputs.map((input) => (
+          <form className={classes.form} ref={formRef} onSubmit={handleSubmit}>
+            <div>
+              <h1 style={{ color: colors.nav }}>Book Now!</h1>
+            </div>
+            <div className={classes.inputsContainer}>
+              <div className={classes.firstInputRow}>
+                <FormInput
+                  key={inputs[0].id}
+                  {...inputs[0]}
+                  value={values[inputs[0]]}
+                  onChange={onChange}
+                />
+                <FormInput
+                  key={inputs[1].id}
+                  {...inputs[1]}
+                  value={values[inputs[1]]}
+                  onChange={onChange}
+                />
+              </div>
+              <div className={classes.firstInputRow}>
+                <FormInput
+                  key={inputs[2].id}
+                  {...inputs[2]}
+                  value={values[inputs[2]]}
+                  onChange={onChange}
+                />
+                <FormInput
+                  key={inputs[3].id}
+                  {...inputs[3]}
+                  value={values[inputs[3]]}
+                  onChange={onChange}
+                />
+              </div>
               <FormInput
-                key={input.id}
-                {...input}
-                value={values[input.name]}
+                key={inputs[4].id}
+                {...inputs[4]}
+                value={values[inputs[4]]}
                 onChange={onChange}
               />
-            ))}
-            <button>Submit</button>
+            </div>
+            <div className={classes.progessContainer}>
+              <ProgressBar
+                className={classes.progressBar}
+                bgColor={colors.nav}
+                baseBgColor="gray"
+                height="0.5rem"
+                labelColor={colors.nav}
+                completed={completion}
+                maxCompleted={100}
+                transitionDuration="0.5s"
+              />
+              <p style={{ fontWeight: "800", color: colors.nav }}>
+                {completion}%
+              </p>
+            </div>
+            <button className={classes.submitButton}>Submit</button>
           </form>
-          <Steps current={step} vertical>
-            <Steps.Item
-              title="Choose desired Menues"
-              description="Choosed wanted menus"
-            />
-            <Steps.Item title="Complete your data" description="Description" />
-            <Steps.Item title="Submit your book" description="Description" />
-            <Steps.Item title="Submit your book" description="Description" />
-            <Steps.Item title="Submit your book" description="Description" />
-          </Steps>
         </div>
       </div>
     </>
@@ -133,12 +175,70 @@ const useStyles = createUseStyles({
     borderRadius: "20px",
     border: `dotted 1px grey`,
     display: "flex",
+    flexDirection: "column",
     justifyContent: "center",
     gap: "8rem",
     alignItems: "center",
   },
   form: {
     display: "flex",
+    width: "80%",
     flexDirection: "column",
+    justifyContent: "center",
+    alignItems: "center",
+    gap: "2rem",
+  },
+  inputsContainer: {
+    display: "flex",
+    justifyContent: "center",
+    flexDirection: "column",
+    alignItems: "center",
+    width: "100%",
+    height: "70%",
+    gap: "2rem",
+  },
+  firstInputRow: {
+    width: "90%",
+    height: "30%",
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    gap: "2rem",
+
+    "@media screen and (max-width: 800px)": {
+      flexDirection: "column",
+      gap: "0.5rem",
+    },
+  },
+  submitButton: {
+    width: "5rem",
+    height: "3rem",
+    borderRadius: "20px",
+    backgroundColor: colors.textNav,
+    border: `solid 1px ${colors.navLight}`,
+    color: colors.nav,
+
+    transition: "background 0.3s, color 0.3s",
+    "&:hover": {
+      backgroundColor: colors.nav,
+      color: colors.textNav,
+    },
+  },
+  progessContainer: {
+    width: "70%",
+    height: "2rem",
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "center",
+    alignItems: "center",
+    gap: "0.5rem",
+  },
+  progressBar: {
+    width: "70%",
+    height: "100%",
+
+    "@media screen and (max-width: 800px)": {
+      width: "90%",
+    },
   },
 });

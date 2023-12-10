@@ -1,8 +1,10 @@
 import { Button } from "rsuite";
 import { createUseStyles } from "react-jss";
 import { colors } from "../../../assets/colors";
+import { useNavigate } from "react-router-dom";
 
 export default function BookSection() {
+  const navigate = useNavigate();
   const classes = useStyles();
   return (
     <div className={classes.container}>
@@ -11,7 +13,12 @@ export default function BookSection() {
           <p className={classes.text}>Te gustan los menus que estas viendo?</p>
         </div>
         <div className={classes.buttonContainer}>
-          <Button className={classes.button}>BOOK NOW</Button>
+          <Button
+            className={classes.button}
+            onClick={() => navigate("/contact")}
+          >
+            BOOK NOW
+          </Button>
         </div>
       </div>
     </div>
