@@ -11,6 +11,8 @@ import HomeInfo from "./landing/HomeInfo";
 import BookSection from "./categoryCards/BookSection";
 import { createUseStyles } from "react-jss";
 import Reveal from "../animation/Reveal";
+import Loader from "../loaders/Loader";
+import Nav from "../pagewrappers/Nav";
 
 export default function Home() {
   const navigate = useNavigate();
@@ -21,11 +23,13 @@ export default function Home() {
 
   useEffect(() => {
     window.scrollTo(0, 0);
-    getStartupData();
+    //getStartupData();
     getCategories();
   }, []);
 
-  const getStartupData = async () => {};
+  const getStartupData = async () => {
+    setTimeout(() => {}, 4000);
+  };
 
   const getCategories = () => {
     const categoriasDeComida = [
@@ -46,63 +50,78 @@ export default function Home() {
   };
 
   return (
-    <div className={classes.container}>
-      <HomeTop />
+    <>
+      <Nav />
+      <div className={classes.container}>
+        <HomeTop />
 
-      <HomeInfo />
-      <div className={classes.homeBody}>
-        <div className={classes.categoryCarouselContainer}>
-          <p className={classes.categoryCarouselText}>
-            Observe nuestros distintos tipos de menus disponibles por nuestro
-            servicio!
-          </p>
-          <CategoryCarousel categoriesData={categories} />
-        </div>
-        <div className={classes.resultsContainer}>
-          {categories.map((category) => {
-            if (categories.indexOf(category) % 2 === 0) {
-              if (
-                categories.indexOf(category) !== 0 &&
-                categories.indexOf(category) % 3 === 0
-              ) {
-                return (
-                  <Reveal styles={classes.resultItem}>
-                    <LeftCategoryCard key={category} categoryData={category} />
-                    <BookSection />
-                  </Reveal>
-                );
+        <HomeInfo />
+        <div className={classes.homeBody}>
+          <div className={classes.categoryCarouselContainer}>
+            <p className={classes.categoryCarouselText}>
+              Observe nuestros distintos tipos de menus disponibles por nuestro
+              servicio!
+            </p>
+            <CategoryCarousel categoriesData={categories} />
+          </div>
+          <div className={classes.resultsContainer}>
+            {categories.map((category) => {
+              if (categories.indexOf(category) % 2 === 0) {
+                if (
+                  categories.indexOf(category) !== 0 &&
+                  categories.indexOf(category) % 3 === 0
+                ) {
+                  return (
+                    <Reveal styles={classes.resultItem}>
+                      <LeftCategoryCard
+                        key={category}
+                        categoryData={category}
+                      />
+                      <BookSection />
+                    </Reveal>
+                  );
+                } else {
+                  return (
+                    <Reveal styles={classes.resultItem}>
+                      <LeftCategoryCard
+                        key={category}
+                        categoryData={category}
+                      />
+                    </Reveal>
+                  );
+                }
               } else {
-                return (
-                  <Reveal styles={classes.resultItem}>
-                    <LeftCategoryCard key={category} categoryData={category} />
-                  </Reveal>
-                );
+                if (
+                  categories.indexOf(category) !== 0 &&
+                  categories.indexOf(category) % 3 === 0
+                ) {
+                  return (
+                    <Reveal styles={classes.resultItem}>
+                      <RightCategoryCard
+                        key={category}
+                        categoryData={category}
+                      />
+                      <BookSection />
+                    </Reveal>
+                  );
+                } else {
+                  return (
+                    <Reveal styles={classes.resultItem}>
+                      <RightCategoryCard
+                        key={category}
+                        categoryData={category}
+                      />
+                    </Reveal>
+                  );
+                }
               }
-            } else {
-              if (
-                categories.indexOf(category) !== 0 &&
-                categories.indexOf(category) % 3 === 0
-              ) {
-                return (
-                  <Reveal styles={classes.resultItem}>
-                    <RightCategoryCard key={category} categoryData={category} />
-                    <BookSection />
-                  </Reveal>
-                );
-              } else {
-                return (
-                  <Reveal styles={classes.resultItem}>
-                    <RightCategoryCard key={category} categoryData={category} />
-                  </Reveal>
-                );
-              }
-            }
-          })}
+            })}
+          </div>
         </div>
+        <div></div>
+        <ReviewCarousel />
       </div>
-      <div></div>
-      <ReviewCarousel />
-    </div>
+    </>
   );
 }
 
