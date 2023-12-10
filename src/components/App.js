@@ -6,9 +6,25 @@ import Missing from "./Missing";
 import RequireAuth from "./login-components/RequireAuth";
 import LogIn from "./login-components/Login";
 import Register from "./login-components/Register";
+import { useEffect, useState } from "react";
+import Loader from "./loaders/Loader";
 
 function App() {
-  return (
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    loadPage();
+  }, []);
+
+  const loadPage = async () => {
+    setTimeout(() => {
+      setLoading(false);
+    }, 2500);
+  };
+
+  return loading ? (
+    <Loader />
+  ) : (
     <Routes>
       <Route path="/" element={<Layout />}>
         {/* Public routes */}

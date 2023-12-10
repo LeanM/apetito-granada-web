@@ -1,5 +1,4 @@
 import React from "react";
-import "./loader.css";
 import load from "../../assets/load.png";
 import { createUseStyles } from "react-jss";
 import { colors } from "../../assets/colors";

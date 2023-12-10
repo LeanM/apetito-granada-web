@@ -1,5 +1,6 @@
 import { useContext, useEffect, useState } from "react";
 import useAuth from "../../hooks/useAuth";
+import DropdownNav from "./DropdownNav";
 import { createUseStyles } from "react-jss";
 import logo from "../../assets/apetito.png";
 import { colors } from "../../assets/colors";
@@ -46,10 +47,6 @@ export default function Nav() {
       setNavButtonStyle(styleButtonsTransparent);
       setLogoStyle(styleLogoTransparent);
     }
-
-    if (window.pageYOffset > 950) {
-      setShowScrollButton(true);
-    } else setShowScrollButton(false);
   };
 
   const handleMouseOver = () => {
@@ -93,17 +90,6 @@ export default function Nav() {
       className={classes.section}
       onMouseOver={handleMouseOver}
     >
-      <button
-        style={{
-          display: showScrollButton ? "block" : "none",
-        }}
-        className={classes.scrollButton}
-        onClick={() => {
-          window.scrollTo(0, 750);
-        }}
-      >
-        ▲
-      </button>
       <nav className={classes.navBar}>
         <div className={classes.navBarList}>
           <div
@@ -143,6 +129,9 @@ export default function Nav() {
               <p>CONTACT</p>
             </div>
           </div>
+
+          <DropdownNav />
+
           <div
             style={navButtonStyle}
             className={classes.navBarListItem}
