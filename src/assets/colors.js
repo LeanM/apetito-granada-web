@@ -8,7 +8,7 @@ export const colors = {
   navSecondaryLight: "#c7ae74",
   navSecondarySemiTransparent: "rgba(228, 189, 99,0.4)",
   nav: "rgb(171, 51, 36)",
-  navSemiTransparent: "rgba(171, 51, 36,0.4)",
+  navSemiTransparent: "rgba(171, 51, 36, 0.4)",
   navLight: "#c95f52",
   textNav: "#eddfdd",
   navUltraLight: "#fff2d3",
