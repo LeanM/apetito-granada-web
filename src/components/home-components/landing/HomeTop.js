@@ -3,8 +3,10 @@ import { createUseStyles } from "react-jss";
 import homePhoto from "../../../assets/home.jpg";
 import { Button } from "rsuite";
 import Reveal from "../../animation/Reveal";
+import { useNavigate } from "react-router-dom";
 
 export default function HomeTop() {
+  const navigate = useNavigate();
   const classes = useStyles();
 
   return (
@@ -28,7 +30,14 @@ export default function HomeTop() {
             alrededores de Granada. Produciendo estándares alimentarios de alta
             calidad utilizando ingredientes básicos de origen local.
           </p>
-          <Button className={classes.bookButton}>BOOK NOW</Button>
+          <Button
+            className={classes.bookButton}
+            onClick={() => {
+              navigate("/contact");
+            }}
+          >
+            BOOK NOW
+          </Button>
         </div>
       </Reveal>
     </div>

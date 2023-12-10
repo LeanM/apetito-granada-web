@@ -1,19 +1,39 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./formInput.css";
+import { createUseStyles } from "react-jss";
 
 export default function FormInput(props) {
   const [focused, setFocused] = useState(false);
   const { label, errorMessage, onChange, id, ...inputProps } = props;
+  const [style, setStyle] = useState({});
+  const classes = useStyles();
 
   const handleFocus = (e) => {
     setFocused(true);
   };
 
+  useEffect(() => {
+    console.log(label);
+    if (label === "Description") {
+      setStyle(biggerInput);
+    } else setStyle(normalInput);
+  }, []);
+
+  const biggerInput = {
+    height: "5rem",
+  };
+
+  const normalInput = {
+    height: "3rem",
+  };
+
   return (
-    <div className="formInput">
-      <label>{label}</label>
+    <div className={classes.container}>
+      <label className={classes.label}>{label}</label>
       <input
+        className={classes.input}
         {...inputProps}
+        style={style}
         onChange={onChange}
         onBlur={handleFocus}
         onFocus={() =>
@@ -21,7 +41,38 @@ export default function FormInput(props) {
         }
         focused={focused.toString()}
       />
-      <span>{errorMessage}</span>
+      <span className={classes.span}>{errorMessage}</span>
     </div>
   );
 }
+
+const useStyles = createUseStyles({
+  container: {
+    display: "flex",
+    flexDirection: "column",
+    width: "18rem",
+
+    "@media screen and (max-width: 500px)": {
+      width: "14rem",
+    },
+  },
+  input: {
+    padding: "15px",
+    margin: "10px 0px",
+    borderRadius: "5px",
+    border: "1px solid gray",
+  },
+  label: {
+    fontSize: "12px",
+    color: "gray",
+  },
+  span: {
+    fontSize: "12px",
+    width: "15rem",
+    padding: "3px",
+    color: "red",
+    position: "absolute",
+    marginTop: "5.5%",
+    display: "none",
+  },
+});
