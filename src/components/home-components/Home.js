@@ -11,11 +11,13 @@ import HomeInfo from "./landing/HomeInfo";
 import BookSection from "./categoryCards/BookSection";
 import { createUseStyles } from "react-jss";
 import Reveal from "../animation/Reveal";
+import Loader from "../loaders/Loader";
 
 export default function Home() {
   const navigate = useNavigate();
   const [packages, setPackages] = useState([]);
   const [categories, setCategories] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   const classes = useStyles();
 
@@ -25,7 +27,11 @@ export default function Home() {
     getCategories();
   }, []);
 
-  const getStartupData = async () => {};
+  const getStartupData = async () => {
+    setTimeout(() => {
+      setLoading(false);
+    }, 4000);
+  };
 
   const getCategories = () => {
     const categoriasDeComida = [
@@ -45,7 +51,9 @@ export default function Home() {
     setCategories(categoriasDeComida);
   };
 
-  return (
+  return loading ? (
+    <Loader></Loader>
+  ) : (
     <div className={classes.container}>
       <HomeTop />
 
