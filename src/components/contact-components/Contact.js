@@ -95,64 +95,83 @@ export default function Contact() {
     <>
       <AlterNav />
       <div className={classes.container}>
-        <div className={classes.dataContainer}>
-          <form className={classes.form} ref={formRef} onSubmit={handleSubmit}>
-            <div>
-              <h1 style={{ color: colors.nav }}>Book Now!</h1>
+        <div className={classes.subContainer}>
+          <div
+            className={classes.imageContainer}
+            style={{
+              backgroundImage: `url(./contact.jpg)`,
+            }}
+          ></div>
+          <div className={classes.dataContainer}>
+            <div
+              style={{
+                width: "90%",
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+              }}
+            >
+              <h1 className={classes.title}>Book Now!</h1>
             </div>
-            <div className={classes.inputsContainer}>
-              <div className={classes.firstInputRow}>
+            <form
+              className={classes.form}
+              ref={formRef}
+              onSubmit={handleSubmit}
+            >
+              <div className={classes.inputsContainer}>
+                <div className={classes.firstInputRow}>
+                  <FormInput
+                    key={inputs[0].id}
+                    {...inputs[0]}
+                    value={values[inputs[0]]}
+                    onChange={onChange}
+                  />
+                  <FormInput
+                    key={inputs[1].id}
+                    {...inputs[1]}
+                    value={values[inputs[1]]}
+                    onChange={onChange}
+                  />
+                </div>
+                <div className={classes.firstInputRow}>
+                  <FormInput
+                    key={inputs[2].id}
+                    {...inputs[2]}
+                    value={values[inputs[2]]}
+                    onChange={onChange}
+                  />
+                  <FormInput
+                    key={inputs[3].id}
+                    {...inputs[3]}
+                    value={values[inputs[3]]}
+                    onChange={onChange}
+                  />
+                </div>
                 <FormInput
-                  key={inputs[0].id}
-                  {...inputs[0]}
-                  value={values[inputs[0]]}
-                  onChange={onChange}
-                />
-                <FormInput
-                  key={inputs[1].id}
-                  {...inputs[1]}
-                  value={values[inputs[1]]}
+                  key={inputs[4].id}
+                  {...inputs[4]}
+                  value={values[inputs[4]]}
                   onChange={onChange}
                 />
               </div>
-              <div className={classes.firstInputRow}>
-                <FormInput
-                  key={inputs[2].id}
-                  {...inputs[2]}
-                  value={values[inputs[2]]}
-                  onChange={onChange}
+              <div className={classes.progessContainer}>
+                <ProgressBar
+                  className={classes.progressBar}
+                  bgColor={colors.nav}
+                  baseBgColor="gray"
+                  height="0.5rem"
+                  labelColor={colors.nav}
+                  completed={completion}
+                  maxCompleted={100}
+                  transitionDuration="0.5s"
                 />
-                <FormInput
-                  key={inputs[3].id}
-                  {...inputs[3]}
-                  value={values[inputs[3]]}
-                  onChange={onChange}
-                />
+                <p style={{ fontWeight: "800", color: colors.nav }}>
+                  {completion}%
+                </p>
               </div>
-              <FormInput
-                key={inputs[4].id}
-                {...inputs[4]}
-                value={values[inputs[4]]}
-                onChange={onChange}
-              />
-            </div>
-            <div className={classes.progessContainer}>
-              <ProgressBar
-                className={classes.progressBar}
-                bgColor={colors.nav}
-                baseBgColor="gray"
-                height="0.5rem"
-                labelColor={colors.nav}
-                completed={completion}
-                maxCompleted={100}
-                transitionDuration="0.5s"
-              />
-              <p style={{ fontWeight: "800", color: colors.nav }}>
-                {completion}%
-              </p>
-            </div>
-            <button className={classes.submitButton}>Submit</button>
-          </form>
+              <button className={classes.submitButton}>Submit</button>
+            </form>
+          </div>
         </div>
       </div>
     </>
@@ -162,23 +181,61 @@ export default function Contact() {
 const useStyles = createUseStyles({
   container: {
     width: "100%",
-    height: "150vh",
+    height: "100vh",
     backgroundColor: "white",
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
     marginTop: "3rem",
+
+    "@media screen and (max-width: 1000px)": {
+      height: "150vh",
+    },
+  },
+  subContainer: {
+    width: "90%",
+    height: "85%",
+    display: "flex",
+    justifyContent: "center",
+    //border: `solid 1px ${colors.nav}`,
+    alignItems: "center",
+    marginTop: "5rem",
+
+    "@media screen and (max-width: 800px)": {
+      border: `solid 2px ${colors.nav}`,
+      borderLeft: `solid 20px ${colors.nav}`,
+    },
+  },
+  imageContainer: {
+    width: "45%",
+    height: "100%",
+    backgroundColor: "black",
+    backgroundSize: "cover",
+    borderLeft: `solid 20px ${colors.nav}`,
+
+    "@media screen and (max-width: 800px)": {
+      display: "none",
+    },
   },
   dataContainer: {
-    width: "80%",
-    height: "80%",
-    borderRadius: "20px",
-    border: `dotted 1px grey`,
+    width: "55%",
+    height: "100%",
     display: "flex",
     flexDirection: "column",
     justifyContent: "center",
-    gap: "8rem",
+    gap: "3rem",
     alignItems: "center",
+
+    "@media screen and (max-width: 800px)": {
+      width: "80%",
+    },
+  },
+  title: {
+    color: colors.nav,
+    fontSize: "3rem",
+    "@media screen and (max-width: 800px)": {
+      fontSize: "2rem",
+    },
   },
   form: {
     display: "flex",
@@ -205,7 +262,7 @@ const useStyles = createUseStyles({
     alignItems: "center",
     gap: "2rem",
 
-    "@media screen and (max-width: 800px)": {
+    "@media screen and (max-width: 1000px)": {
       flexDirection: "column",
       gap: "0.5rem",
     },

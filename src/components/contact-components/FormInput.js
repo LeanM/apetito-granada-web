@@ -50,6 +50,8 @@ const useStyles = createUseStyles({
   container: {
     display: "flex",
     flexDirection: "column",
+    justifyContent: "center",
+    alignItems: "center",
     width: "18rem",
 
     "@media screen and (max-width: 500px)": {
@@ -59,8 +61,13 @@ const useStyles = createUseStyles({
   input: {
     padding: "15px",
     margin: "10px 0px",
+    width: "100%",
     borderRadius: "5px",
     border: "1px solid gray",
+
+    "@media screen and (max-width: 1000px)": {
+      width: "100%",
+    },
   },
   label: {
     fontSize: "12px",
