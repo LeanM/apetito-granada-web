@@ -53,6 +53,7 @@ const useStyles = createUseStyles({
     "&:hover": {
       transform:"scale(1.05)",
       borderRadius:"5px",
+      //border:`solid 1px ${colors.blackLight}`,
       boxShadow:`0 0 15px ${colors.blackLight}`,
     },
 

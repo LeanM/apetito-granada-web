@@ -89,7 +89,7 @@ const specificStyle = createUseStyles({
     backgroundColor: colors.white,
     color: colors.nav,
     zIndex:"50",
-    borderLeft: `solid 1px ${colors.nav}`,
+    borderLeft: `solid 1px ${colors.navSemiTransparent}`,
     
 
     "@media screen and (max-width: 1100px)": {
@@ -105,7 +105,8 @@ const specificStyle = createUseStyles({
     "@media screen and (max-width: 500px)": {
       width: "100%",
       border:"none",
-      borderTop:`solid 5px ${colors.nav}`,
+      padding:"10px",
+      //borderTop:`solid 5px ${colors.nav}`,
     },
   }
 });
