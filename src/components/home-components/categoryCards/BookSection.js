@@ -2,12 +2,14 @@ import { Button } from "rsuite";
 import { createUseStyles } from "react-jss";
 import { colors } from "../../../assets/colors";
 import { useNavigate } from "react-router-dom";
+import logo from "../../../assets/apetito.png";
 
 export default function BookSection() {
   const navigate = useNavigate();
   const classes = useStyles();
   return (
     <div className={classes.container}>
+      <img src={logo} className={classes.image}></img>
       <div className={classes.subContainer}>
         <div className={classes.textContainer}>
           <p className={classes.text}>Te gustan los menus que estas viendo?</p>
@@ -28,7 +30,7 @@ export default function BookSection() {
 const useStyles = createUseStyles({
   container: {
     width: "100%",
-    height: "10rem",
+    height: "35vh",
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
@@ -40,16 +42,17 @@ const useStyles = createUseStyles({
     },
 
     "@media screen and (max-width: 500px)": {
-      height: "8rem",
+      height: "25vh",
     },
   },
   subContainer: {
     display: "flex",
     width: "90%",
-    height: "90%",
+    height: "100%",
     justifyContent: "center",
     alignItems: "center",
     flexDirection: "column",
+    paddingTop:"4rem",
 
     borderLeft: `solid 20px ${colors.nav}`,
     borderRight: `solid 20px ${colors.nav}`,
@@ -57,12 +60,32 @@ const useStyles = createUseStyles({
     borderBottom: `solid 2px ${colors.nav}`,
     //boxShadow: "black 0 0 10px",
   },
+  image:{
+    position:"absolute", width:"7rem", height:"7rem", marginBottom:"10rem",
+  
+    "@media screen and (max-width: 800px)": {
+      height: "6rem",
+      width:"6rem",
+     
+    },
+
+    "@media screen and (max-width: 500px)": {
+      height: "5rem",
+      width:"5rem",
+      marginBottom:"8rem"
+    },
+  },
   textContainer: {
-    height: "60%",
+    height: "40%",
     width: "100%",
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
+
+    "@media screen and (max-width: 500px)": {
+      height: "25%",
+      marginBottom:"1.5rem"
+    },
   },
   text: {
     color: colors.nav,
@@ -71,14 +94,12 @@ const useStyles = createUseStyles({
 
     "@media screen and (max-width: 900px)": {
       fontSize: "1.7rem",
-      marginBottom: "3rem",
-      marginTop: "3rem",
+ 
     },
 
     "@media screen and (max-width: 500px)": {
       fontSize: "1.2rem",
-      marginBottom: "2rem",
-      marginTop: "2rem",
+    
     },
   },
   buttonContainer: {
@@ -97,11 +118,6 @@ const useStyles = createUseStyles({
       backgroundColor: colors.nav,
       border: `solid 1px ${colors.navLight}`,
       color: colors.textNav,
-    },
-
-    "@media screen and (max-width: 700px)": {
-      height: "2.5rem",
-      width: "8rem",
     },
 
     "@media screen and (max-width: 700px)": {

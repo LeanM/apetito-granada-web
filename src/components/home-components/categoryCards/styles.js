@@ -2,87 +2,58 @@ import { createUseStyles } from "react-jss";
 import { colors } from "../../../assets/colors";
 
 const useStyles = createUseStyles({
-  container: {
-    width: "90%",
-    height: "80vh",
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center",
-    marginBottom: "5rem",
-    backgroundSize: "cover",
+  
+  background:{
+    position:"absolute",
+    width:"100%",
+    height:"100%",
+    zIndex:-1,
+    backgroundSize:"cover",
 
-    borderTop: `solid 2px ${colors.nav}`,
-    borderBottom: `solid 2px ${colors.nav}`,
+    opacity:0,
 
-    "@media screen and (max-width: 900px)": {
-      marginBottom: "0rem",
-      width: "100%",
-      borderBottom: `solid 1px ${colors.nav}`,
-      height: "50vh",
+    "@media screen and (max-width: 1100px)": {
+      opacity:1
     },
+    
   },
   innerLeftContainer: {
     width: "100%",
-    height: "85%",
+    height: "100%",
     display: "flex",
     alignItems: "center",
-    padding: "0.5rem",
     justifyContent: "center",
-    gap: "4rem",
   },
   innerRightContainer: {
     width: "100%",
-    height: "85%",
+    height: "100%",
     display: "flex",
     alignItems: "center",
-    padding: "0.5rem",
     justifyContent: "center",
-    gap: "2rem",
-  },
-  dataContainer: {
-    display: "flex",
-    width: "45%",
-    height: "90%",
-    flexDirection: "column",
-    justifyContent: "center",
-    alignItems: "center",
-    gap: "2rem",
-    fontSize: "1.1rem",
-    backgroundColor: colors.navSemiTransparent,
-    color: colors.textNav,
-    textShadow: "0 0 10px black",
-
-    "@media screen and (max-width: 1100px)": {
-      width: "90%",
-    },
-
-    "@media screen and (max-width: 500px)": {
-      width: "100%",
-    },
   },
   imageContainer: {
-    width: "45%",
+    width: "60%",
+    height:"100%",
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
+    zIndex:"100",
 
     "@media screen and (max-width: 1100px)": {
       display: "none",
     },
   },
   imageStyle: {
-    width: "27rem",
-    height: "25rem",
-    borderRadius: "100%",
-    border: `solid 5px ${colors.nav}`,
+    width: "100%",
+    height: "100%",
     objectFit: "cover",
-    transition: "width 0.5s, height 0.5s, border 0.5s, box-shadow 0.5s",
+    transition: "transform 0.5s, border-radius 0.5s, box-shadow 0.8s",
+    zIndex:"101",
 
     "&:hover": {
-      width: "29rem",
-      height: "27rem",
-      boxShadow: "0 0 50px black",
-      borderWidth: "3px",
+      transform:"scale(1.05)",
+      borderRadius:"5px",
+      boxShadow:`0 0 15px ${colors.blackLight}`,
     },
 
     "@media screen and (max-width: 1100px)": {

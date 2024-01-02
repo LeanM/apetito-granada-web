@@ -8,22 +8,19 @@ import CartContext from "../../../context/CartProvider";
 
 export default function RightCategoryCard(props) {
   const classes = styles();
+  const specificClasses =  specificStyle();
   const { addToCart } = useContext(CartContext);
   const firstWord = props.categoryData.split(" ")[0];
   return (
     <div
       id={props.categoryData}
-      style={{
-        backgroundImage: `url(./categories/${firstWord}.jpg)`,
-        borderRight: `solid 20px ${colors.nav}`,
-        borderLeft: `solid 2px ${colors.nav}`,
-      }}
-      className={classes.container}
+      className={specificClasses.container}
     >
+      <div className={classes.background} style={{backgroundImage: `url(./categories/${firstWord}.jpg)`}} ></div>
       <div className={classes.innerRightContainer}>
         <div
-          className={classes.dataContainer}
-          style={{ borderLeft: `solid 10px ${colors.nav}` }}
+          className={specificClasses.dataContainer}
+          style={{  }}
         >
           <div style={{ fontWeight: "800", fontSize: "2rem" }}>
             {props.categoryData}
@@ -51,3 +48,58 @@ export default function RightCategoryCard(props) {
     </div>
   );
 }
+
+
+const specificStyle = createUseStyles({
+  container: {
+    width: "90%",
+    position:"relative",
+    height: "60vh",
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    marginBottom: "5rem",
+    border:`solid 3px ${colors.nav}`,
+    borderLeft: `solid 20px ${colors.nav}`,
+    
+    //borderRadius:"5px",
+
+    "@media screen and (max-width: 900px)": {
+      marginBottom: "0rem",
+      width: "100%",
+      borderBottom: `solid 1px ${colors.nav}`,
+      height: "50vh",
+    },
+  },
+  dataContainer:{
+    display: "flex",
+    width: "40%",
+    height: "100%",
+    flexDirection: "column",
+    justifyContent: "center",
+    alignItems: "center",
+    gap: "2rem",
+    fontSize: "1.1rem",
+    backgroundColor: colors.white,
+    color: colors.nav,
+    zIndex:"50",
+    borderRight: `solid 1px ${colors.nav}`,
+    
+
+    "@media screen and (max-width: 1100px)": {
+      width: "80%",
+      height:"80%",
+      borderTop:`solid 5px ${colors.nav}`,
+      border: `solid 1px ${colors.nav}`,
+      color: "white",
+      textShadow:"black 0 0 10px",
+      backgroundColor:colors.navSemiTransparent,
+    },
+
+    "@media screen and (max-width: 500px)": {
+      width: "100%",
+      border:"none",
+      borderTop:`solid 5px ${colors.nav}`,
+    },
+  }
+});
