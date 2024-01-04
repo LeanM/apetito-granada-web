@@ -42,7 +42,7 @@ export default function LeftCategoryCard(props) {
             ASdklasdjaskldjaslkdjdas;ld askljdklasjd lkasj dlkasjd kasjdk
           </div>
           <div className={classes.buttonsContainer}>
-            <button className={classes.button}>Menu</button>
+            <button className={classes.button} onClick={props.onOpen}>Menu</button>
             <button
               className={classes.button}
               onClick={() => addToCart(props.categoryData)}
@@ -70,10 +70,15 @@ const specificStyle = createUseStyles({
     
     //borderRadius:"5px",
 
+    "@media screen and (max-width: 1100px)": {
+      
+    },
+
     "@media screen and (max-width: 900px)": {
       marginBottom: "0rem",
       width: "100%",
-      borderBottom: `solid 1px ${colors.nav}`,
+      borderBottom: `solid 5px ${colors.nav}`,
+      borderLeft: `solid 5px ${colors.nav}`,
       height: "50vh",
     },
   },

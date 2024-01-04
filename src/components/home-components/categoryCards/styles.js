@@ -23,6 +23,10 @@ const useStyles = createUseStyles({
     display: "flex",
     alignItems: "center",
     justifyContent: "space-between",
+
+    "@media screen and (max-width: 1100px)": {
+      justifyContent:"center",
+    },
   },
   innerRightContainer: {
     width: "100%",
@@ -30,6 +34,10 @@ const useStyles = createUseStyles({
     display: "flex",
     alignItems: "center",
     justifyContent: "space-between",
+
+    "@media screen and (max-width: 1100px)": {
+      justifyContent:"center",
+    },
   },
   imageContainer: {
     width: "59.5%",
