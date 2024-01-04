@@ -6,6 +6,7 @@ import { MDBIcon } from "mdb-react-ui-kit";
 import { colors } from "../../assets/colors";
 import ProgressBar from "@ramonak/react-progress-bar";
 import { Button } from "rsuite";
+import MenuList from "./MenuList";
 
 export default function Contact() {
   const formRef = useRef(null);
@@ -169,6 +170,10 @@ export default function Contact() {
                   {completion}%
                 </p>
               </div>
+              <div className={classes.interestMenusContainter}>
+                <span>Tus menus de interes</span>
+                <MenuList />
+              </div>
               <button className={classes.submitButton}>Submit</button>
             </form>
           </div>
@@ -181,7 +186,7 @@ export default function Contact() {
 const useStyles = createUseStyles({
   container: {
     width: "100%",
-    height: "100vh",
+    height: "200vh",
     backgroundColor: "white",
     display: "flex",
     justifyContent: "center",
@@ -189,7 +194,7 @@ const useStyles = createUseStyles({
     marginTop: "3rem",
 
     "@media screen and (max-width: 1000px)": {
-      height: "150vh",
+      height: "250vh",
     },
   },
   subContainer: {
@@ -266,6 +271,15 @@ const useStyles = createUseStyles({
       flexDirection: "column",
       gap: "0.5rem",
     },
+  },
+  interestMenusContainter:{
+    width:"20rem",
+    height:"20rem",
+    display:"flex",
+    flexDirection:"column",
+    justifyContent:"center",
+    alignItems:"center",
+    gap:"1rem",
   },
   submitButton: {
     width: "5rem",

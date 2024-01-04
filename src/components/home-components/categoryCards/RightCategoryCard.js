@@ -59,10 +59,12 @@ const specificStyle = createUseStyles({
     justifyContent: "center",
     alignItems: "center",
     marginBottom: "5rem",
-    border:`solid 3px ${colors.nav}`,
-    borderLeft: `solid 20px ${colors.nav}`,
+    //border:`solid 3px ${colors.nav}`,
+    //borderLeft: `solid 20px ${colors.nav}`,
     
     //borderRadius:"5px",
+
+    
 
     "@media screen and (max-width: 900px)": {
       marginBottom: "0rem",
@@ -80,11 +82,12 @@ const specificStyle = createUseStyles({
     alignItems: "center",
     gap: "2rem",
     fontSize: "1.1rem",
-    backgroundColor: colors.white,
+    backgroundColor: colors.textNav,
+    borderRadius:"10px",
     color: colors.nav,
     zIndex:"50",
-    borderRight: `solid 1px ${colors.navSemiTransparent}`,
-    
+    //borderRight: `solid 1px ${colors.navSemiTransparent}`,
+    border: `solid 4px ${colors.nav}`,
 
     "@media screen and (max-width: 1100px)": {
       width: "80%",
