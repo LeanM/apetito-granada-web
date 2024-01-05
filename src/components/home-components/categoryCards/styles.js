@@ -22,17 +22,25 @@ const useStyles = createUseStyles({
     height: "100%",
     display: "flex",
     alignItems: "center",
-    justifyContent: "center",
+    justifyContent: "space-between",
+
+    "@media screen and (max-width: 1100px)": {
+      justifyContent:"center",
+    },
   },
   innerRightContainer: {
     width: "100%",
     height: "100%",
     display: "flex",
     alignItems: "center",
-    justifyContent: "center",
+    justifyContent: "space-between",
+
+    "@media screen and (max-width: 1100px)": {
+      justifyContent:"center",
+    },
   },
   imageContainer: {
-    width: "60%",
+    width: "59.5%",
     height:"100%",
     display: "flex",
     justifyContent: "center",
@@ -47,12 +55,14 @@ const useStyles = createUseStyles({
     width: "100%",
     height: "100%",
     objectFit: "cover",
-    transition: "transform 0.5s, border-radius 0.5s, box-shadow 0.8s",
+    transition: "transform 0.5s, border 0.5s ease-in-out, border-radius 0.5s, box-shadow 0.8s",
     zIndex:"101",
+    borderRadius:"10px",
+    //border:`solid 2px ${colors.navSemiTransparent}`,
 
     "&:hover": {
       transform:"scale(1.05)",
-      borderRadius:"5px",
+      border: "none",
       //border:`solid 1px ${colors.blackLight}`,
       boxShadow:`0 0 15px ${colors.blackLight}`,
     },

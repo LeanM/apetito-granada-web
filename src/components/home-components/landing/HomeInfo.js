@@ -12,9 +12,9 @@ export default function HomeInfo() {
             <div className={classes.numberContainer}>1.</div>
             <div className={classes.textContainer}>
               <p className={classes.text}>
-                Observe y elija entre las diferentes opciones, combinaciones o
+                Observe las diferentes opciones, combinaciones o
                 menús a medida con una completa selección de platos
-                internacionales. Pudiendo conocer los valores de cada opcion.
+                internacionales.
               </p>
             </div>
           </div>
@@ -24,9 +24,7 @@ export default function HomeInfo() {
             <div className={classes.numberContainer}>2.</div>
             <div className={classes.textContainer}>
               <p className={classes.text}>
-                Una vez analizado las posibilidades, comuniquese con nosotros a
-                traves de la seccion de contacto, especificando la fecha
-                deseada, y la cantidad de gente estimada para el evento.
+                Añada a su seleccion los menus de interes segun sus gustos y preferencias 
               </p>
             </div>
           </div>
@@ -36,8 +34,8 @@ export default function HomeInfo() {
             <div className={classes.numberContainer}>3.</div>
             <div className={classes.textContainer}>
               <p className={classes.text}>
-                iasndiasndasm kadj ask dask dasjkdk asdkasd asdas dlaskdjklas
-                alksdjaskl
+              Una vez analizado las posibilidades y seleccionado los menus de interes, comuniquese con nosotros a
+                traves de la seccion de contacto, especificando los datos necesarios.
               </p>
             </div>
           </div>
@@ -47,8 +45,7 @@ export default function HomeInfo() {
             <div className={classes.numberContainer}>4.</div>
             <div className={classes.textContainer}>
               <p className={classes.text}>
-                iasndiasndasm kadj ask dask dasjkdk asdkasd asdas dlaskdjklas
-                alksdjaskl
+                Por ultimo nos comuniaremos via mail para acordar todos los detalles y confirmar el catering.
               </p>
             </div>
           </div>

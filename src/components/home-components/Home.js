@@ -13,11 +13,17 @@ import { createUseStyles } from "react-jss";
 import Reveal from "../animation/Reveal";
 import Loader from "../loaders/Loader";
 import Nav from "../pagewrappers/Nav";
+import { Modal } from "rsuite";
+import MenuModal from "./categoryCards/MenuModal";
 
 export default function Home() {
   const navigate = useNavigate();
   const [packages, setPackages] = useState([]);
   const [categories, setCategories] = useState([]);
+
+  const [open, setOpen] = useState(false);
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
 
   const classes = useStyles();
 
@@ -52,6 +58,7 @@ export default function Home() {
   return (
     <>
       <Nav />
+      <MenuModal open={open} onClose={handleClose} />
       <div className={classes.container}>
         <HomeTop />
 
@@ -76,6 +83,7 @@ export default function Home() {
                       <LeftCategoryCard
                         key={category}
                         categoryData={category}
+                        onOpen={handleOpen}
                       />
                       <BookSection />
                     </Reveal>
@@ -86,6 +94,7 @@ export default function Home() {
                       <LeftCategoryCard
                         key={category}
                         categoryData={category}
+                        onOpen={handleOpen}
                       />
                     </Reveal>
                   );
@@ -100,6 +109,7 @@ export default function Home() {
                       <RightCategoryCard
                         key={category}
                         categoryData={category}
+                        onOpen={handleOpen}
                       />
                       <BookSection />
                     </Reveal>
@@ -110,6 +120,7 @@ export default function Home() {
                       <RightCategoryCard
                         key={category}
                         categoryData={category}
+                        onOpen={handleOpen}
                       />
                     </Reveal>
                   );

@@ -29,7 +29,7 @@ export default function RightCategoryCard(props) {
             ASdklasdjaskldjaslkdjdas;ld askljdklasjd lkasj dlkasjd kasjdk
           </div>
           <div className={classes.buttonsContainer}>
-            <button className={classes.button}>Menu</button>
+            <button className={classes.button} onClick={props.onOpen}>Menu</button>
             <button
               className={classes.button}
               onClick={() => addToCart(props.categoryData)}
@@ -59,15 +59,18 @@ const specificStyle = createUseStyles({
     justifyContent: "center",
     alignItems: "center",
     marginBottom: "5rem",
-    border:`solid 3px ${colors.nav}`,
-    borderLeft: `solid 20px ${colors.nav}`,
+    //border:`solid 3px ${colors.nav}`,
+    //borderLeft: `solid 20px ${colors.nav}`,
     
     //borderRadius:"5px",
+
+    
 
     "@media screen and (max-width: 900px)": {
       marginBottom: "0rem",
       width: "100%",
-      borderBottom: `solid 1px ${colors.nav}`,
+      borderBottom: `solid 5px ${colors.nav}`,
+      borderRight: `solid 5px ${colors.nav}`,
       height: "50vh",
     },
   },
@@ -80,11 +83,12 @@ const specificStyle = createUseStyles({
     alignItems: "center",
     gap: "2rem",
     fontSize: "1.1rem",
-    backgroundColor: colors.white,
+    backgroundColor: colors.textNav,
+    borderRadius:"10px",
     color: colors.nav,
     zIndex:"50",
-    borderRight: `solid 1px ${colors.navSemiTransparent}`,
-    
+    //borderRight: `solid 1px ${colors.navSemiTransparent}`,
+    border: `solid 4px ${colors.nav}`,
 
     "@media screen and (max-width: 1100px)": {
       width: "80%",
