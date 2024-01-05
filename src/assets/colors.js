@@ -20,4 +20,5 @@ export const colors = {
   text: "white",
   button: "#a2a2cc",
   hover: "#f8f1b0",
+  white: "rgb(255,255,255)",
 };
