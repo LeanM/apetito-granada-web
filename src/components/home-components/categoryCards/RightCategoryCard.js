@@ -83,12 +83,16 @@ const specificStyle = createUseStyles({
     alignItems: "center",
     gap: "2rem",
     fontSize: "1.1rem",
-    backgroundColor: colors.textNav,
-    borderRadius:"10px",
+    backgroundColor: colors.white,
+    //borderRadius:"10px",
     color: colors.nav,
     zIndex:"50",
     //borderRight: `solid 1px ${colors.navSemiTransparent}`,
-    border: `solid 4px ${colors.nav}`,
+    borderLeft: `solid 20px ${colors.nav}`,
+
+    border: `solid 2px ${colors.nav}`,
+    borderTopRightRadius:"10px",
+    borderBottomRightRadius:"10px",
 
     "@media screen and (max-width: 1100px)": {
       width: "80%",
