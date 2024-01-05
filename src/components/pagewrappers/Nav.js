@@ -136,7 +136,7 @@ export default function Nav(props) {
             style={navButtonStyle}
             className={classes.navBarListItem}
             onClick={() => {
-              navigate("/login");
+              navigate("/gallery");
             }}
           >
             <div className={classes.navBarListItemTextContainer}>

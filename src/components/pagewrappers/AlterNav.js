@@ -73,7 +73,7 @@ export default function AlterNav(props) {
             style={navButtonStyle}
             className={classes.navBarListItem}
             onClick={() => {
-              navigate("/login");
+              navigate("/gallery");
             }}
           >
             <div className={classes.navBarListItemTextContainer}>
@@ -103,12 +103,12 @@ const useStyles = createUseStyles({
   },
   section: {
     width: "100%",
-    height: "6rem",
+    height: "5rem",
     display: "flex",
     position: "absolute",
     justifyContent: "center",
     backgroundColor: colors.nav,
-    borderBottom: `solid 1px ${colors.black}`,
+    //borderBottom: `solid 1px ${colors.black}`,
     alignItems: "center",
     zIndex: "1000",
     top: "0",
@@ -166,7 +166,7 @@ const useStyles = createUseStyles({
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
-    borderBottom: `1px solid ${colors.black}`,
+    //borderBottom: `1px solid ${colors.black}`,
     transition: "border 0.2s ease-in-out",
 
     "&:hover": {
