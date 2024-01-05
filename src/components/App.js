@@ -8,6 +8,7 @@ import LogIn from "./login-components/Login";
 import Register from "./login-components/Register";
 import { useEffect, useState } from "react";
 import Loader from "./loaders/Loader";
+import Gallery from "./gallery-components/Gallery";
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -32,6 +33,7 @@ function App() {
         <Route path="/contact" element={<Contact />} />
         <Route path="/login" element={<LogIn />} />
         <Route path="/register" element={<Register />} />
+        <Route path="/gallery" element={<Gallery />} />
 
         {/* Want to protect these routes */}
         <Route element={<RequireAuth />}></Route>

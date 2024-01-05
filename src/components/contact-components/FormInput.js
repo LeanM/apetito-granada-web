@@ -52,10 +52,10 @@ const useStyles = createUseStyles({
     flexDirection: "column",
     justifyContent: "center",
     alignItems: "center",
-    width: "18rem",
+    width: "20rem",
 
     "@media screen and (max-width: 500px)": {
-      width: "14rem",
+      //width: "14rem",
     },
   },
   input: {
