@@ -35,7 +35,7 @@ const useStyles = createUseStyles({
   galleryItem: {
     width: "100%",
     borderRadius: "10px",
-    //overflow: "hidden",
+    overflow: "hidden",
     position: "relative",
   },
   galleryPhoto: {
@@ -43,12 +43,13 @@ const useStyles = createUseStyles({
     borderRadius: "10px",
     objectFit: "cover",
     boxShadow: "black 0 0 2px",
-    //overflow: "hidden",
+    overflow: "hidden",
+    zIndex: "100",
 
     transition: "transform 0.5s",
 
     "&:hover": {
-      //transform: "scale(1.05)",
+      transform: "scale(1.05)",
     },
   },
   photoOverlay: {
@@ -70,7 +71,7 @@ const useStyles = createUseStyles({
 
     bottom: 0,
     right: 0,
-    opacity: 0.6,
+    zIndex: "50",
 
     backgroundColor: colors.black,
 
