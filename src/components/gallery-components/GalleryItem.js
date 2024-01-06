@@ -7,14 +7,26 @@ export default function GalleryItem(props) {
   const classes = useStyles();
   const { photo } = props;
   const firstWord = photo.split(" ")[0];
-  const [overlayStyle, setOverlayStyle] = useState({});
+  const [overlayStyle, setOverlayStyle] = useState({ opacity: 0 });
+
+  const overlayHover = {
+    height: "3.5rem",
+    opacity: 0.7,
+  };
 
   return (
-    <div className={classes.galleryItem}>
+    <div
+      className={classes.galleryItem}
+      onMouseOver={() => setOverlayStyle(overlayHover)}
+      onMouseOut={() => setOverlayStyle({ opacity: 0 })}
+    >
       <img
         className={classes.galleryPhoto}
         src={"./categories/" + firstWord + ".jpg"}
       />
+      <div className={classes.photoOverlay} style={overlayStyle}>
+        <p>{photo}</p>
+      </div>
     </div>
   );
 }
@@ -23,27 +35,46 @@ const useStyles = createUseStyles({
   galleryItem: {
     width: "100%",
     borderRadius: "10px",
+    //overflow: "hidden",
+    position: "relative",
   },
   galleryPhoto: {
     width: "100%",
     borderRadius: "10px",
     objectFit: "cover",
     boxShadow: "black 0 0 2px",
+    //overflow: "hidden",
 
     transition: "transform 0.5s",
 
     "&:hover": {
-      transform: "scale(1.05)",
+      //transform: "scale(1.05)",
     },
   },
   photoOverlay: {
     width: "100%",
+    height: "0",
     position: "absolute",
-    overflow: "hidden",
-    borderRadius: "10px",
-    height: "4rem",
-    opacity: 0.8,
+
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "center",
+    alignItems: "center",
+
+    borderBottomLeftRadius: "10px",
+    borderBottomRightRadius: "10px",
+
+    fontWeight: "800",
+
+    color: colors.white,
+
+    bottom: 0,
+    right: 0,
+    opacity: 0.6,
+
     backgroundColor: colors.black,
+
+    transition: "height 0.5s, opacity 0.5s",
 
     "&:hover": {},
   },
