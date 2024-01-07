@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import "./formInput.css";
 import { createUseStyles } from "react-jss";
+import { colors } from "../../assets/colors";
 
 export default function FormInput(props) {
   const [focused, setFocused] = useState(false);
@@ -21,10 +22,12 @@ export default function FormInput(props) {
 
   const biggerInput = {
     height: "5rem",
+    borderRadius: 0,
   };
 
   const normalInput = {
     height: "3rem",
+    borderRadius: 0,
   };
 
   return (
@@ -51,8 +54,9 @@ const useStyles = createUseStyles({
     display: "flex",
     flexDirection: "column",
     justifyContent: "center",
-    alignItems: "center",
-    width: "20rem",
+    alignItems: "flex-start",
+    width: "30rem",
+    borderRadius: 0,
 
     "@media screen and (max-width: 500px)": {
       //width: "14rem",
@@ -60,21 +64,21 @@ const useStyles = createUseStyles({
   },
   input: {
     padding: "15px",
-    margin: "10px 0px",
+    margin: "5px 0px",
     width: "100%",
-    borderRadius: "5px",
-    border: "1px solid gray",
+    borderRadius: 0,
+    border: `solid 1px ${colors.black}`,
 
     "@media screen and (max-width: 1000px)": {
       width: "100%",
     },
   },
   label: {
-    fontSize: "12px",
-    color: "gray",
+    fontSize: "0.9rem",
+    color: colors.black,
   },
   span: {
-    fontSize: "12px",
+    fontSize: "0px",
     width: "15rem",
     padding: "3px",
     color: "red",

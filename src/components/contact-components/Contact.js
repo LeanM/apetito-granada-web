@@ -120,34 +120,32 @@ export default function Contact() {
               onSubmit={handleSubmit}
             >
               <div className={classes.inputsContainer}>
-                <div className={classes.firstInputRow}>
-                  <FormInput
-                    key={inputs[0].id}
-                    {...inputs[0]}
-                    value={values[inputs[0]]}
-                    onChange={onChange}
-                  />
-                  <FormInput
-                    key={inputs[1].id}
-                    {...inputs[1]}
-                    value={values[inputs[1]]}
-                    onChange={onChange}
-                  />
-                </div>
-                <div className={classes.firstInputRow}>
-                  <FormInput
-                    key={inputs[2].id}
-                    {...inputs[2]}
-                    value={values[inputs[2]]}
-                    onChange={onChange}
-                  />
-                  <FormInput
-                    key={inputs[3].id}
-                    {...inputs[3]}
-                    value={values[inputs[3]]}
-                    onChange={onChange}
-                  />
-                </div>
+                <FormInput
+                  key={inputs[0].id}
+                  {...inputs[0]}
+                  value={values[inputs[0]]}
+                  onChange={onChange}
+                />
+                <FormInput
+                  key={inputs[1].id}
+                  {...inputs[1]}
+                  value={values[inputs[1]]}
+                  onChange={onChange}
+                />
+
+                <FormInput
+                  key={inputs[2].id}
+                  {...inputs[2]}
+                  value={values[inputs[2]]}
+                  onChange={onChange}
+                />
+                <FormInput
+                  key={inputs[3].id}
+                  {...inputs[3]}
+                  value={values[inputs[3]]}
+                  onChange={onChange}
+                />
+
                 <FormInput
                   key={inputs[4].id}
                   {...inputs[4]}
@@ -189,6 +187,7 @@ const useStyles = createUseStyles({
     height: "200vh",
     backgroundColor: "white",
     display: "flex",
+    fontFamily: "Poppins",
     justifyContent: "center",
     alignItems: "center",
     marginTop: "3rem",
@@ -198,11 +197,11 @@ const useStyles = createUseStyles({
     },
   },
   subContainer: {
-    width: "90%",
+    width: "95%",
     height: "85%",
     display: "flex",
     justifyContent: "center",
-    //border: `solid 1px ${colors.nav}`,
+    border: `solid 3px ${colors.nav}`,
     alignItems: "center",
     marginTop: "5rem",
 
@@ -212,7 +211,7 @@ const useStyles = createUseStyles({
     },
   },
   imageContainer: {
-    width: "45%",
+    width: "50%",
     height: "100%",
     backgroundColor: "black",
     backgroundSize: "cover",
@@ -223,12 +222,12 @@ const useStyles = createUseStyles({
     },
   },
   dataContainer: {
-    width: "55%",
+    width: "50%",
     height: "100%",
     display: "flex",
     flexDirection: "column",
     justifyContent: "center",
-    gap: "3rem",
+
     alignItems: "center",
 
     "@media screen and (max-width: 800px)": {
@@ -244,7 +243,7 @@ const useStyles = createUseStyles({
   },
   form: {
     display: "flex",
-    width: "80%",
+    width: "100%",
     flexDirection: "column",
     justifyContent: "center",
     alignItems: "center",
@@ -257,7 +256,7 @@ const useStyles = createUseStyles({
     alignItems: "center",
     width: "100%",
     height: "70%",
-    gap: "2rem",
+    gap: "0.2rem",
   },
   firstInputRow: {
     width: "90%",
@@ -282,22 +281,25 @@ const useStyles = createUseStyles({
     gap: "1rem",
   },
   submitButton: {
-    width: "5rem",
-    height: "3rem",
-    borderRadius: "20px",
-    fontWeight: "800",
-    backgroundColor: colors.textNav,
+    width: "8rem",
+    height: "4rem",
+    borderRadius: "5px",
+    fontWeight: "400",
+
     border: `solid 1px ${colors.navLight}`,
-    color: colors.nav,
+
+    backgroundColor: colors.nav,
+    color: colors.textNav,
 
     transition: "background 0.3s, color 0.3s",
+
     "&:hover": {
-      backgroundColor: colors.nav,
-      color: colors.textNav,
+      backgroundColor: colors.textNav,
+      color: colors.nav,
     },
   },
   progessContainer: {
-    width: "70%",
+    width: "80%",
     height: "2rem",
     display: "flex",
     flexDirection: "column",

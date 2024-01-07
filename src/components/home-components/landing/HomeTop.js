@@ -102,7 +102,7 @@ const useStyles = createUseStyles({
   infoText: {
     width: "60%",
     fontWeight: "300",
-    fontSize: "1.1rem",
+    fontSize: "0.9rem",
     color: "white",
     textShadow: `0 0 10px ${colors.black}`,
 
@@ -153,6 +153,7 @@ const useStyles = createUseStyles({
     marginTop: "1rem",
     backgroundColor: colors.nav,
     color: colors.textNav,
+    fontWeight: "300",
     "&:hover": {
       backgroundColor: colors.textNav,
       color: colors.nav,
