@@ -103,9 +103,15 @@ export default function Nav(props) {
               <p className={classes.navBarListItemText}>HOME</p>
             </div>
           </div>
-          <div className={classes.navBarListItem} style={navButtonStyle}>
+          <div
+            className={classes.navBarListItem}
+            onClick={() => {
+              navigate("/contact");
+            }}
+            style={navButtonStyle}
+          >
             <div className={classes.navBarListItemTextContainer}>
-              <p className={classes.navBarListItemText}>ORDER</p>
+              <p className={classes.navBarListItemText}>BOOK</p>
             </div>
           </div>
           <div className={classes.enterpriseListItem}>
@@ -153,6 +159,7 @@ const useStyles = createUseStyles({
   container: {
     width: "100%",
     height: "100%",
+    fontFamily: "Poppins",
   },
   background: {
     backgroundColor: "white",
@@ -212,6 +219,7 @@ const useStyles = createUseStyles({
     height: "70%",
     display: "flex",
     fontSize: "1rem",
+    fontFamily: "Poppins",
     fontWeight: "600",
     marginTop: "auto",
     marginBottom: "auto",

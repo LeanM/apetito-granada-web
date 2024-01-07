@@ -116,6 +116,7 @@ const useStyles = createUseStyles({
     display: "flex",
     flexDirection: "column",
     gap: "2rem",
+    fontFamily: "Poppins",
     justifyContent: "center",
     alignItems: "center",
     backgroundColor: colors.textNav,
@@ -132,17 +133,17 @@ const useStyles = createUseStyles({
     width: "15rem",
     height: "2.5rem",
     borderRadius: "10px",
-    backgroundColor: colors.textNav,
     border: `1px solid ${colors.nav}`,
-    color: colors.nav,
-    fontWeight: "800",
+    backgroundColor: colors.nav,
+    color: colors.white,
+    fontWeight: "300",
 
     transition: "background 0.5s, border 0.5s, color 0.5s",
 
     "&:hover": {
-      backgroundColor: colors.nav,
+      backgroundColor: colors.textNav,
+      color: colors.nav,
       border: `1px solid ${colors.navLight}`,
-      color: colors.white,
     },
   },
   galleryContainer: {
@@ -161,11 +162,5 @@ const useStyles = createUseStyles({
     justifyContent: "flex-start",
     alignItems: "center",
     gap: "1rem",
-  },
-  galleryPhoto: {
-    width: "100%",
-    borderRadius: "10px",
-    objectFit: "cover",
-    boxShadow: "black 0 0 2px",
   },
 });

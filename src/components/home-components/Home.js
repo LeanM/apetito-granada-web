@@ -145,7 +145,7 @@ const useStyles = createUseStyles({
     alignItems: "center",
     justifyContent: "center",
     flexDirection: "column",
-    fontFamily: "Oswald",
+    fontFamily: "Poppins",
   },
   homeBody: {
     display: "flex",
