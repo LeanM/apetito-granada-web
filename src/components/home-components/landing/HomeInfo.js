@@ -12,9 +12,8 @@ export default function HomeInfo() {
             <div className={classes.numberContainer}>1.</div>
             <div className={classes.textContainer}>
               <p className={classes.text}>
-                Observe las diferentes opciones, combinaciones o
-                menús a medida con una completa selección de platos
-                internacionales.
+                Observe las diferentes opciones, combinaciones o menús a medida
+                con una completa selección de platos internacionales.
               </p>
             </div>
           </div>
@@ -24,7 +23,8 @@ export default function HomeInfo() {
             <div className={classes.numberContainer}>2.</div>
             <div className={classes.textContainer}>
               <p className={classes.text}>
-                Añada a su seleccion los menus de interes segun sus gustos y preferencias 
+                Añada a su seleccion los menus de interes segun sus gustos y
+                preferencias
               </p>
             </div>
           </div>
@@ -34,8 +34,9 @@ export default function HomeInfo() {
             <div className={classes.numberContainer}>3.</div>
             <div className={classes.textContainer}>
               <p className={classes.text}>
-              Una vez analizado las posibilidades y seleccionado los menus de interes, comuniquese con nosotros a
-                traves de la seccion de contacto, especificando los datos necesarios.
+                Una vez analizado las posibilidades y seleccionado los menus de
+                interes, comuniquese con nosotros a traves de la seccion de
+                contacto, especificando los datos necesarios.
               </p>
             </div>
           </div>
@@ -45,7 +46,8 @@ export default function HomeInfo() {
             <div className={classes.numberContainer}>4.</div>
             <div className={classes.textContainer}>
               <p className={classes.text}>
-                Por ultimo nos comuniaremos via mail para acordar todos los detalles y confirmar el catering.
+                Por ultimo nos comuniaremos via mail para acordar todos los
+                detalles y confirmar el catering.
               </p>
             </div>
           </div>

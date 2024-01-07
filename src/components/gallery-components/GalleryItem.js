@@ -37,13 +37,13 @@ const useStyles = createUseStyles({
     borderRadius: "10px",
     overflow: "hidden",
     position: "relative",
+    boxShadow: "black 0 0 2px",
   },
   galleryPhoto: {
     width: "100%",
     borderRadius: "10px",
     objectFit: "cover",
-    boxShadow: "black 0 0 2px",
-    overflow: "hidden",
+
     zIndex: "100",
 
     transition: "transform 0.5s",
@@ -65,7 +65,7 @@ const useStyles = createUseStyles({
     borderBottomLeftRadius: "10px",
     borderBottomRightRadius: "10px",
 
-    fontWeight: "800",
+    fontWeight: "200",
 
     color: colors.white,
 
@@ -77,6 +77,8 @@ const useStyles = createUseStyles({
 
     transition: "height 0.5s, opacity 0.5s",
 
-    "&:hover": {},
+    "&:hover": {
+      opacity: 1,
+    },
   },
 });
