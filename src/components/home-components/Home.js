@@ -16,7 +16,9 @@ import Nav from "../pagewrappers/Nav";
 import { Modal } from "rsuite";
 import MenuModal from "./categoryCards/MenuModal";
 
-export default function Home() {
+export default function Home(props) {
+  const { loading } = props;
+
   const navigate = useNavigate();
   const [packages, setPackages] = useState([]);
   const [categories, setCategories] = useState([]);
@@ -28,10 +30,20 @@ export default function Home() {
   const classes = useStyles();
 
   useEffect(() => {
+    loadPage();
+  }, []);
+
+  useEffect(() => {
     window.scrollTo(0, 0);
     //getStartupData();
     getCategories();
   }, []);
+
+  const loadPage = async () => {
+    setTimeout(() => {
+      props.onLoad();
+    }, 2500);
+  };
 
   const getStartupData = async () => {
     setTimeout(() => {}, 4000);
@@ -55,7 +67,9 @@ export default function Home() {
     setCategories(categoriasDeComida);
   };
 
-  return (
+  return loading ? (
+    <Loader />
+  ) : (
     <>
       <Nav />
       <MenuModal open={open} onClose={handleClose} />

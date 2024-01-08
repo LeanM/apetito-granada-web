@@ -30,21 +30,23 @@ export default function LeftCategoryCard(props) {
         </div>
 
         <div className={specificClasses.dataContainer} style={{}}>
-          <div style={{ fontWeight: "800", fontSize: "2rem" }}>
-            {props.categoryData}
-          </div>
-          <div>
-            ASdklasdjaskldjaslkdjdas;ld askljdklasjd lkasj dlkasjd kasjdk
+          <div className={specificClasses.infoContainer}>
+            <div style={{ fontWeight: "800", fontSize: "2rem", height: "50%" }}>
+              {props.categoryData}
+            </div>
+            <p style={{ height: "40%" }}>
+              ASdklasdjaskldjaslkdjdas;ld askljdklasjd lkasj dlkasjd kasjdk
+            </p>
           </div>
           <div className={classes.buttonsContainer}>
-            <button className={classes.button} onClick={props.onOpen}>
+            <button className={classes.menuButton} onClick={props.onOpen}>
               Menu
             </button>
             <button
-              className={classes.button}
+              className={classes.addButton}
               onClick={() => addToCart(props.categoryData)}
             >
-              Add
+              +
             </button>
           </div>
         </div>
@@ -80,21 +82,17 @@ const specificStyle = createUseStyles({
     display: "flex",
     width: "40%",
     height: "100%",
+    position: "relative",
     flexDirection: "column",
     justifyContent: "center",
     alignItems: "center",
-    gap: "2rem",
     fontSize: "0.9rem",
     fontFamily: "Poppins",
     backgroundColor: colors.white,
-    color: colors.nav,
-    //borderRadius:"10px",
+    borderRadius: "20px 20px 20px 20px",
     zIndex: "50",
     borderRight: `solid 20px ${colors.nav}`,
-    //borderLeft: `solid 1px ${colors.navSemiTransparent}`,
     border: `solid 2px ${colors.nav}`,
-    borderTopLeftRadius: "10px",
-    borderBottomLeftRadius: "10px",
 
     "@media screen and (max-width: 1100px)": {
       width: "80%",
@@ -112,5 +110,18 @@ const specificStyle = createUseStyles({
       padding: "10px",
       //borderTop:`solid 5px ${colors.nav}`,
     },
+  },
+
+  infoContainer: {
+    width: "90%",
+    height: "50%",
+    backgroundColor: colors.white,
+    padding: "10px",
+    borderRadius: "20px",
+    color: colors.nav,
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "center",
+    alignItems: "center",
   },
 });
