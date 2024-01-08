@@ -13,23 +13,14 @@ import Gallery from "./gallery-components/Gallery";
 function App() {
   const [loading, setLoading] = useState(true);
 
-  useEffect(() => {
-    loadPage();
-  }, []);
-
-  const loadPage = async () => {
-    setTimeout(() => {
-      setLoading(false);
-    }, 2500);
-  };
-
-  return loading ? (
-    <Loader />
-  ) : (
+  return (
     <Routes>
       <Route path="/" element={<Layout />}>
         {/* Public routes */}
-        <Route path="/" element={<Home />} />
+        <Route
+          path="/"
+          element={<Home loading={loading} onLoad={() => setLoading(false)} />}
+        />
         <Route path="/contact" element={<Contact />} />
         <Route path="/login" element={<LogIn />} />
         <Route path="/register" element={<Register />} />

@@ -201,9 +201,11 @@ const useStyles = createUseStyles({
     height: "85%",
     display: "flex",
     justifyContent: "center",
-    border: `solid 3px ${colors.nav}`,
+    border: `solid 2px ${colors.nav}`,
+    borderRadius: "20px",
     alignItems: "center",
     marginTop: "5rem",
+    overflow: "hidden",
 
     "@media screen and (max-width: 800px)": {
       border: `solid 2px ${colors.nav}`,

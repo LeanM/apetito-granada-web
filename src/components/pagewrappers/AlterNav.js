@@ -107,7 +107,7 @@ const useStyles = createUseStyles({
     display: "flex",
     position: "absolute",
     justifyContent: "center",
-    backgroundColor: colors.nav,
+    backgroundColor: colors.transparent,
     //borderBottom: `solid 1px ${colors.black}`,
     alignItems: "center",
     zIndex: "1000",

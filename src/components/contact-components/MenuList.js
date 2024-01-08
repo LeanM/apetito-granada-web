@@ -40,6 +40,7 @@ const useStyles = createUseStyles({
     backgroundColor: colors.textNav,
     overflowY: "scroll",
     padding: "10px",
+    fontFamily: "Poppins",
   },
   itemContainer: {
     width: "100%",
