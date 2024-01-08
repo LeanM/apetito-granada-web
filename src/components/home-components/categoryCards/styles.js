@@ -2,20 +2,18 @@ import { createUseStyles } from "react-jss";
 import { colors } from "../../../assets/colors";
 
 const useStyles = createUseStyles({
-  
-  background:{
-    position:"absolute",
-    width:"100%",
-    height:"100%",
-    zIndex:-1,
-    backgroundSize:"cover",
+  background: {
+    position: "absolute",
+    width: "100%",
+    height: "100%",
+    zIndex: -1,
+    backgroundSize: "cover",
 
-    opacity:0,
+    opacity: 0,
 
     "@media screen and (max-width: 1100px)": {
-      opacity:1
+      opacity: 1,
     },
-    
   },
   innerLeftContainer: {
     width: "100%",
@@ -25,7 +23,7 @@ const useStyles = createUseStyles({
     justifyContent: "space-between",
 
     "@media screen and (max-width: 1100px)": {
-      justifyContent:"center",
+      justifyContent: "center",
     },
   },
   innerRightContainer: {
@@ -36,16 +34,16 @@ const useStyles = createUseStyles({
     justifyContent: "space-between",
 
     "@media screen and (max-width: 1100px)": {
-      justifyContent:"center",
+      justifyContent: "center",
     },
   },
   imageContainer: {
     width: "59.5%",
-    height:"100%",
+    height: "100%",
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
-    zIndex:"100",
+    zIndex: "100",
 
     "@media screen and (max-width: 1100px)": {
       display: "none",
@@ -55,16 +53,17 @@ const useStyles = createUseStyles({
     width: "100%",
     height: "100%",
     objectFit: "cover",
-    transition: "transform 0.5s, border 0.5s ease-in-out, border-radius 0.5s, box-shadow 0.8s",
-    zIndex:"101",
-    borderRadius:"10px",
+    transition:
+      "transform 0.5s, border 0.5s ease-in-out, border-radius 0.5s, box-shadow 0.8s",
+    zIndex: "101",
+    borderRadius: "20px",
     //border:`solid 2px ${colors.navSemiTransparent}`,
 
     "&:hover": {
-      transform:"scale(1.05)",
+      transform: "scale(1.05)",
       border: "none",
       //border:`solid 1px ${colors.blackLight}`,
-      boxShadow:`0 0 15px ${colors.blackLight}`,
+      boxShadow: `0 0 15px ${colors.blackLight}`,
     },
 
     "@media screen and (max-width: 1100px)": {
@@ -72,17 +71,31 @@ const useStyles = createUseStyles({
     },
   },
   buttonsContainer: {
-    width: "60%",
-    height: "20%",
+    width: "90%",
+    height: "30%",
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
-    gap: "2rem",
+    gap: "0.1rem",
   },
-  button: {
-    width: "40%",
-    height: "80%",
-    borderRadius: "20px",
+  menuButton: {
+    width: "6rem",
+    height: "3rem",
+    borderRadius: "20px 4px 4px 20px",
+    backgroundColor: colors.nav,
+    color: colors.textNav,
+    transition: "background 0.5s ease-in-out, color 0.5s",
+
+    "&:hover": {
+      backgroundColor: colors.navLight,
+      color: colors.textNav,
+    },
+  },
+  addButton: {
+    width: "2.5rem",
+    height: "3rem",
+    borderRadius: "4px 20px 20px 4px",
+    fontWeight: "600",
     backgroundColor: colors.nav,
     color: colors.textNav,
     transition: "background 0.5s ease-in-out, color 0.5s",

@@ -5,6 +5,7 @@ import styles from "./styles";
 import { colors } from "../../../assets/colors";
 import { useContext } from "react";
 import CartContext from "../../../context/CartProvider";
+import { Whisper, Tooltip } from "rsuite";
 
 export default function RightCategoryCard(props) {
   const classes = styles();
@@ -19,22 +20,34 @@ export default function RightCategoryCard(props) {
       ></div>
       <div className={classes.innerRightContainer}>
         <div className={specificClasses.dataContainer} style={{}}>
-          <div style={{ fontWeight: "800", fontSize: "2rem" }}>
-            {props.categoryData}
-          </div>
-          <div>
-            ASdklasdjaskldjaslkdjdas;ld askljdklasjd lkasj dlkasjd kasjdk
+          <div className={specificClasses.infoContainer}>
+            <div style={{ fontWeight: "800", fontSize: "2rem", height: "50%" }}>
+              {props.categoryData}
+            </div>
+            <p style={{ height: "40%" }}>
+              ASdklasdjaskldjaslkdjdas;ld askljdklasjd lkasj dlkasjd kasjdk
+            </p>
           </div>
           <div className={classes.buttonsContainer}>
-            <button className={classes.button} onClick={props.onOpen}>
+            <button className={classes.menuButton} onClick={props.onOpen}>
               Menu
             </button>
-            <button
-              className={classes.button}
-              onClick={() => addToCart(props.categoryData)}
+            <Whisper
+              trigger="hover"
+              placement={"top"}
+              speaker={
+                <Tooltip style={{}}>
+                  Añade este menu a la lista de interesados!
+                </Tooltip>
+              }
             >
-              Add
-            </button>
+              <button
+                className={classes.addButton}
+                onClick={() => addToCart(props.categoryData)}
+              >
+                +
+              </button>
+            </Whisper>
           </div>
         </div>
         <div className={classes.imageContainer}>
@@ -77,18 +90,13 @@ const specificStyle = createUseStyles({
     flexDirection: "column",
     justifyContent: "center",
     alignItems: "center",
-    gap: "2rem",
     fontSize: "0.9rem",
     backgroundColor: colors.white,
-    //borderRadius:"10px",
+    borderRadius: "20px 20px 20px 20px",
     color: colors.nav,
     zIndex: "50",
-    //borderRight: `solid 1px ${colors.navSemiTransparent}`,
     borderLeft: `solid 20px ${colors.nav}`,
-
     border: `solid 2px ${colors.nav}`,
-    borderTopRightRadius: "10px",
-    borderBottomRightRadius: "10px",
 
     "@media screen and (max-width: 1100px)": {
       width: "80%",
@@ -106,5 +114,18 @@ const specificStyle = createUseStyles({
       padding: "10px",
       //borderTop:`solid 5px ${colors.nav}`,
     },
+  },
+
+  infoContainer: {
+    width: "90%",
+    height: "50%",
+    backgroundColor: colors.white,
+    padding: "10px",
+    borderRadius: "20px",
+    color: colors.nav,
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "center",
+    alignItems: "center",
   },
 });
