@@ -4,6 +4,7 @@ import { colors } from "../../../assets/colors";
 import CartContext from "../../../context/CartProvider";
 import { useContext } from "react";
 import { createUseStyles } from "react-jss";
+import { Whisper, Tooltip } from "rsuite";
 
 export default function LeftCategoryCard(props) {
   const classes = styles();
@@ -42,12 +43,22 @@ export default function LeftCategoryCard(props) {
             <button className={classes.menuButton} onClick={props.onOpen}>
               Menu
             </button>
-            <button
-              className={classes.addButton}
-              onClick={() => addToCart(props.categoryData)}
+            <Whisper
+              trigger="hover"
+              placement={"top"}
+              speaker={
+                <Tooltip style={{}}>
+                  Añade este menu a la lista de interesados!
+                </Tooltip>
+              }
             >
-              +
-            </button>
+              <button
+                className={classes.addButton}
+                onClick={() => addToCart(props.categoryData)}
+              >
+                +
+              </button>
+            </Whisper>
           </div>
         </div>
       </div>
