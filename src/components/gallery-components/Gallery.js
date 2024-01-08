@@ -3,6 +3,7 @@ import { colors } from "../../assets/colors";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import GalleryItem from "./GalleryItem";
+import NavMinimal from "../pagewrappers/NavMinimal";
 
 export default function Gallery() {
   const navigate = useNavigate();
@@ -76,35 +77,38 @@ export default function Gallery() {
   };
 
   return (
-    <div className={classes.container}>
-      <div className={classes.backContainer}>
-        <button className={classes.backButton} onClick={() => navigate("/")}>
-          Go Back
-        </button>
+    <>
+      <NavMinimal />
+      <div className={classes.container}>
+        <div className={classes.backContainer}>
+          <button className={classes.backButton} onClick={() => navigate("/")}>
+            Go Back
+          </button>
+        </div>
+        <div className={classes.galleryContainer}>
+          <div className={classes.galleryColumn}>
+            {firstColumn.map((photo) => {
+              return <GalleryItem photo={photo} />;
+            })}
+          </div>
+          <div className={classes.galleryColumn}>
+            {secondColumn.map((photo) => {
+              return <GalleryItem photo={photo} />;
+            })}
+          </div>
+          <div className={classes.galleryColumn}>
+            {thirdColumn.map((photo) => {
+              return <GalleryItem photo={photo} />;
+            })}
+          </div>
+          <div className={classes.galleryColumn}>
+            {fourthColumn.map((photo) => {
+              return <GalleryItem photo={photo} />;
+            })}
+          </div>
+        </div>
       </div>
-      <div className={classes.galleryContainer}>
-        <div className={classes.galleryColumn}>
-          {firstColumn.map((photo) => {
-            return <GalleryItem photo={photo} />;
-          })}
-        </div>
-        <div className={classes.galleryColumn}>
-          {secondColumn.map((photo) => {
-            return <GalleryItem photo={photo} />;
-          })}
-        </div>
-        <div className={classes.galleryColumn}>
-          {thirdColumn.map((photo) => {
-            return <GalleryItem photo={photo} />;
-          })}
-        </div>
-        <div className={classes.galleryColumn}>
-          {fourthColumn.map((photo) => {
-            return <GalleryItem photo={photo} />;
-          })}
-        </div>
-      </div>
-    </div>
+    </>
   );
 }
 
@@ -127,7 +131,7 @@ const useStyles = createUseStyles({
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
-    marginTop: "2rem",
+    marginTop: "7rem",
   },
   backButton: {
     width: "15rem",
