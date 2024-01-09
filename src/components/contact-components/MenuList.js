@@ -50,6 +50,14 @@ const useStyles = createUseStyles({
     overflowY: "scroll",
     padding: "10px",
     fontFamily: "Poppins",
+
+    "@media screen and (max-width: 700px)": {
+      width: "20rem",
+    },
+
+    "@media screen and (max-width: 400px)": {
+      width: "15rem",
+    },
   },
   itemContainer: {
     width: "100%",
@@ -91,10 +99,16 @@ const useStyles = createUseStyles({
   },
   itemText: {
     textAlign: "center",
+
+    "@media screen and (max-width: 700px)": {
+      fontSize: "0.7rem",
+    },
   },
   removeButton: {
     width: "10%",
     height: "80%",
+
+    textAlign: "center",
 
     borderRadius: "20px",
     border: `solid 1px ${colors.textNav}`,
@@ -104,6 +118,10 @@ const useStyles = createUseStyles({
     "&:hover": {
       backgroundColor: colors.textNav,
       color: colors.nav,
+    },
+
+    "@media screen and (max-width: 400px)": {
+      fontSize: "0.6rem",
     },
   },
 });

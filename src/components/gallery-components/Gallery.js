@@ -160,6 +160,7 @@ const useStyles = createUseStyles({
     display: "flex",
     justifyContent: "center",
     alignItems: "flex-start",
+    flexWrap: "wrap",
     gap: "1rem",
   },
   galleryColumn: {
@@ -171,5 +172,13 @@ const useStyles = createUseStyles({
     alignItems: "center",
     marginBottom: "5rem",
     gap: "1rem",
+
+    "@media screen and (max-width: 1000px)": {
+      width: "40%",
+    },
+
+    "@media screen and (max-width: 1000px)": {
+      width: "70%",
+    },
   },
 });

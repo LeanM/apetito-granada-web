@@ -194,10 +194,6 @@ const useStyles = createUseStyles({
     justifyContent: "center",
     alignItems: "center",
     marginTop: "3rem",
-
-    "@media screen and (max-width: 1000px)": {
-      height: "250vh",
-    },
   },
   subContainer: {
     width: "95%",
@@ -210,8 +206,7 @@ const useStyles = createUseStyles({
     marginTop: "5rem",
     overflow: "hidden",
 
-    "@media screen and (max-width: 800px)": {
-      border: `solid 2px ${colors.nav}`,
+    "@media screen and (max-width: 1100px)": {
       borderLeft: `solid 20px ${colors.nav}`,
     },
   },
@@ -222,7 +217,7 @@ const useStyles = createUseStyles({
     backgroundSize: "cover",
     borderLeft: `solid 20px ${colors.nav}`,
 
-    "@media screen and (max-width: 800px)": {
+    "@media screen and (max-width: 1100px)": {
       display: "none",
     },
   },
@@ -235,15 +230,15 @@ const useStyles = createUseStyles({
 
     alignItems: "center",
 
-    "@media screen and (max-width: 800px)": {
+    "@media screen and (max-width: 1100px)": {
       width: "80%",
     },
   },
   title: {
     color: colors.nav,
     fontSize: "3rem",
-    "@media screen and (max-width: 800px)": {
-      fontSize: "2rem",
+    "@media screen and (max-width: 700px)": {
+      fontSize: "2.2rem",
     },
   },
   form: {
