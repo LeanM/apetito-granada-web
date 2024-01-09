@@ -8,8 +8,12 @@ const useStyles = createUseStyles({
     height: "100%",
     zIndex: -1,
     backgroundSize: "cover",
+    borderRadius: "20px",
+    boxShadow: `0 0 10px ${colors.black}`,
 
     opacity: 0,
+
+    "&:hover": {},
 
     "@media screen and (max-width: 1100px)": {
       opacity: 1,
