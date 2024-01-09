@@ -4,6 +4,8 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import GalleryItem from "./GalleryItem";
 import NavMinimal from "../pagewrappers/NavMinimal";
+import Footer from "../pagewrappers/Footer";
+import { Placeholder } from "rsuite";
 
 export default function Gallery() {
   const navigate = useNavigate();
@@ -87,9 +89,13 @@ export default function Gallery() {
         </div>
         <div className={classes.galleryContainer}>
           <div className={classes.galleryColumn}>
-            {firstColumn.map((photo) => {
-              return <GalleryItem photo={photo} />;
-            })}
+            {photos.length === 0 ? (
+              <Placeholder.Graph active graph="image" />
+            ) : (
+              firstColumn.map((photo) => {
+                return <GalleryItem photo={photo} />;
+              })
+            )}
           </div>
           <div className={classes.galleryColumn}>
             {secondColumn.map((photo) => {
@@ -108,6 +114,7 @@ export default function Gallery() {
           </div>
         </div>
       </div>
+      <Footer />
     </>
   );
 }
@@ -121,7 +128,7 @@ const useStyles = createUseStyles({
     flexDirection: "column",
     gap: "2rem",
     fontFamily: "Poppins",
-    justifyContent: "center",
+    justifyContent: "flex-start",
     alignItems: "center",
     backgroundColor: colors.textNav,
   },
@@ -165,6 +172,7 @@ const useStyles = createUseStyles({
     flexDirection: "column",
     justifyContent: "flex-start",
     alignItems: "center",
+    marginBottom: "5rem",
     gap: "1rem",
   },
 });

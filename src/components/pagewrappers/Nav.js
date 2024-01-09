@@ -183,7 +183,7 @@ const useStyles = createUseStyles({
     transition: "background 0.5s, height 0.5s, border 0.5s",
 
     "@media screen and (max-width: 800px)": {
-      position: "absolute",
+      //position: "absolute",
     },
   },
   navBar: {

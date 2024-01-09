@@ -15,6 +15,7 @@ import Loader from "../loaders/Loader";
 import Nav from "../pagewrappers/Nav";
 import { Modal } from "rsuite";
 import MenuModal from "./categoryCards/MenuModal";
+import Footer from "../pagewrappers/Footer";
 
 export default function Home(props) {
   const { loading } = props;
@@ -146,6 +147,7 @@ export default function Home(props) {
         <div></div>
         <ReviewCarousel />
       </div>
+      <Footer />
     </>
   );
 }
