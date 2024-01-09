@@ -13,6 +13,7 @@ export default function AlterNav(props) {
   const [navStyle, setNavStyle] = useState({});
   const [navButtonStyle, setNavButtonStyle] = useState({});
   const [logoStyle, setLogoStyle] = useState({});
+  const [underlineStyle, setUnderlineStyle] = useState({});
 
   const [loginRegisterAccess, setLoginRegisterAccess] = useState([]);
 
@@ -28,7 +29,6 @@ export default function AlterNav(props) {
       className={classes.section}
       onMouseOver={handleMouseOver}
     >
-      <div className={classes.underline}></div>
       <nav className={classes.navBar}>
         <div className={classes.navBarList}>
           <div
@@ -38,14 +38,12 @@ export default function AlterNav(props) {
               navigate("/");
             }}
           >
-            <div className={classes.navBarListItemTextContainer}>
-              <p className={classes.navBarListItemText}>HOME</p>
-            </div>
+            <p className={classes.navBarListItemText}>HOME</p>
+            <div className={classes.navBarListItemTextUnderline}></div>
           </div>
           <div className={classes.navBarListItem} style={navButtonStyle}>
-            <div className={classes.navBarListItemTextContainer}>
-              <p className={classes.navBarListItemText}>BOOK</p>
-            </div>
+            <p className={classes.navBarListItemText}>BOOK</p>
+            <div className={classes.navBarListItemTextUnderline}></div>
           </div>
           <div className={classes.enterpriseListItem}>
             <div className={classes.enterpriseContainer}>
@@ -64,9 +62,8 @@ export default function AlterNav(props) {
               navigate("/contact");
             }}
           >
-            <div className={classes.navBarListItemTextContainer}>
-              <p className={classes.navBarListItemText}>CONTACT</p>
-            </div>
+            <p className={classes.navBarListItemText}>CONTACT</p>
+            <div className={classes.navBarListItemTextUnderline}></div>
           </div>
 
           <SideNav />
@@ -78,9 +75,8 @@ export default function AlterNav(props) {
               navigate("/gallery");
             }}
           >
-            <div className={classes.navBarListItemTextContainer}>
-              <p className={classes.navBarListItemText}>GALLERY</p>
-            </div>
+            <p className={classes.navBarListItemText}>GALLERY</p>
+            <div className={classes.navBarListItemTextUnderline}></div>
           </div>
         </div>
       </nav>
@@ -118,19 +114,6 @@ const useStyles = createUseStyles({
     top: "0",
     transition: "background 0.5s, height 0.5s, border 0.5s",
   },
-  underline: {
-    position: "absolute",
-    bottom: 0,
-    width: "55%",
-    height: "1px",
-    zIndex: "50",
-    backgroundColor: colors.nav,
-
-    "@media screen and (max-width: 800px)": {
-      bottom: "-20px",
-      width: "100%",
-    },
-  },
   navBar: {
     width: "60%",
     height: "80%",
@@ -164,12 +147,14 @@ const useStyles = createUseStyles({
     width: "20rem",
     height: "70%",
     display: "flex",
+    position: "relative",
     fontSize: "1rem",
     fontWeight: "200",
     marginTop: "auto",
     fontFamily: "Poppins",
     marginBottom: "auto",
     justifyContent: "center",
+    borderRadius: "20px 20px 0 0",
     color: colors.nav,
     alignItems: "center",
     textAlign: "center",
@@ -184,16 +169,25 @@ const useStyles = createUseStyles({
       display: "none",
     },
   },
+  navBarListItemTextUnderline: {
+    position: "absolute",
+    bottom: "-5px",
+    width: "50%",
+    height: "1px",
+    backgroundColor: colors.nav,
+  },
   navBarListItemTextContainer: {
     height: "110%",
+    width: "100%",
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
-    borderBottom: `1px solid ${colors.transparent}`,
+    borderRadius: "20px 20px 0px 0px",
+    borderBottom: `1px solid ${colors.nav}`,
     transition: "border 0.2s ease-in-out",
 
     "&:hover": {
-      borderBottom: `1px solid ${colors.nav}`,
+      backgroundColor: colors.navSecondary,
     },
   },
   navBarListItemText: {
