@@ -7,9 +7,12 @@ import NavMinimal from "../pagewrappers/NavMinimal";
 import Footer from "../pagewrappers/Footer";
 import { Placeholder } from "rsuite";
 import { motion, AnimatePresence } from "framer-motion";
+import { useLocation } from "react-router-dom";
 
 export default function Gallery() {
   const navigate = useNavigate();
+  const location = useLocation();
+  const from = location.state?.from?.pathname || "/";
   const classes = useStyles();
   const [photos, setPhotos] = useState([]);
   const [quantity, setQuantity] = useState(0);
@@ -84,7 +87,10 @@ export default function Gallery() {
       <NavMinimal />
       <div className={classes.container}>
         <div className={classes.backContainer}>
-          <button className={classes.backButton} onClick={() => navigate("/")}>
+          <button
+            className={classes.backButton}
+            onClick={() => navigate(from, { replace: true })}
+          >
             Go Back
           </button>
         </div>

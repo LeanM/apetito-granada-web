@@ -27,6 +27,7 @@ export default function AlterNav(props) {
       className={classes.section}
       onMouseOver={handleMouseOver}
     >
+      <div className={classes.underline}></div>
       <nav className={classes.navBar}>
         <div className={classes.navBarList}>
           <div
@@ -106,15 +107,28 @@ const useStyles = createUseStyles({
     width: "100%",
     height: "5rem",
     display: "flex",
-    position: "absolute",
+    position: "relative",
     justifyContent: "center",
     backgroundColor: colors.transparent,
-    //borderBottom: `solid 1px ${colors.black}`,
+    //borderBottom: `solid 2px ${colors.nav}`,
     alignItems: "center",
     zIndex: "100",
     marginTop: "0.5rem",
     top: "0",
     transition: "background 0.5s, height 0.5s, border 0.5s",
+  },
+  underline: {
+    position: "absolute",
+    bottom: 0,
+    width: "58%",
+    height: "1px",
+    zIndex: "50",
+    backgroundColor: colors.nav,
+
+    "@media screen and (max-width: 800px)": {
+      bottom: "-20px",
+      width: "100%",
+    },
   },
   navBar: {
     width: "60%",
@@ -125,6 +139,7 @@ const useStyles = createUseStyles({
     justifyContent: "space-evenly",
     alignItems: "center",
     gap: "5rem",
+    zIndex: "100",
 
     "@media screen and (max-width: 800px)": {
       width: "90%",
