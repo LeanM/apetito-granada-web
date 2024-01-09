@@ -22,9 +22,7 @@ export default function Footer() {
             <p className={classes.contactItem}>apetitogranadagmail.com</p>
           </div>
         </div>
-        <div
-          style={{ height: "80%", width: "1px", backgroundColor: colors.white }}
-        ></div>
+        <div className={classes.separation}></div>
         <div className={classes.bookContainer}>
           <img src={logo} className={classes.image}></img>
           <Button
@@ -44,6 +42,10 @@ const useStyles = createUseStyles({
     width: "100%",
     height: "40vh",
     fontFamily: "Poppins",
+
+    "@media screen and (max-width: 600px)": {
+      height: "80vh",
+    },
   },
   subContainer: {
     width: "100%",
@@ -52,6 +54,21 @@ const useStyles = createUseStyles({
     justifyContent: "space-evenly",
     alignItems: "center",
     backgroundColor: colors.nav,
+
+    "@media screen and (max-width: 600px)": {
+      flexDirection: "column",
+      justifyContent: "center",
+      gap: "1rem",
+    },
+  },
+  separation: {
+    height: "80%",
+    width: "1px",
+    backgroundColor: colors.textNav,
+
+    "@media screen and (max-width: 600px)": {
+      display: "none",
+    },
   },
   contactContainer: {
     width: "40%",
@@ -94,7 +111,6 @@ const useStyles = createUseStyles({
     "@media screen and (max-width: 500px)": {
       height: "5rem",
       width: "5rem",
-      marginBottom: "8rem",
     },
   },
   button: {

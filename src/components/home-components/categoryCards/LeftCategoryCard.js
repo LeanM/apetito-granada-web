@@ -32,7 +32,9 @@ export default function LeftCategoryCard(props) {
 
         <div className={specificClasses.dataContainer} style={{}}>
           <div className={specificClasses.infoContainer}>
-            <div style={{ fontWeight: "800", fontSize: "2rem", height: "50%" }}>
+            <div
+              style={{ fontWeight: "800", fontSize: "1.7rem", height: "50%" }}
+            >
               {props.categoryData}
             </div>
             <p style={{ height: "40%" }}>
@@ -45,9 +47,16 @@ export default function LeftCategoryCard(props) {
             </button>
             <Whisper
               trigger="hover"
-              placement={"top"}
+              placement={"bottom"}
               speaker={
-                <Tooltip style={{}}>
+                <Tooltip
+                  style={{
+                    fontSize: "0.7rem",
+                    fontFamily: "Poppins",
+                    textAlign: "center",
+                    borderRadius: "20px",
+                  }}
+                >
                   Añade este menu a la lista de interesados!
                 </Tooltip>
               }
@@ -82,11 +91,10 @@ const specificStyle = createUseStyles({
     "@media screen and (max-width: 1100px)": {},
 
     "@media screen and (max-width: 900px)": {
-      marginBottom: "0rem",
-      width: "100%",
-      borderBottom: `solid 5px ${colors.nav}`,
-      borderLeft: `solid 5px ${colors.nav}`,
-      height: "50vh",
+      width: "97%",
+      //borderBottom: `solid 5px ${colors.nav}`,
+      //borderLeft: `solid 5px ${colors.nav}`,
+      height: "70vh",
     },
   },
   dataContainer: {
@@ -108,16 +116,15 @@ const specificStyle = createUseStyles({
     "@media screen and (max-width: 1100px)": {
       width: "80%",
       height: "80%",
-      borderTop: `solid 5px ${colors.nav}`,
+      borderRight: `solid 20px ${colors.nav}`,
       border: `solid 1px ${colors.nav}`,
-      color: "white",
-      textShadow: "black 0 0 10px",
-      backgroundColor: colors.navSemiTransparent,
+      color: colors.white,
+
+      backgroundColor: colors.textNavSemiTransparent,
     },
 
     "@media screen and (max-width: 500px)": {
-      width: "100%",
-      border: "none",
+      width: "95%",
       padding: "10px",
       //borderTop:`solid 5px ${colors.nav}`,
     },
@@ -126,13 +133,21 @@ const specificStyle = createUseStyles({
   infoContainer: {
     width: "90%",
     height: "50%",
-    backgroundColor: colors.white,
     padding: "10px",
+    backgroundColor: colors.textNav,
     borderRadius: "20px",
+    borderLeft: `solid 15px ${colors.nav}`,
     color: colors.nav,
     display: "flex",
     flexDirection: "column",
     justifyContent: "center",
     alignItems: "center",
+    textAlign: "center",
+
+    "@media screen and (max-width: 1100px)": {
+      backgroundColor: colors.textNavLowTransparent,
+      color: colors.nav,
+      borderLeft: `solid 15px ${colors.nav}`,
+    },
   },
 });

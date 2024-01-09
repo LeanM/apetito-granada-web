@@ -16,7 +16,7 @@ export default function Contact() {
     name: "",
     email: "",
     date: "",
-    time: "",
+    people: "",
     description: "",
   });
   const classes = useStyles();
@@ -52,10 +52,11 @@ export default function Contact() {
 
     {
       id: 4,
-      name: "time",
-      type: "time",
-      placeholder: "Select Event Time",
-      label: "Event Time",
+      name: "people",
+      type: "text",
+      placeholder: "Specify aproximated number of people",
+      label: "People Number",
+      required: true,
     },
     {
       id: 5,
@@ -88,7 +89,7 @@ export default function Contact() {
     if (values.name !== "") newCompletion += 25;
     if (values.email !== "") newCompletion += 25;
     if (values.date !== "") newCompletion += 25;
-    if (values.time !== "") newCompletion += 25;
+    if (values.people !== "") newCompletion += 25;
 
     setCompletion(newCompletion);
   };
@@ -193,10 +194,6 @@ const useStyles = createUseStyles({
     justifyContent: "center",
     alignItems: "center",
     marginTop: "3rem",
-
-    "@media screen and (max-width: 1000px)": {
-      height: "250vh",
-    },
   },
   subContainer: {
     width: "95%",
@@ -209,8 +206,7 @@ const useStyles = createUseStyles({
     marginTop: "5rem",
     overflow: "hidden",
 
-    "@media screen and (max-width: 800px)": {
-      border: `solid 2px ${colors.nav}`,
+    "@media screen and (max-width: 1100px)": {
       borderLeft: `solid 20px ${colors.nav}`,
     },
   },
@@ -221,7 +217,7 @@ const useStyles = createUseStyles({
     backgroundSize: "cover",
     borderLeft: `solid 20px ${colors.nav}`,
 
-    "@media screen and (max-width: 800px)": {
+    "@media screen and (max-width: 1100px)": {
       display: "none",
     },
   },
@@ -234,15 +230,16 @@ const useStyles = createUseStyles({
 
     alignItems: "center",
 
-    "@media screen and (max-width: 800px)": {
+    "@media screen and (max-width: 1100px)": {
       width: "80%",
+      paddingRight: "20px",
     },
   },
   title: {
     color: colors.nav,
     fontSize: "3rem",
-    "@media screen and (max-width: 800px)": {
-      fontSize: "2rem",
+    "@media screen and (max-width: 700px)": {
+      fontSize: "2.2rem",
     },
   },
   form: {
@@ -287,7 +284,7 @@ const useStyles = createUseStyles({
   submitButton: {
     width: "8rem",
     height: "4rem",
-    borderRadius: "5px",
+    borderRadius: "20px",
     fontWeight: "400",
 
     border: `solid 1px ${colors.navLight}`,

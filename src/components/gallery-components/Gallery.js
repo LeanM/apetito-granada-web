@@ -6,9 +6,13 @@ import GalleryItem from "./GalleryItem";
 import NavMinimal from "../pagewrappers/NavMinimal";
 import Footer from "../pagewrappers/Footer";
 import { Placeholder } from "rsuite";
+import { motion, AnimatePresence } from "framer-motion";
+import { useLocation } from "react-router-dom";
 
 export default function Gallery() {
   const navigate = useNavigate();
+  const location = useLocation();
+  const from = location.state?.from?.pathname || "/";
   const classes = useStyles();
   const [photos, setPhotos] = useState([]);
   const [quantity, setQuantity] = useState(0);
@@ -83,35 +87,34 @@ export default function Gallery() {
       <NavMinimal />
       <div className={classes.container}>
         <div className={classes.backContainer}>
-          <button className={classes.backButton} onClick={() => navigate("/")}>
+          <button
+            className={classes.backButton}
+            onClick={() => navigate(from, { replace: true })}
+          >
             Go Back
           </button>
         </div>
         <div className={classes.galleryContainer}>
-          <div className={classes.galleryColumn}>
-            {photos.length === 0 ? (
-              <Placeholder.Graph active graph="image" />
-            ) : (
-              firstColumn.map((photo) => {
-                return <GalleryItem photo={photo} />;
-              })
-            )}
-          </div>
-          <div className={classes.galleryColumn}>
+          <motion.div layout className={classes.galleryColumn}>
+            {firstColumn.map((photo) => {
+              return <GalleryItem photo={photo} />;
+            })}
+          </motion.div>
+          <motion.div layout className={classes.galleryColumn}>
             {secondColumn.map((photo) => {
               return <GalleryItem photo={photo} />;
             })}
-          </div>
-          <div className={classes.galleryColumn}>
+          </motion.div>
+          <motion.div layout className={classes.galleryColumn}>
             {thirdColumn.map((photo) => {
               return <GalleryItem photo={photo} />;
             })}
-          </div>
-          <div className={classes.galleryColumn}>
+          </motion.div>
+          <motion.div layout className={classes.galleryColumn}>
             {fourthColumn.map((photo) => {
               return <GalleryItem photo={photo} />;
             })}
-          </div>
+          </motion.div>
         </div>
       </div>
       <Footer />
@@ -163,6 +166,7 @@ const useStyles = createUseStyles({
     display: "flex",
     justifyContent: "center",
     alignItems: "flex-start",
+    flexWrap: "wrap",
     gap: "1rem",
   },
   galleryColumn: {
@@ -174,5 +178,13 @@ const useStyles = createUseStyles({
     alignItems: "center",
     marginBottom: "5rem",
     gap: "1rem",
+
+    "@media screen and (max-width: 1000px)": {
+      width: "40%",
+    },
+
+    "@media screen and (max-width: 1000px)": {
+      width: "70%",
+    },
   },
 });

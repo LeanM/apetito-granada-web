@@ -80,10 +80,11 @@ const useStyles = createUseStyles({
     },
   },
   titleText: {
-    fontSize: "1.8rem",
+    fontSize: "1.7rem",
     fontWeight: "800",
     color: colors.black,
     marginTop: "1rem",
+    fontFamily: "Poppins",
   },
   container: {
     height: "90%",
@@ -192,8 +193,12 @@ const useStyles = createUseStyles({
       fontSize: "0.9rem",
     },
 
+    "@media screen and (max-width: 750px)": {
+      fontSize: "0.8rem",
+    },
+
     "@media screen and (max-width: 600px)": {
-      fontSize: "0.6rem",
+      fontSize: "0.65rem",
     },
   },
 });
