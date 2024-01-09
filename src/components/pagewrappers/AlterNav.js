@@ -90,6 +90,7 @@ const useStyles = createUseStyles({
   container: {
     width: "100%",
     height: "100%",
+    fontFamily: "Poppins",
   },
   background: {
     backgroundColor: "white",
@@ -110,7 +111,8 @@ const useStyles = createUseStyles({
     backgroundColor: colors.transparent,
     //borderBottom: `solid 1px ${colors.black}`,
     alignItems: "center",
-    zIndex: "1000",
+    zIndex: "100",
+    marginTop: "0.5rem",
     top: "0",
     transition: "background 0.5s, height 0.5s, border 0.5s",
   },
@@ -149,6 +151,7 @@ const useStyles = createUseStyles({
     fontSize: "1rem",
     fontWeight: "600",
     marginTop: "auto",
+    fontFamily: "Poppins",
     marginBottom: "auto",
     justifyContent: "center",
     color: colors.black,
@@ -166,12 +169,11 @@ const useStyles = createUseStyles({
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
-    //borderBottom: `1px solid ${colors.black}`,
+    borderBottom: `1px solid ${colors.transparent}`,
     transition: "border 0.2s ease-in-out",
 
     "&:hover": {
-      borderColor: colors.textNav,
-      color: colors.textNav,
+      borderBottom: `1px solid ${colors.black}`,
     },
   },
   navBarListItemText: {

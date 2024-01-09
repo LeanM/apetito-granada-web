@@ -7,6 +7,7 @@ import { colors } from "../../assets/colors";
 import ProgressBar from "@ramonak/react-progress-bar";
 import { Button } from "rsuite";
 import MenuList from "./MenuList";
+import Footer from "../pagewrappers/Footer";
 
 export default function Contact() {
   const formRef = useRef(null);
@@ -177,6 +178,7 @@ export default function Contact() {
           </div>
         </div>
       </div>
+      <Footer />
     </>
   );
 }
