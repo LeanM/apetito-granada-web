@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import GalleryItem from "./GalleryItem";
 import NavMinimal from "../pagewrappers/NavMinimal";
+import Footer from "../pagewrappers/Footer";
 
 export default function Gallery() {
   const navigate = useNavigate();
@@ -108,6 +109,7 @@ export default function Gallery() {
           </div>
         </div>
       </div>
+      <Footer />
     </>
   );
 }
@@ -165,6 +167,7 @@ const useStyles = createUseStyles({
     flexDirection: "column",
     justifyContent: "flex-start",
     alignItems: "center",
+    marginBottom: "5rem",
     gap: "1rem",
   },
 });

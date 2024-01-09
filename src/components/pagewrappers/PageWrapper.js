@@ -18,7 +18,7 @@ export default function PageWrapper(props) {
   }, []);
 
   const listenToScroll = () => {
-    if (window.pageYOffset > 950) {
+    if (window.pageYOffset > 550) {
       setShowScrollButton(true);
     } else setShowScrollButton(false);
   };
@@ -32,7 +32,7 @@ export default function PageWrapper(props) {
         }}
         className={classes.scrollButton}
         onClick={() => {
-          window.scrollTo(0, 750);
+          window.scrollTo(0, 0);
         }}
       >
         ▲
