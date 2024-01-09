@@ -5,6 +5,7 @@ import { createUseStyles } from "react-jss";
 import logo from "../../assets/apetito.png";
 import { colors } from "../../assets/colors";
 import { useNavigate } from "react-router-dom";
+import SideNav from "./SideNav";
 
 export default function Nav(props) {
   const navigate = useNavigate();
@@ -136,7 +137,7 @@ export default function Nav(props) {
             </div>
           </div>
 
-          <DropdownNav />
+          <SideNav />
 
           <div
             style={navButtonStyle}
@@ -221,7 +222,7 @@ const useStyles = createUseStyles({
     display: "flex",
     fontSize: "1rem",
     fontFamily: "Poppins",
-    fontWeight: "600",
+    fontWeight: "200",
     marginTop: "auto",
     marginBottom: "auto",
     justifyContent: "center",

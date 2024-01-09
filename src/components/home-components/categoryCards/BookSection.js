@@ -94,6 +94,7 @@ const useStyles = createUseStyles({
   text: {
     color: colors.nav,
     fontSize: "2rem",
+    fontWeight: "200",
     height: "50%",
 
     "@media screen and (max-width: 900px)": {

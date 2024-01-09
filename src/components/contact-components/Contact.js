@@ -232,6 +232,7 @@ const useStyles = createUseStyles({
 
     "@media screen and (max-width: 1100px)": {
       width: "80%",
+      paddingRight: "20px",
     },
   },
   title: {

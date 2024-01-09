@@ -5,6 +5,7 @@ import { createUseStyles } from "react-jss";
 import logo from "../../assets/apetito.png";
 import { colors } from "../../assets/colors";
 import { useNavigate } from "react-router-dom";
+import SideNav from "./SideNav";
 
 export default function AlterNav(props) {
   const navigate = useNavigate();
@@ -68,7 +69,7 @@ export default function AlterNav(props) {
             </div>
           </div>
 
-          <DropdownNav />
+          <SideNav />
 
           <div
             style={navButtonStyle}
@@ -120,7 +121,7 @@ const useStyles = createUseStyles({
   underline: {
     position: "absolute",
     bottom: 0,
-    width: "58%",
+    width: "55%",
     height: "1px",
     zIndex: "50",
     backgroundColor: colors.nav,
@@ -153,18 +154,18 @@ const useStyles = createUseStyles({
     marginBottom: "auto",
     justifyContent: "center",
     alignItems: "center",
-    gap: "2rem",
+    gap: "1rem",
 
     "@media screen and (max-width: 800px)": {
-      justifyContent: "space-around",
+      justifyContent: "center",
     },
   },
   navBarListItem: {
-    width: "10rem",
+    width: "20rem",
     height: "70%",
     display: "flex",
     fontSize: "1rem",
-    fontWeight: "600",
+    fontWeight: "200",
     marginTop: "auto",
     fontFamily: "Poppins",
     marginBottom: "auto",
@@ -174,6 +175,10 @@ const useStyles = createUseStyles({
     textAlign: "center",
     cursor: "pointer",
     backgroundColor: colors.transparent,
+
+    "@media screen and (max-width: 950px)": {
+      width: "12rem",
+    },
 
     "@media screen and (max-width: 800px)": {
       display: "none",
@@ -196,7 +201,7 @@ const useStyles = createUseStyles({
     transition: "color 0.3s",
   },
   enterpriseListItem: {
-    maxWidth: "25rem",
+    width: "25rem",
     height: "90%",
     display: "flex",
     fontSize: "1rem",
@@ -228,8 +233,8 @@ const useStyles = createUseStyles({
     },
 
     "@media screen and (max-width: 500px)": {
-      width: "5.5rem",
-      height: "5.5rem",
+      width: "6rem",
+      height: "6rem",
     },
   },
   logo: {
