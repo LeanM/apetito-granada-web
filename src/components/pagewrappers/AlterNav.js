@@ -5,6 +5,7 @@ import { createUseStyles } from "react-jss";
 import logo from "../../assets/apetito.png";
 import { colors } from "../../assets/colors";
 import { useNavigate } from "react-router-dom";
+import SideNav from "./SideNav";
 
 export default function AlterNav(props) {
   const navigate = useNavigate();
@@ -27,6 +28,7 @@ export default function AlterNav(props) {
       className={classes.section}
       onMouseOver={handleMouseOver}
     >
+      <div className={classes.underline}></div>
       <nav className={classes.navBar}>
         <div className={classes.navBarList}>
           <div
@@ -42,7 +44,7 @@ export default function AlterNav(props) {
           </div>
           <div className={classes.navBarListItem} style={navButtonStyle}>
             <div className={classes.navBarListItemTextContainer}>
-              <p className={classes.navBarListItemText}>ORDER</p>
+              <p className={classes.navBarListItemText}>BOOK</p>
             </div>
           </div>
           <div className={classes.enterpriseListItem}>
@@ -67,7 +69,7 @@ export default function AlterNav(props) {
             </div>
           </div>
 
-          <DropdownNav />
+          <SideNav />
 
           <div
             style={navButtonStyle}
@@ -106,15 +108,28 @@ const useStyles = createUseStyles({
     width: "100%",
     height: "5rem",
     display: "flex",
-    position: "absolute",
+    position: "relative",
     justifyContent: "center",
     backgroundColor: colors.transparent,
-    //borderBottom: `solid 1px ${colors.black}`,
+    //borderBottom: `solid 2px ${colors.nav}`,
     alignItems: "center",
     zIndex: "100",
     marginTop: "0.5rem",
     top: "0",
     transition: "background 0.5s, height 0.5s, border 0.5s",
+  },
+  underline: {
+    position: "absolute",
+    bottom: 0,
+    width: "55%",
+    height: "1px",
+    zIndex: "50",
+    backgroundColor: colors.nav,
+
+    "@media screen and (max-width: 800px)": {
+      bottom: "-20px",
+      width: "100%",
+    },
   },
   navBar: {
     width: "60%",
@@ -125,6 +140,7 @@ const useStyles = createUseStyles({
     justifyContent: "space-evenly",
     alignItems: "center",
     gap: "5rem",
+    zIndex: "100",
 
     "@media screen and (max-width: 800px)": {
       width: "90%",
@@ -138,27 +154,31 @@ const useStyles = createUseStyles({
     marginBottom: "auto",
     justifyContent: "center",
     alignItems: "center",
-    gap: "2rem",
+    gap: "1rem",
 
     "@media screen and (max-width: 800px)": {
-      justifyContent: "space-around",
+      justifyContent: "center",
     },
   },
   navBarListItem: {
-    width: "10rem",
+    width: "20rem",
     height: "70%",
     display: "flex",
     fontSize: "1rem",
-    fontWeight: "600",
+    fontWeight: "200",
     marginTop: "auto",
     fontFamily: "Poppins",
     marginBottom: "auto",
     justifyContent: "center",
-    color: colors.black,
+    color: colors.nav,
     alignItems: "center",
     textAlign: "center",
     cursor: "pointer",
     backgroundColor: colors.transparent,
+
+    "@media screen and (max-width: 950px)": {
+      width: "12rem",
+    },
 
     "@media screen and (max-width: 800px)": {
       display: "none",
@@ -173,7 +193,7 @@ const useStyles = createUseStyles({
     transition: "border 0.2s ease-in-out",
 
     "&:hover": {
-      borderBottom: `1px solid ${colors.black}`,
+      borderBottom: `1px solid ${colors.nav}`,
     },
   },
   navBarListItemText: {
@@ -181,7 +201,7 @@ const useStyles = createUseStyles({
     transition: "color 0.3s",
   },
   enterpriseListItem: {
-    maxWidth: "25rem",
+    width: "25rem",
     height: "90%",
     display: "flex",
     fontSize: "1rem",
@@ -213,8 +233,8 @@ const useStyles = createUseStyles({
     },
 
     "@media screen and (max-width: 500px)": {
-      width: "5.5rem",
-      height: "5.5rem",
+      width: "6rem",
+      height: "6rem",
     },
   },
   logo: {

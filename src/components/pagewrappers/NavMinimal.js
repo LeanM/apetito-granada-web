@@ -57,6 +57,7 @@ const useStyles = createUseStyles({
     justifyContent: "center",
     alignItems: "center",
     zIndex: "1000",
+    marginTop: "0.5rem",
     top: "0",
     transition: "background 0.5s, height 0.5s, border 0.5s",
 

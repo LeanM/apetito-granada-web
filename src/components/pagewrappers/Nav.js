@@ -5,6 +5,7 @@ import { createUseStyles } from "react-jss";
 import logo from "../../assets/apetito.png";
 import { colors } from "../../assets/colors";
 import { useNavigate } from "react-router-dom";
+import SideNav from "./SideNav";
 
 export default function Nav(props) {
   const navigate = useNavigate();
@@ -16,7 +17,7 @@ export default function Nav(props) {
   const [loginRegisterAccess, setLoginRegisterAccess] = useState([]);
 
   const classes = useStyles();
-
+  /*
   useEffect(() => {
     setNavStyle(styleNavBarTransparent);
     setNavButtonStyle(styleButtonsTransparent);
@@ -30,7 +31,7 @@ export default function Nav(props) {
       window.removeEventListener("resize", listenToScroll);
     };
   }, []);
-
+  */
   const listenToScroll = () => {
     if (window.innerWidth > 800) {
       if (window.pageYOffset <= 50) {
@@ -136,7 +137,7 @@ export default function Nav(props) {
             </div>
           </div>
 
-          <DropdownNav />
+          <SideNav />
 
           <div
             style={navButtonStyle}
@@ -178,6 +179,7 @@ const useStyles = createUseStyles({
     position: "absolute",
     justifyContent: "center",
     alignItems: "center",
+    marginTop: "0.5rem",
     zIndex: "1000",
     top: "0",
     transition: "background 0.5s, height 0.5s, border 0.5s",
@@ -220,7 +222,7 @@ const useStyles = createUseStyles({
     display: "flex",
     fontSize: "1rem",
     fontFamily: "Poppins",
-    fontWeight: "600",
+    fontWeight: "200",
     marginTop: "auto",
     marginBottom: "auto",
     justifyContent: "center",

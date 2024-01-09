@@ -52,7 +52,9 @@ const useStyles = createUseStyles({
     justifyContent: "center",
     alignItems: "center",
     flexDirection: "column",
-    paddingTop:"4rem",
+    paddingTop: "4rem",
+
+    borderRadius: "20px",
 
     borderLeft: `solid 20px ${colors.nav}`,
     borderRight: `solid 20px ${colors.nav}`,
@@ -60,19 +62,21 @@ const useStyles = createUseStyles({
     borderBottom: `solid 2px ${colors.nav}`,
     //boxShadow: "black 0 0 10px",
   },
-  image:{
-    position:"absolute", width:"7rem", height:"7rem", marginBottom:"10rem",
-  
+  image: {
+    position: "absolute",
+    width: "7rem",
+    height: "7rem",
+    marginBottom: "10rem",
+
     "@media screen and (max-width: 800px)": {
       height: "6rem",
-      width:"6rem",
-     
+      width: "6rem",
     },
 
     "@media screen and (max-width: 500px)": {
       height: "5rem",
-      width:"5rem",
-      marginBottom:"8rem"
+      width: "5rem",
+      marginBottom: "8rem",
     },
   },
   textContainer: {
@@ -84,22 +88,21 @@ const useStyles = createUseStyles({
 
     "@media screen and (max-width: 500px)": {
       height: "25%",
-      marginBottom:"1.5rem"
+      marginBottom: "1.5rem",
     },
   },
   text: {
     color: colors.nav,
     fontSize: "2rem",
+    fontWeight: "200",
     height: "50%",
 
     "@media screen and (max-width: 900px)": {
       fontSize: "1.7rem",
- 
     },
 
     "@media screen and (max-width: 500px)": {
       fontSize: "1.2rem",
-    
     },
   },
   buttonContainer: {
@@ -111,13 +114,13 @@ const useStyles = createUseStyles({
   },
   button: {
     width: "10rem",
-    backgroundColor: colors.textNav,
+
     border: `solid 1px ${colors.navLight}`,
-    color: colors.nav,
+    backgroundColor: colors.nav,
+    color: colors.textNav,
     "&:hover": {
-      backgroundColor: colors.nav,
-      border: `solid 1px ${colors.navLight}`,
-      color: colors.textNav,
+      backgroundColor: colors.textNav,
+      color: colors.nav,
     },
 
     "@media screen and (max-width: 700px)": {
