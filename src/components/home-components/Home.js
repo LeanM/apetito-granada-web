@@ -81,8 +81,7 @@ export default function Home(props) {
         <div className={classes.homeBody}>
           <div className={classes.categoryCarouselContainer}>
             <p className={classes.categoryCarouselText}>
-              Observe nuestros distintos tipos de menus disponibles por nuestro
-              servicio!
+              Observe nuestros distintos tipos de menus disponibles!
             </p>
             <CategoryCarousel categoriesData={categories} />
           </div>
@@ -188,8 +187,8 @@ const useStyles = createUseStyles({
   },
   categoryCarouselText: {
     textAlign: "center",
-    fontSize: "1.2rem",
-    color: colors.black,
+    fontSize: "1rem",
+    color: colors.nav,
 
     "@media screen and (max-width: 600px)": {
       fontSize: "1rem",

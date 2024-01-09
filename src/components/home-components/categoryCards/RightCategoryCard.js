@@ -21,7 +21,9 @@ export default function RightCategoryCard(props) {
       <div className={classes.innerRightContainer}>
         <div className={specificClasses.dataContainer} style={{}}>
           <div className={specificClasses.infoContainer}>
-            <div style={{ fontWeight: "800", fontSize: "2rem", height: "50%" }}>
+            <div
+              style={{ fontWeight: "800", fontSize: "1.7rem", height: "50%" }}
+            >
               {props.categoryData}
             </div>
             <p style={{ height: "40%" }}>
@@ -34,9 +36,16 @@ export default function RightCategoryCard(props) {
             </button>
             <Whisper
               trigger="hover"
-              placement={"top"}
+              placement={"bottom"}
               speaker={
-                <Tooltip style={{}}>
+                <Tooltip
+                  style={{
+                    fontSize: "0.7rem",
+                    fontFamily: "Poppins",
+                    textAlign: "center",
+                    borderRadius: "20px",
+                  }}
+                >
                   Añade este menu a la lista de interesados!
                 </Tooltip>
               }
@@ -127,5 +136,6 @@ const specificStyle = createUseStyles({
     flexDirection: "column",
     justifyContent: "center",
     alignItems: "center",
+    textAlign: "center",
   },
 });

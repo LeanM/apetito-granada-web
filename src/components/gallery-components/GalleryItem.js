@@ -2,6 +2,7 @@ import { color } from "framer-motion";
 import { useEffect, useState } from "react";
 import { createUseStyles } from "react-jss";
 import { colors } from "../../assets/colors";
+import { motion } from "framer-motion";
 
 export default function GalleryItem(props) {
   const classes = useStyles();
@@ -15,7 +16,12 @@ export default function GalleryItem(props) {
   };
 
   return (
-    <div
+    <motion.div
+      layout
+      animate={{ opacity: 1 }}
+      initial={{ opacity: 0 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: 0.7 }}
       className={classes.galleryItem}
       onMouseOver={() => setOverlayStyle(overlayHover)}
       onMouseOut={() => setOverlayStyle({ opacity: 0 })}
@@ -27,7 +33,7 @@ export default function GalleryItem(props) {
       <div className={classes.photoOverlay} style={overlayStyle}>
         <p>{photo}</p>
       </div>
-    </div>
+    </motion.div>
   );
 }
 
@@ -46,7 +52,7 @@ const useStyles = createUseStyles({
 
     zIndex: "100",
 
-    transition: "transform 0.5s",
+    transition: "transform 0.3s",
 
     "&:hover": {
       transform: "scale(1.05)",
@@ -73,9 +79,9 @@ const useStyles = createUseStyles({
     right: 0,
     zIndex: "50",
 
-    backgroundColor: colors.black,
+    backgroundColor: colors.nav,
 
-    transition: "height 0.5s, opacity 0.5s",
+    transition: "height 0.3s, opacity 0.3s",
 
     "&:hover": {
       opacity: 1,

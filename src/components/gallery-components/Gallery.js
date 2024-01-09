@@ -6,6 +6,7 @@ import GalleryItem from "./GalleryItem";
 import NavMinimal from "../pagewrappers/NavMinimal";
 import Footer from "../pagewrappers/Footer";
 import { Placeholder } from "rsuite";
+import { motion, AnimatePresence } from "framer-motion";
 
 export default function Gallery() {
   const navigate = useNavigate();
@@ -88,30 +89,26 @@ export default function Gallery() {
           </button>
         </div>
         <div className={classes.galleryContainer}>
-          <div className={classes.galleryColumn}>
-            {photos.length === 0 ? (
-              <Placeholder.Graph active graph="image" />
-            ) : (
-              firstColumn.map((photo) => {
-                return <GalleryItem photo={photo} />;
-              })
-            )}
-          </div>
-          <div className={classes.galleryColumn}>
+          <motion.div layout className={classes.galleryColumn}>
+            {firstColumn.map((photo) => {
+              return <GalleryItem photo={photo} />;
+            })}
+          </motion.div>
+          <motion.div layout className={classes.galleryColumn}>
             {secondColumn.map((photo) => {
               return <GalleryItem photo={photo} />;
             })}
-          </div>
-          <div className={classes.galleryColumn}>
+          </motion.div>
+          <motion.div layout className={classes.galleryColumn}>
             {thirdColumn.map((photo) => {
               return <GalleryItem photo={photo} />;
             })}
-          </div>
-          <div className={classes.galleryColumn}>
+          </motion.div>
+          <motion.div layout className={classes.galleryColumn}>
             {fourthColumn.map((photo) => {
               return <GalleryItem photo={photo} />;
             })}
-          </div>
+          </motion.div>
         </div>
       </div>
       <Footer />

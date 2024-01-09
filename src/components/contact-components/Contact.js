@@ -16,7 +16,7 @@ export default function Contact() {
     name: "",
     email: "",
     date: "",
-    time: "",
+    people: "",
     description: "",
   });
   const classes = useStyles();
@@ -52,10 +52,11 @@ export default function Contact() {
 
     {
       id: 4,
-      name: "time",
-      type: "time",
-      placeholder: "Select Event Time",
-      label: "Event Time",
+      name: "people",
+      type: "text",
+      placeholder: "Specify aproximated number of people",
+      label: "People Number",
+      required: true,
     },
     {
       id: 5,
@@ -88,7 +89,7 @@ export default function Contact() {
     if (values.name !== "") newCompletion += 25;
     if (values.email !== "") newCompletion += 25;
     if (values.date !== "") newCompletion += 25;
-    if (values.time !== "") newCompletion += 25;
+    if (values.people !== "") newCompletion += 25;
 
     setCompletion(newCompletion);
   };
@@ -287,7 +288,7 @@ const useStyles = createUseStyles({
   submitButton: {
     width: "8rem",
     height: "4rem",
-    borderRadius: "5px",
+    borderRadius: "20px",
     fontWeight: "400",
 
     border: `solid 1px ${colors.navLight}`,

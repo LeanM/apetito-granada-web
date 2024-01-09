@@ -2,11 +2,12 @@ import { createUseStyles } from "react-jss";
 import { colors } from "../../assets/colors";
 import { useContext } from "react";
 import CartContext from "../../context/CartProvider";
+import toast from "react-hot-toast";
 
 export default function MenuList() {
   const classes = useStyles();
-  const { cart } = useContext(CartContext);
-  console.log(cart);
+  const { cart, removeFromCart } = useContext(CartContext);
+
   return (
     <div className={classes.container}>
       {cart.map((menu) => {
@@ -20,7 +21,15 @@ export default function MenuList() {
               ></img>
               <p className={classes.itemText}>{menu.categoryMenu}</p>
             </div>
-            <button className={classes.removeButton}>X</button>
+            <button
+              className={classes.removeButton}
+              onClick={() => {
+                removeFromCart(menu);
+                toast.error("Removed menu from interest!");
+              }}
+            >
+              X
+            </button>
           </div>
         );
       })}
@@ -37,7 +46,7 @@ const useStyles = createUseStyles({
     flexDirection: "column",
     justifyContent: "flex-start",
     border: `solid 2px ${colors.nav}`,
-    backgroundColor: colors.textNav,
+    backgroundColor: colors.nav,
     overflowY: "scroll",
     padding: "10px",
     fontFamily: "Poppins",
@@ -52,9 +61,8 @@ const useStyles = createUseStyles({
     fontSize: "0.9rem",
     fontWeight: "700",
     borderRadius: "5px",
-    backgroundColor: colors.textNav,
+    backgroundColor: colors.nav,
     gap: "1rem",
-    color: colors.nav,
   },
   item: {
     width: "90%",
@@ -64,15 +72,15 @@ const useStyles = createUseStyles({
     justifyContent: "flex-start",
     alignItems: "center",
     borderRadius: "5px",
-    backgroundColor: colors.textNav,
+    backgroundColor: colors.nav,
     gap: "1rem",
-    color: colors.nav,
+    color: colors.white,
 
     transition: "background 0.5s, color 0.5s",
 
     "&:hover": {
-      backgroundColor: colors.nav,
-      color: colors.white,
+      backgroundColor: colors.textNav,
+      color: colors.nav,
     },
   },
   itemImage: {
@@ -88,14 +96,14 @@ const useStyles = createUseStyles({
     width: "10%",
     height: "80%",
 
-    borderRadius: "5px",
-    border: `solid 1px ${colors.nav}`,
-    backgroundColor: colors.textNav,
-    color: colors.nav,
+    borderRadius: "20px",
+    border: `solid 1px ${colors.textNav}`,
+    backgroundColor: colors.nav,
+    color: colors.white,
 
     "&:hover": {
-      backgroundColor: colors.nav,
-      color: colors.white,
+      backgroundColor: colors.textNav,
+      color: colors.nav,
     },
   },
 });

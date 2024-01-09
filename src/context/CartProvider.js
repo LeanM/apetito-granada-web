@@ -34,6 +34,18 @@ export const CartProvider = ({ children }) => {
     }
   };
 
+  const removeFromCart = (menuToDelete) => {
+    let updatedCart = [];
+    if (menuToDelete !== "") {
+      cart.map((menu) => {
+        if (menu !== menuToDelete) updatedCart.push(menu);
+        return 0;
+      });
+    }
+
+    setCart(updatedCart);
+  };
+
   const cartLength = () => {
     return cart.length;
   };
@@ -50,7 +62,14 @@ export const CartProvider = ({ children }) => {
 
   return (
     <CartContext.Provider
-      value={{ cart, setCart, addToCart, cartLength, emptyCart }}
+      value={{
+        cart,
+        setCart,
+        addToCart,
+        removeFromCart,
+        cartLength,
+        emptyCart,
+      }}
     >
       {children}
     </CartContext.Provider>

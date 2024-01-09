@@ -62,8 +62,9 @@ const useStyles = createUseStyles({
     bottom: "100px",
     width: "3rem",
     height: "3rem",
-    color: colors.nav,
-    backgroundColor: colors.textNav,
+
+    backgroundColor: colors.nav,
+    color: colors.textNav,
     right: "20px",
     borderRadius: "100%",
     zIndex: 150,
@@ -71,9 +72,9 @@ const useStyles = createUseStyles({
     transition: "background 0.3s, border 0.3s, color 0.3s",
 
     "&:hover": {
-      backgroundColor: colors.nav,
+      color: colors.nav,
+      backgroundColor: colors.textNav,
       border: `solid 1px ${colors.navLight}`,
-      color: colors.textNav,
     },
   },
 });

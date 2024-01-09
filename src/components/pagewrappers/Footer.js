@@ -23,7 +23,11 @@ export default function Footer() {
           </div>
         </div>
         <div
-          style={{ height: "80%", width: "1px", backgroundColor: colors.white }}
+          style={{
+            height: "80%",
+            width: "1px",
+            backgroundColor: colors.textNav,
+          }}
         ></div>
         <div className={classes.bookContainer}>
           <img src={logo} className={classes.image}></img>

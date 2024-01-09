@@ -42,7 +42,7 @@ export default function AlterNav(props) {
           </div>
           <div className={classes.navBarListItem} style={navButtonStyle}>
             <div className={classes.navBarListItemTextContainer}>
-              <p className={classes.navBarListItemText}>ORDER</p>
+              <p className={classes.navBarListItemText}>BOOK</p>
             </div>
           </div>
           <div className={classes.enterpriseListItem}>
@@ -154,7 +154,7 @@ const useStyles = createUseStyles({
     fontFamily: "Poppins",
     marginBottom: "auto",
     justifyContent: "center",
-    color: colors.black,
+    color: colors.nav,
     alignItems: "center",
     textAlign: "center",
     cursor: "pointer",
@@ -173,7 +173,7 @@ const useStyles = createUseStyles({
     transition: "border 0.2s ease-in-out",
 
     "&:hover": {
-      borderBottom: `1px solid ${colors.black}`,
+      borderBottom: `1px solid ${colors.nav}`,
     },
   },
   navBarListItemText: {
