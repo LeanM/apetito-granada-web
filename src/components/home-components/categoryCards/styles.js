@@ -64,7 +64,7 @@ const useStyles = createUseStyles({
     //border:`solid 2px ${colors.navSemiTransparent}`,
 
     "&:hover": {
-      transform: "scale(1.01)",
+      transform: "scale(1.01g)",
       border: "none",
       //border:`solid 1px ${colors.blackLight}`,
       boxShadow: `0 0 15px ${colors.blackLight}`,

@@ -193,7 +193,7 @@ const useStyles = createUseStyles({
     fontFamily: "Poppins",
     justifyContent: "center",
     alignItems: "center",
-    marginTop: "3rem",
+    marginTop: "5rem",
   },
   subContainer: {
     width: "95%",

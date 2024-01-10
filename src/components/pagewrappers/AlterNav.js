@@ -13,14 +13,76 @@ export default function AlterNav(props) {
   const [navStyle, setNavStyle] = useState({});
   const [navButtonStyle, setNavButtonStyle] = useState({});
   const [logoStyle, setLogoStyle] = useState({});
-  const [underlineStyle, setUnderlineStyle] = useState({});
 
   const [loginRegisterAccess, setLoginRegisterAccess] = useState([]);
 
   const classes = useStyles();
+  /*
+  useEffect(() => {
+    setNavStyle(styleNavBarTransparent);
+    setNavButtonStyle(styleButtonsTransparent);
+    setLogoStyle(styleLogoTransparent);
+
+    // Agregar un event listener para manejar cambios en el tamaño de la ventana
+    window.addEventListener("resize", listenToScroll);
+    window.addEventListener("scroll", listenToScroll);
+    return () => {
+      window.removeEventListener("scroll", listenToScroll);
+      window.removeEventListener("resize", listenToScroll);
+    };
+  }, []);
+  */
+  const listenToScroll = () => {
+    if (window.innerWidth > 800) {
+      if (window.pageYOffset <= 50) {
+        setNavStyle(styleNavBarTransparent);
+        setNavButtonStyle(styleButtonsTransparent);
+        setLogoStyle(styleLogoTransparent);
+      } else {
+        setNavStyle(styleNavBarSolid);
+        setNavButtonStyle(styleButtonsSolid);
+        setLogoStyle(styleLogoSolid);
+      }
+    } else {
+      setNavStyle(styleNavBarTransparent);
+      setNavButtonStyle(styleButtonsTransparent);
+      setLogoStyle(styleLogoTransparent);
+    }
+  };
 
   const handleMouseOver = () => {
     //setNavStyle(styleNavBarSolid);
+  };
+
+  const styleNavBarTransparent = {
+    backgroundColor: colors.transparent,
+    height: "6rem",
+  };
+
+  const styleNavBarSolid = {
+    backgroundColor: colors.navSemiTransparent,
+    color: "black",
+    borderBottom: `solid 2px ${colors.nav}`,
+  };
+
+  const styleButtonsTransparent = {
+    color: "white",
+    textShadow: "0 0 5px black",
+  };
+
+  const styleButtonsSolid = {
+    color: "white",
+    textShadow: "0 0 5px black",
+  };
+
+  const styleLogoTransparent = {
+    width: "100%",
+    height: "100%",
+  };
+
+  const styleLogoSolid = {
+    width: "90%",
+    height: "90%",
   };
 
   return (
@@ -30,21 +92,7 @@ export default function AlterNav(props) {
       onMouseOver={handleMouseOver}
     >
       <nav className={classes.navBar}>
-        <div className={classes.navBarList}>
-          <div
-            className={classes.navBarListItem}
-            style={navButtonStyle}
-            onClick={() => {
-              navigate("/");
-            }}
-          >
-            <p className={classes.navBarListItemText}>HOME</p>
-            <div className={classes.navBarListItemTextUnderline}></div>
-          </div>
-          <div className={classes.navBarListItem} style={navButtonStyle}>
-            <p className={classes.navBarListItemText}>BOOK</p>
-            <div className={classes.navBarListItemTextUnderline}></div>
-          </div>
+        <div className={classes.navBarFirstRow}>
           <div className={classes.enterpriseListItem}>
             <div className={classes.enterpriseContainer}>
               <img
@@ -55,19 +103,31 @@ export default function AlterNav(props) {
               ></img>
             </div>
           </div>
+          <SideNav />
+        </div>
+        <div className={classes.navBarLowList}>
           <div
             className={classes.navBarListItem}
             style={navButtonStyle}
             onClick={() => {
-              navigate("/contact");
+              navigate("/");
             }}
           >
-            <p className={classes.navBarListItemText}>CONTACT</p>
-            <div className={classes.navBarListItemTextUnderline}></div>
+            <div className={classes.navBarListItemTextContainer}>
+              <p className={classes.navBarListItemText}>Home</p>
+            </div>
           </div>
-
-          <SideNav />
-
+          <div
+            className={classes.navBarListItem}
+            onClick={() => {
+              navigate("/contact");
+            }}
+            style={navButtonStyle}
+          >
+            <div className={classes.navBarListItemTextContainer}>
+              <p className={classes.navBarListItemText}>Book</p>
+            </div>
+          </div>
           <div
             style={navButtonStyle}
             className={classes.navBarListItem}
@@ -75,8 +135,9 @@ export default function AlterNav(props) {
               navigate("/gallery");
             }}
           >
-            <p className={classes.navBarListItemText}>GALLERY</p>
-            <div className={classes.navBarListItemTextUnderline}></div>
+            <div className={classes.navBarListItemTextContainer}>
+              <p className={classes.navBarListItemText}>Gallery</p>
+            </div>
           </div>
         </div>
       </nav>
@@ -102,100 +163,84 @@ const useStyles = createUseStyles({
   },
   section: {
     width: "100%",
-    height: "5rem",
+    height: "12rem",
     display: "flex",
-    position: "relative",
+    position: "absolute",
     justifyContent: "center",
-    backgroundColor: colors.transparent,
-    //borderBottom: `solid 2px ${colors.nav}`,
     alignItems: "center",
-    zIndex: "100",
     marginTop: "0.5rem",
+    zIndex: "1000",
     top: "0",
     transition: "background 0.5s, height 0.5s, border 0.5s",
+
+    "@media screen and (max-width: 800px)": {
+      //position: "absolute",
+    },
   },
   navBar: {
-    width: "60%",
-    height: "80%",
+    width: "100%",
+    height: "90%",
     display: "flex",
-    marginTop: "auto",
-    marginBottom: "auto",
-    justifyContent: "space-evenly",
+    flexDirection: "column",
+    justifyContent: "center",
     alignItems: "center",
-    gap: "5rem",
-    zIndex: "100",
 
     "@media screen and (max-width: 800px)": {
       width: "90%",
     },
   },
-  navBarList: {
+  navBarLowList: {
     width: "100%",
-    height: "90%",
+    height: "50%",
     display: "flex",
-    marginTop: "auto",
-    marginBottom: "auto",
     justifyContent: "center",
     alignItems: "center",
     gap: "1rem",
-
-    "@media screen and (max-width: 800px)": {
-      justifyContent: "center",
-    },
+  },
+  navBarFirstRow: {
+    width: "100%",
+    height: "50%",
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
   },
   navBarListItem: {
-    width: "20rem",
+    width: "5rem",
     height: "70%",
     display: "flex",
-    position: "relative",
     fontSize: "1rem",
-    fontWeight: "200",
-    marginTop: "auto",
     fontFamily: "Poppins",
+    fontWeight: "300",
+    marginTop: "auto",
     marginBottom: "auto",
     justifyContent: "center",
-    borderRadius: "20px 20px 0 0",
     color: colors.nav,
     alignItems: "center",
     textAlign: "center",
     cursor: "pointer",
     backgroundColor: colors.transparent,
 
-    "@media screen and (max-width: 950px)": {
-      width: "12rem",
-    },
-
     "@media screen and (max-width: 800px)": {
       display: "none",
     },
   },
-  navBarListItemTextUnderline: {
-    position: "absolute",
-    bottom: "-5px",
-    width: "50%",
-    height: "1px",
-    backgroundColor: colors.nav,
-  },
   navBarListItemTextContainer: {
-    height: "110%",
-    width: "100%",
+    height: "90%",
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
-    borderRadius: "20px 20px 0px 0px",
-    borderBottom: `1px solid ${colors.nav}`,
+    borderBottom: `1px solid ${colors.transparent}`,
     transition: "border 0.2s ease-in-out",
 
     "&:hover": {
-      backgroundColor: colors.navSecondary,
+      borderColor: colors.nav,
     },
   },
   navBarListItemText: {
     textAlign: "center",
-    transition: "color 0.3s",
   },
   enterpriseListItem: {
-    width: "25rem",
+    maxWidth: "25rem",
     height: "90%",
     display: "flex",
     fontSize: "1rem",
@@ -207,6 +252,7 @@ const useStyles = createUseStyles({
     textAlign: "center",
     cursor: "pointer",
     backgroundColor: colors.transparent,
+    borderBottom: `1px solid ${colors.transparent}`,
 
     "@media screen and (max-width: 800px)": {
       width: "10rem",
@@ -227,8 +273,8 @@ const useStyles = createUseStyles({
     },
 
     "@media screen and (max-width: 500px)": {
-      width: "6rem",
-      height: "6rem",
+      width: "5.5rem",
+      height: "5.5rem",
     },
   },
   logo: {
