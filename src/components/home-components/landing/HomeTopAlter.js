@@ -19,7 +19,8 @@ export default function HomeTopAlter() {
             <p
               style={{
                 fontSize: "0.9rem",
-                fontWeight: "200",
+                fontWeight: "300",
+                //fontStyle: "italic",
                 color: colors.textNav,
                 marginLeft: "0.5rem",
                 height: "1rem",
@@ -79,12 +80,6 @@ const useStyles = createUseStyles({
     justifyContent: "center",
     alignItems: "center",
     marginTop: "8rem",
-  },
-  image: {
-    width: "100%",
-    height: "100%",
-    objectFit: "cover",
-    filter: "brightness(80%)",
   },
   visualContainer: {
     width: "45%",
