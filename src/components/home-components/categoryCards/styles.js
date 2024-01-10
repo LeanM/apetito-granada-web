@@ -42,7 +42,7 @@ const useStyles = createUseStyles({
     },
   },
   imageContainer: {
-    width: "59.5%",
+    width: "54.5%",
     height: "100%",
     display: "flex",
     justifyContent: "center",
@@ -64,7 +64,7 @@ const useStyles = createUseStyles({
     //border:`solid 2px ${colors.navSemiTransparent}`,
 
     "&:hover": {
-      transform: "scale(1.05)",
+      transform: "scale(1.01)",
       border: "none",
       //border:`solid 1px ${colors.blackLight}`,
       boxShadow: `0 0 15px ${colors.blackLight}`,

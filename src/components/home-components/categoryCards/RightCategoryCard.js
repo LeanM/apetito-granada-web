@@ -93,7 +93,7 @@ const specificStyle = createUseStyles({
   },
   dataContainer: {
     display: "flex",
-    width: "40%",
+    width: "45%",
     height: "100%",
     flexDirection: "column",
     justifyContent: "center",
