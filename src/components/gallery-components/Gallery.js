@@ -3,7 +3,7 @@ import { colors } from "../../assets/colors";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import GalleryItem from "./GalleryItem";
-import NavMinimal from "../pagewrappers/NavMinimal";
+import AlterNav from "../pagewrappers/AlterNav";
 import Footer from "../pagewrappers/Footer";
 import { Placeholder } from "rsuite";
 import { motion, AnimatePresence } from "framer-motion";
@@ -84,16 +84,9 @@ export default function Gallery() {
 
   return (
     <>
-      <NavMinimal />
+      <AlterNav />
       <div className={classes.container}>
-        <div className={classes.backContainer}>
-          <button
-            className={classes.backButton}
-            onClick={() => navigate(from, { replace: true })}
-          >
-            Go Back
-          </button>
-        </div>
+        <div className={classes.backContainer}></div>
         <div className={classes.galleryContainer}>
           <motion.div className={classes.galleryColumn}>
             {firstColumn.map((photo) => {
