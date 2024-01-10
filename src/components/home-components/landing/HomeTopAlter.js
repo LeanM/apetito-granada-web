@@ -170,13 +170,15 @@ const useStyles = createUseStyles({
   },
   bookButton: {
     marginTop: "1rem",
-    backgroundColor: colors.textNav,
-    color: colors.nav,
+
+    backgroundColor: colors.nav,
+    color: colors.textNav,
+    border: `solid 1px ${colors.textNav}`,
 
     fontWeight: "300",
     "&:hover": {
-      backgroundColor: colors.nav,
-      color: colors.textNav,
+      backgroundColor: colors.textNav,
+      color: colors.nav,
     },
   },
 });
