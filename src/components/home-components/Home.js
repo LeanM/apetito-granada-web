@@ -16,6 +16,7 @@ import Nav from "../pagewrappers/Nav";
 import { Modal } from "rsuite";
 import MenuModal from "./categoryCards/MenuModal";
 import Footer from "../pagewrappers/Footer";
+import HomeTopAlter from "./landing/HomeTopAlter";
 
 export default function Home(props) {
   const { loading } = props;
@@ -75,7 +76,7 @@ export default function Home(props) {
       <Nav />
       <MenuModal open={open} onClose={handleClose} />
       <div className={classes.container}>
-        <HomeTop />
+        <HomeTopAlter />
 
         <HomeInfo />
         <div className={classes.homeBody}>

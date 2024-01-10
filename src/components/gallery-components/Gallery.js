@@ -95,22 +95,22 @@ export default function Gallery() {
           </button>
         </div>
         <div className={classes.galleryContainer}>
-          <motion.div layout className={classes.galleryColumn}>
+          <motion.div className={classes.galleryColumn}>
             {firstColumn.map((photo) => {
               return <GalleryItem photo={photo} />;
             })}
           </motion.div>
-          <motion.div layout className={classes.galleryColumn}>
+          <motion.div className={classes.galleryColumn}>
             {secondColumn.map((photo) => {
               return <GalleryItem photo={photo} />;
             })}
           </motion.div>
-          <motion.div layout className={classes.galleryColumn}>
+          <motion.div className={classes.galleryColumn}>
             {thirdColumn.map((photo) => {
               return <GalleryItem photo={photo} />;
             })}
           </motion.div>
-          <motion.div layout className={classes.galleryColumn}>
+          <motion.div className={classes.galleryColumn}>
             {fourthColumn.map((photo) => {
               return <GalleryItem photo={photo} />;
             })}

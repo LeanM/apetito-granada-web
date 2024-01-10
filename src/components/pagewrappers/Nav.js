@@ -92,29 +92,7 @@ export default function Nav(props) {
       onMouseOver={handleMouseOver}
     >
       <nav className={classes.navBar}>
-        <div className={classes.navBarList}>
-          <div
-            className={classes.navBarListItem}
-            style={navButtonStyle}
-            onClick={() => {
-              navigate("/");
-            }}
-          >
-            <div className={classes.navBarListItemTextContainer}>
-              <p className={classes.navBarListItemText}>HOME</p>
-            </div>
-          </div>
-          <div
-            className={classes.navBarListItem}
-            onClick={() => {
-              navigate("/contact");
-            }}
-            style={navButtonStyle}
-          >
-            <div className={classes.navBarListItemTextContainer}>
-              <p className={classes.navBarListItemText}>BOOK</p>
-            </div>
-          </div>
+        <div className={classes.navBarFirstRow}>
           <div className={classes.enterpriseListItem}>
             <div className={classes.enterpriseContainer}>
               <img
@@ -125,20 +103,31 @@ export default function Nav(props) {
               ></img>
             </div>
           </div>
+          <SideNav />
+        </div>
+        <div className={classes.navBarLowList}>
           <div
             className={classes.navBarListItem}
             style={navButtonStyle}
             onClick={() => {
-              navigate("/contact");
+              navigate("/");
             }}
           >
             <div className={classes.navBarListItemTextContainer}>
-              <p className={classes.navBarListItemText}>CONTACT</p>
+              <p className={classes.navBarListItemText}>Home</p>
             </div>
           </div>
-
-          <SideNav />
-
+          <div
+            className={classes.navBarListItem}
+            onClick={() => {
+              navigate("/contact");
+            }}
+            style={navButtonStyle}
+          >
+            <div className={classes.navBarListItemTextContainer}>
+              <p className={classes.navBarListItemText}>Book</p>
+            </div>
+          </div>
           <div
             style={navButtonStyle}
             className={classes.navBarListItem}
@@ -147,7 +136,7 @@ export default function Nav(props) {
             }}
           >
             <div className={classes.navBarListItemTextContainer}>
-              <p className={classes.navBarListItemText}>GALLERY</p>
+              <p className={classes.navBarListItemText}>Gallery</p>
             </div>
           </div>
         </div>
@@ -174,7 +163,7 @@ const useStyles = createUseStyles({
   },
   section: {
     width: "100%",
-    height: "5rem",
+    height: "12rem",
     display: "flex",
     position: "absolute",
     justifyContent: "center",
@@ -189,44 +178,43 @@ const useStyles = createUseStyles({
     },
   },
   navBar: {
-    width: "60%",
-    height: "80%",
+    width: "100%",
+    height: "90%",
     display: "flex",
-    marginTop: "auto",
-    marginBottom: "auto",
-    justifyContent: "space-evenly",
+    flexDirection: "column",
+    justifyContent: "center",
     alignItems: "center",
-    gap: "5rem",
 
     "@media screen and (max-width: 800px)": {
       width: "90%",
     },
   },
-  navBarList: {
+  navBarLowList: {
     width: "100%",
-    height: "90%",
+    height: "50%",
     display: "flex",
-    marginTop: "auto",
-    marginBottom: "auto",
     justifyContent: "center",
     alignItems: "center",
-    gap: "2rem",
-
-    "@media screen and (max-width: 800px)": {
-      justifyContent: "space-around",
-    },
+    gap: "1rem",
+  },
+  navBarFirstRow: {
+    width: "100%",
+    height: "50%",
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
   },
   navBarListItem: {
-    width: "10rem",
+    width: "5rem",
     height: "70%",
     display: "flex",
     fontSize: "1rem",
     fontFamily: "Poppins",
-    fontWeight: "200",
+    fontWeight: "300",
     marginTop: "auto",
     marginBottom: "auto",
     justifyContent: "center",
-    color: "white",
+    color: colors.textNav,
     alignItems: "center",
     textAlign: "center",
     cursor: "pointer",
@@ -237,7 +225,7 @@ const useStyles = createUseStyles({
     },
   },
   navBarListItemTextContainer: {
-    height: "110%",
+    height: "90%",
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
