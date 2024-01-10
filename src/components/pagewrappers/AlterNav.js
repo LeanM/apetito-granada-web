@@ -6,6 +6,7 @@ import logo from "../../assets/apetito.png";
 import { colors } from "../../assets/colors";
 import { useNavigate } from "react-router-dom";
 import SideNav from "./SideNav";
+import Reveal from "../animation/Reveal";
 
 export default function AlterNav(props) {
   const navigate = useNavigate();
@@ -86,9 +87,10 @@ export default function AlterNav(props) {
   };
 
   return (
-    <div
+    <Reveal
       style={navStyle}
-      className={classes.section}
+      animationVariant="top"
+      styles={classes.section}
       onMouseOver={handleMouseOver}
     >
       <nav className={classes.navBar}>
@@ -141,7 +143,7 @@ export default function AlterNav(props) {
           </div>
         </div>
       </nav>
-    </div>
+    </Reveal>
   );
 }
 

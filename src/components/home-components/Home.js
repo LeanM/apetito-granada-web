@@ -94,7 +94,7 @@ export default function Home(props) {
                   categories.indexOf(category) % 3 === 0
                 ) {
                   return (
-                    <Reveal styles={classes.resultItem}>
+                    <Reveal animationVariant="left" styles={classes.resultItem}>
                       <LeftCategoryCard
                         key={category}
                         categoryData={category}
@@ -105,7 +105,7 @@ export default function Home(props) {
                   );
                 } else {
                   return (
-                    <Reveal styles={classes.resultItem}>
+                    <Reveal animationVariant="left" styles={classes.resultItem}>
                       <LeftCategoryCard
                         key={category}
                         categoryData={category}
@@ -120,7 +120,10 @@ export default function Home(props) {
                   categories.indexOf(category) % 3 === 0
                 ) {
                   return (
-                    <Reveal styles={classes.resultItem}>
+                    <Reveal
+                      animationVariant="right"
+                      styles={classes.resultItem}
+                    >
                       <RightCategoryCard
                         key={category}
                         categoryData={category}
@@ -131,7 +134,10 @@ export default function Home(props) {
                   );
                 } else {
                   return (
-                    <Reveal styles={classes.resultItem}>
+                    <Reveal
+                      animationVariant="right"
+                      styles={classes.resultItem}
+                    >
                       <RightCategoryCard
                         key={category}
                         categoryData={category}
