@@ -14,7 +14,7 @@ export default function HomeTopAlter() {
   return (
     <div className={classes.homeTop}>
       <div className={classes.subContainer}>
-        <div className={classes.dataContainer}>
+        <Reveal animationVariant="left" styles={classes.dataContainer}>
           <div className={classes.dataFirstRow}>
             <p
               style={{
@@ -50,11 +50,11 @@ export default function HomeTopAlter() {
               BOOK NOW
             </Button>
           </div>
-        </div>
-        <div className={classes.visualContainer}>
+        </Reveal>
+        <Reveal animationVariant="right" styles={classes.visualContainer}>
           <img className={classes.dishImage} src={dish}></img>
           <img className={classes.splatImage} src={splat}></img>
-        </div>
+        </Reveal>
       </div>
     </div>
   );
