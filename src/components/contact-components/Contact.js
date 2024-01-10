@@ -188,12 +188,12 @@ const useStyles = createUseStyles({
   container: {
     width: "100%",
     height: "200vh",
-    backgroundColor: "white",
+    backgroundColor: colors.white,
     display: "flex",
     fontFamily: "Poppins",
     justifyContent: "center",
     alignItems: "center",
-    marginTop: "5rem",
+    marginTop: "7rem",
   },
   subContainer: {
     width: "95%",
@@ -203,7 +203,6 @@ const useStyles = createUseStyles({
     border: `solid 2px ${colors.nav}`,
     borderRadius: "20px",
     alignItems: "center",
-    marginTop: "5rem",
     overflow: "hidden",
 
     "@media screen and (max-width: 1100px)": {
