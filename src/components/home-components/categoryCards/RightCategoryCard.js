@@ -35,7 +35,7 @@ export default function RightCategoryCard(props) {
           <div className={classes.buttonsContainer}>
             <button
               className={classes.menuButton}
-              onClick={() => props.onOpenMenu(props.categoryData?.categoryName)}
+              onClick={() => props.onOpenMenu(props.categoryData)}
             >
               Menu
             </button>

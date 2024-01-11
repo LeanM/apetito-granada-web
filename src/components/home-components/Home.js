@@ -61,7 +61,7 @@ export default function Home(props) {
     const categoriasDeComida = [
       {
         categoryName: "MEZE & SALSAS",
-        categoryDescription: "",
+        categoryDescription: "Salsas para tus comidas",
         plates: [
           { name: "Aceitunas", description: "" },
           { name: "Aceite de Oliva", description: "" },
@@ -86,7 +86,7 @@ export default function Home(props) {
       },
       {
         categoryName: "CARNES BBQ & PARRILLA",
-        categoryDescription: "",
+        categoryDescription: "Todo tipo de carnes a la barbacoa y parrilla",
         plates: [
           { name: "Hamburguesas 4oz", description: "100% Ternera" },
           { name: "Costillas de Cerdo", description: "6 o 12 unidades" },
