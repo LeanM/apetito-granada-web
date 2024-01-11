@@ -94,7 +94,10 @@ export default function Home(props) {
                   categories.indexOf(category) % 3 === 0
                 ) {
                   return (
-                    <Reveal animationVariant="left" styles={classes.resultItem}>
+                    <Reveal
+                      animationVariant="bottom"
+                      styles={classes.resultItem}
+                    >
                       <LeftCategoryCard
                         key={category}
                         categoryData={category}
@@ -105,7 +108,10 @@ export default function Home(props) {
                   );
                 } else {
                   return (
-                    <Reveal animationVariant="left" styles={classes.resultItem}>
+                    <Reveal
+                      animationVariant="bottom"
+                      styles={classes.resultItem}
+                    >
                       <LeftCategoryCard
                         key={category}
                         categoryData={category}
@@ -121,7 +127,7 @@ export default function Home(props) {
                 ) {
                   return (
                     <Reveal
-                      animationVariant="right"
+                      animationVariant="bottom"
                       styles={classes.resultItem}
                     >
                       <RightCategoryCard
@@ -135,7 +141,7 @@ export default function Home(props) {
                 } else {
                   return (
                     <Reveal
-                      animationVariant="right"
+                      animationVariant="bottom"
                       styles={classes.resultItem}
                     >
                       <RightCategoryCard

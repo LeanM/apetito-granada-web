@@ -7,15 +7,17 @@ export default function FormInput(props) {
   const [focused, setFocused] = useState(false);
   const { label, errorMessage, onChange, id, ...inputProps } = props;
   const [style, setStyle] = useState({});
+  const [lines, setLines] = useState(1);
   const classes = useStyles();
 
   const handleFocus = (e) => {
-    setFocused(true);
+    setFocused(false);
   };
 
   useEffect(() => {
     console.log(label);
     if (label === "Description") {
+      setLines(3);
       setStyle(biggerInput);
     } else setStyle(normalInput);
   }, []);
@@ -39,6 +41,7 @@ export default function FormInput(props) {
         style={style}
         onChange={onChange}
         onBlur={handleFocus}
+        rows={lines}
         onFocus={() =>
           inputProps.name === "confirmPassword" && setFocused(true)
         }
@@ -67,18 +70,20 @@ const useStyles = createUseStyles({
     },
   },
   input: {
-    padding: "15px",
     margin: "5px 0px",
     width: "100%",
     borderRadius: 0,
-    border: `solid 1px ${colors.black}`,
+    outline: "none",
+    border: "none",
+    borderBottom: `solid 1px ${colors.grey}`,
 
     "@media screen and (max-width: 1000px)": {
       width: "100%",
     },
   },
   label: {
-    fontSize: "0.9rem",
+    fontSize: "1.1rem",
+    fontWeight: "400",
     color: colors.black,
   },
   span: {
