@@ -1,6 +1,5 @@
 import { colors } from "../../../assets/colors";
 import { createUseStyles } from "react-jss";
-import homePhoto from "../../../assets/home.jpg";
 import { Button } from "rsuite";
 import Reveal from "../../animation/Reveal";
 import { useNavigate } from "react-router-dom";
