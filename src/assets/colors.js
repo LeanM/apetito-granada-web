@@ -3,6 +3,7 @@ export const colors = {
   bgDark: "rgb(38, 38, 65)",
   black: "black",
   blackLight: "#756f6f",
+  grey: "#757575",
   bgTransparent: "rgba(255, 255, 255,0.7)",
   navSecondary: "rgb(123, 40, 29)",
   navSecondaryLight: "#c7ae74",

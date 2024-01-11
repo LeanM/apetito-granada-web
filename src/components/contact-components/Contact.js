@@ -98,13 +98,13 @@ export default function Contact() {
     <>
       <AlterNav />
       <div className={classes.container}>
-        <div className={classes.subContainer}>
-          <div
-            className={classes.imageContainer}
-            style={{
-              backgroundImage: `url(./contact.jpg)`,
-            }}
-          ></div>
+        <div
+          className={classes.subContainer}
+          style={{
+            backgroundImage: `url(./contactImage.jpg)`,
+            backgroundSize: "cover",
+          }}
+        >
           <div className={classes.dataContainer}>
             <div
               style={{
@@ -121,61 +121,73 @@ export default function Contact() {
               ref={formRef}
               onSubmit={handleSubmit}
             >
-              <div className={classes.inputsContainer}>
-                <FormInput
-                  key={inputs[0].id}
-                  {...inputs[0]}
-                  value={values[inputs[0]]}
-                  onChange={onChange}
-                />
-                <FormInput
-                  key={inputs[1].id}
-                  {...inputs[1]}
-                  value={values[inputs[1]]}
-                  onChange={onChange}
-                />
+              <div className={classes.inputsRow}>
+                <div className={classes.inputsContainer}>
+                  <FormInput
+                    key={inputs[0].id}
+                    {...inputs[0]}
+                    value={values[inputs[0]]}
+                    onChange={onChange}
+                  />
+                  <FormInput
+                    key={inputs[1].id}
+                    {...inputs[1]}
+                    value={values[inputs[1]]}
+                    onChange={onChange}
+                  />
 
-                <FormInput
-                  key={inputs[2].id}
-                  {...inputs[2]}
-                  value={values[inputs[2]]}
-                  onChange={onChange}
-                />
-                <FormInput
-                  key={inputs[3].id}
-                  {...inputs[3]}
-                  value={values[inputs[3]]}
-                  onChange={onChange}
-                />
+                  <FormInput
+                    key={inputs[2].id}
+                    {...inputs[2]}
+                    value={values[inputs[2]]}
+                    onChange={onChange}
+                  />
+                </div>
+                <div className={classes.inputsContainer}>
+                  <FormInput
+                    key={inputs[3].id}
+                    {...inputs[3]}
+                    value={values[inputs[3]]}
+                    onChange={onChange}
+                  />
 
-                <FormInput
-                  key={inputs[4].id}
-                  {...inputs[4]}
-                  value={values[inputs[4]]}
-                  onChange={onChange}
-                />
+                  <FormInput
+                    key={inputs[4].id}
+                    {...inputs[4]}
+                    value={values[inputs[4]]}
+                    onChange={onChange}
+                  />
+                </div>
               </div>
-              <div className={classes.progessContainer}>
-                <ProgressBar
-                  className={classes.progressBar}
-                  bgColor={colors.nav}
-                  baseBgColor="gray"
-                  height="0.5rem"
-                  labelColor={colors.nav}
-                  completed={completion}
-                  maxCompleted={100}
-                  transitionDuration="0.5s"
-                />
-                <p style={{ fontWeight: "800", color: colors.nav }}>
-                  {completion}%
-                </p>
-              </div>
-              <div className={classes.interestMenusContainter}>
-                <span>Tus menus de interes</span>
-                <MenuList />
-              </div>
+
               <button className={classes.submitButton}>Submit</button>
             </form>
+          </div>
+          <div className={classes.infoContainer}>
+            <div className={classes.interestMenusContainter}>
+              <span style={{ color: colors.textNav }}>
+                Tus menus de interes
+              </span>
+              <MenuList />
+            </div>
+            <div className={classes.progessContainer}>
+              <p style={{ fontWeight: "400", color: colors.textNav }}>
+                Information required completion
+              </p>
+              <ProgressBar
+                className={classes.progressBar}
+                bgColor={colors.textNav}
+                baseBgColor={colors.secondary}
+                height="0.5rem"
+                labelColor={colors.textNav}
+                completed={completion}
+                maxCompleted={100}
+                transitionDuration="0.5s"
+              />
+              <p style={{ fontWeight: "800", color: colors.textNav }}>
+                {completion}%
+              </p>
+            </div>
           </div>
         </div>
       </div>
@@ -187,21 +199,20 @@ export default function Contact() {
 const useStyles = createUseStyles({
   container: {
     width: "100%",
-    height: "200vh",
-    backgroundColor: colors.white,
+    height: "140vh",
+    backgroundColor: colors.textNav,
+    //background: `linear-gradient(${colors.navSecondary},${colors.textNav})`,
     display: "flex",
     fontFamily: "Poppins",
     justifyContent: "center",
     alignItems: "center",
-    marginTop: "7rem",
+    paddingTop: "10rem",
   },
   subContainer: {
     width: "95%",
     height: "85%",
     display: "flex",
     justifyContent: "center",
-    border: `solid 2px ${colors.nav}`,
-    borderRadius: "20px",
     alignItems: "center",
     overflow: "hidden",
 
@@ -209,23 +220,15 @@ const useStyles = createUseStyles({
       borderLeft: `solid 20px ${colors.nav}`,
     },
   },
-  imageContainer: {
-    width: "50%",
-    height: "100%",
-    backgroundColor: "black",
-    backgroundSize: "cover",
-    borderLeft: `solid 20px ${colors.nav}`,
-
-    "@media screen and (max-width: 1100px)": {
-      display: "none",
-    },
-  },
   dataContainer: {
-    width: "50%",
-    height: "100%",
+    width: "65%",
+    height: "80%",
     display: "flex",
     flexDirection: "column",
     justifyContent: "center",
+    backgroundColor: colors.white,
+    borderRadius: "20px 0px 0px 20px",
+    boxShadow: "0 0 2px black",
 
     alignItems: "center",
 
@@ -234,9 +237,20 @@ const useStyles = createUseStyles({
       paddingRight: "20px",
     },
   },
+  infoContainer: {
+    width: "30%",
+    height: "80%",
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "center",
+    alignItems: "center",
+    backgroundColor: colors.nav,
+    gap: "2rem",
+  },
   title: {
     color: colors.nav,
     fontSize: "3rem",
+    marginTop: "1rem",
     "@media screen and (max-width: 700px)": {
       fontSize: "2.2rem",
     },
@@ -244,36 +258,33 @@ const useStyles = createUseStyles({
   form: {
     display: "flex",
     width: "100%",
+    height: "100%",
     flexDirection: "column",
     justifyContent: "center",
     alignItems: "center",
-    gap: "2rem",
+    gap: "1rem",
+  },
+  inputsRow: {
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    flexWrap: "wrap",
+    width: "100%",
+    height: "70%",
+    gap: "0.2rem",
   },
   inputsContainer: {
     display: "flex",
     justifyContent: "center",
     flexDirection: "column",
     alignItems: "center",
-    width: "100%",
+    width: "45%",
     height: "70%",
     gap: "0.2rem",
   },
-  firstInputRow: {
-    width: "90%",
-    height: "30%",
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center",
-    gap: "2rem",
-
-    "@media screen and (max-width: 1000px)": {
-      flexDirection: "column",
-      gap: "0.5rem",
-    },
-  },
   interestMenusContainter: {
-    width: "20rem",
-    height: "20rem",
+    width: "95%",
+    height: "15rem",
     display: "flex",
     flexDirection: "column",
     justifyContent: "center",
@@ -282,7 +293,7 @@ const useStyles = createUseStyles({
   },
   submitButton: {
     width: "8rem",
-    height: "4rem",
+    height: "3rem",
     borderRadius: "20px",
     fontWeight: "400",
 
@@ -300,12 +311,12 @@ const useStyles = createUseStyles({
   },
   progessContainer: {
     width: "80%",
-    height: "2rem",
+    height: "5rem",
     display: "flex",
     flexDirection: "column",
     justifyContent: "center",
     alignItems: "center",
-    gap: "0.5rem",
+    gap: "1rem",
   },
   progressBar: {
     width: "70%",
