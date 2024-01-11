@@ -42,7 +42,10 @@ export default function LeftCategoryCard(props) {
             </p>
           </div>
           <div className={classes.buttonsContainer}>
-            <button className={classes.menuButton} onClick={props.onOpen}>
+            <button
+              className={classes.menuButton}
+              onClick={() => props.onOpenMenu(props.categoryData)}
+            >
               Menu
             </button>
             <Whisper

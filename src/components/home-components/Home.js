@@ -23,8 +23,12 @@ export default function Home(props) {
   const [packages, setPackages] = useState([]);
   const [categories, setCategories] = useState([]);
 
+  const [actualMenu, setActualMenu] = useState("asd");
   const [open, setOpen] = useState(false);
-  const handleOpen = () => setOpen(true);
+  const handleOpen = (categoryData) => {
+    setActualMenu(categoryData);
+    setOpen(true);
+  };
   const handleClose = () => setOpen(false);
 
   const classes = useStyles();
@@ -72,7 +76,7 @@ export default function Home(props) {
   ) : (
     <>
       <Nav />
-      <MenuModal open={open} onClose={handleClose} />
+      <MenuModal data={actualMenu} open={open} onClose={handleClose} />
       <div className={classes.container}>
         <HomeTopAlter />
 
@@ -99,7 +103,7 @@ export default function Home(props) {
                       <LeftCategoryCard
                         key={category}
                         categoryData={category}
-                        onOpen={handleOpen}
+                        onOpenMenu={(categoryData) => handleOpen(categoryData)}
                       />
                       <BookSection />
                     </Reveal>
@@ -113,7 +117,7 @@ export default function Home(props) {
                       <LeftCategoryCard
                         key={category}
                         categoryData={category}
-                        onOpen={handleOpen}
+                        onOpenMenu={(categoryData) => handleOpen(categoryData)}
                       />
                     </Reveal>
                   );
@@ -131,7 +135,7 @@ export default function Home(props) {
                       <RightCategoryCard
                         key={category}
                         categoryData={category}
-                        onOpen={handleOpen}
+                        onOpenMenu={(categoryData) => handleOpen(categoryData)}
                       />
                       <BookSection />
                     </Reveal>
@@ -145,7 +149,7 @@ export default function Home(props) {
                       <RightCategoryCard
                         key={category}
                         categoryData={category}
-                        onOpen={handleOpen}
+                        onOpenMenu={(categoryData) => handleOpen(categoryData)}
                       />
                     </Reveal>
                   );
