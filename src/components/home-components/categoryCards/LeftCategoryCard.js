@@ -10,11 +10,11 @@ export default function LeftCategoryCard(props) {
   const classes = styles();
   const specificClasses = specificStyle();
   const { addToCart } = useContext(CartContext);
-  const firstWord = props.categoryData.split(" ")[0];
+  const firstWord = props.categoryData?.categoryName.split(" ")[0];
 
   return (
     <div
-      id={props.categoryData}
+      id={props.categoryData?.categoryName}
       style={{}}
       className={specificClasses.container}
     >
@@ -35,10 +35,10 @@ export default function LeftCategoryCard(props) {
             <div
               style={{ fontWeight: "800", fontSize: "1.7rem", height: "50%" }}
             >
-              {props.categoryData}
+              {props.categoryData?.categoryName}
             </div>
             <p style={{ height: "40%" }}>
-              ASdklasdjaskldjaslkdjdas;ld askljdklasjd lkasj dlkasjd kasjdk
+              {props.categoryData?.categoryDescription}
             </p>
           </div>
           <div className={classes.buttonsContainer}>

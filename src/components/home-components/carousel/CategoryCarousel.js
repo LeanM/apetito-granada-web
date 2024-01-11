@@ -67,7 +67,12 @@ export default function CategoryCarousel(props) {
         draggable={draggable}
       >
         {props.categoriesData.map((category) => {
-          return <Item key={category} categoryName={category}></Item>;
+          return (
+            <Item
+              key={category?.categoryName}
+              categoryName={category?.categoryName}
+            ></Item>
+          );
         })}
       </Slider>
       <button

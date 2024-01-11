@@ -1,6 +1,6 @@
 import { createUseStyles } from "react-jss";
 import { colors } from "../../assets/colors";
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import CartContext from "../../context/CartProvider";
 import toast from "react-hot-toast";
 
@@ -11,7 +11,7 @@ export default function MenuList() {
   return (
     <div className={classes.container}>
       {cart.map((menu) => {
-        const firstWord = menu.categoryMenu.split(" ")[0];
+        const firstWord = menu.categoryMenu?.categoryName.split(" ")[0];
         return (
           <div className={classes.itemContainer}>
             <div className={classes.item}>
@@ -19,7 +19,9 @@ export default function MenuList() {
                 className={classes.itemImage}
                 src={"./categories/" + firstWord + ".jpg"}
               ></img>
-              <p className={classes.itemText}>{menu.categoryMenu}</p>
+              <p className={classes.itemText}>
+                {menu.categoryMenu?.categoryName}
+              </p>
             </div>
             <button
               className={classes.removeButton}

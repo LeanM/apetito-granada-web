@@ -10,9 +10,12 @@ export default function RightCategoryCard(props) {
   const classes = styles();
   const specificClasses = specificStyle();
   const { addToCart } = useContext(CartContext);
-  const firstWord = props.categoryData.split(" ")[0];
+  const firstWord = props.categoryData?.categoryName.split(" ")[0];
   return (
-    <div id={props.categoryData} className={specificClasses.container}>
+    <div
+      id={props.categoryData?.categoryName}
+      className={specificClasses.container}
+    >
       <div
         className={classes.background}
         style={{ backgroundImage: `url(./categories/${firstWord}.jpg)` }}
@@ -23,16 +26,16 @@ export default function RightCategoryCard(props) {
             <div
               style={{ fontWeight: "800", fontSize: "1.7rem", height: "50%" }}
             >
-              {props.categoryData}
+              {props.categoryData?.categoryName}
             </div>
             <p style={{ height: "40%" }}>
-              ASdklasdjaskldjaslkdjdas;ld askljdklasjd lkasj dlkasjd kasjdk
+              {props.categoryData?.categoryDescription}
             </p>
           </div>
           <div className={classes.buttonsContainer}>
             <button
               className={classes.menuButton}
-              onClick={() => props.onOpenMenu(props.categoryData)}
+              onClick={() => props.onOpenMenu(props.categoryData?.categoryName)}
             >
               Menu
             </button>
@@ -54,7 +57,7 @@ export default function RightCategoryCard(props) {
             >
               <button
                 className={classes.addButton}
-                onClick={() => addToCart(props.categoryData)}
+                onClick={() => addToCart(props.categoryData?.categoryName)}
               >
                 +
               </button>

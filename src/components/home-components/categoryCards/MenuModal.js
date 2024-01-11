@@ -9,7 +9,7 @@ import logo from "../../../assets/apetito.png";
 export default function MenuModal(props) {
   const { open, data } = props;
   const classes = useStyles();
-  const firstWord = data?.split(" ")[0];
+  const firstWord = data?.categoryName.split(" ")[0];
 
   return (
     <Modal open={open} onClose={props.onClose}>

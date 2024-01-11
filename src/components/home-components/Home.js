@@ -23,7 +23,11 @@ export default function Home(props) {
   const [packages, setPackages] = useState([]);
   const [categories, setCategories] = useState([]);
 
-  const [actualMenu, setActualMenu] = useState("asd");
+  const [actualMenu, setActualMenu] = useState({
+    categoryName: "",
+    categoryDescription: "",
+    plates: [],
+  });
   const [open, setOpen] = useState(false);
   const handleOpen = (categoryData) => {
     setActualMenu(categoryData);
@@ -55,17 +59,46 @@ export default function Home(props) {
 
   const getCategories = () => {
     const categoriasDeComida = [
-      "MEZE & SALSAS",
-      "CARNES BBQ & PARRILLA",
-      "ENSALADAS",
-      "PESCADOS BBQ & PARRILLA",
-      "VEGETALES BBQ & PARRILLA",
-      "LISTOS PARA SERVIR",
-      "POSTRES",
-      "PANES",
-      "BEBIDAS",
-      "SALSAS Y ADEREZOS",
-      "MARINADOS",
+      {
+        categoryName: "MEZE & SALSAS",
+        categoryDescription: "",
+        plates: [
+          { name: "Aceitunas", description: "" },
+          { name: "Aceite de Oliva", description: "" },
+          { name: "Hummus", description: "Garbanzos" },
+          { name: "Guacamole", description: "Aguacate" },
+          { name: "Salsa", description: "Tomate" },
+          { name: "Ensaladilla Rusa", description: "" },
+          { name: "Ensalada de Marisco", description: "" },
+          { name: "Ensalada de Mango", description: "" },
+          { name: "Ensalada de Cangrejo", description: "" },
+          { name: "Apple Machengo", description: "Manzana y queso" },
+          { name: "Baba Ganoush", description: "Berenjena asada" },
+          { name: "Casik", description: "Yoghurt & Pepino" },
+          { name: "Kisir", description: "Trigo hervido" },
+          { name: "Patates Salatasi", description: "Patatas y Huevos" },
+          { name: "Piyaz", description: "Cebollas y Tomates" },
+          {
+            name: "Saksuka",
+            description: "Huevos, Tomates, Pimientos y Cebollas",
+          },
+        ],
+      },
+      {
+        categoryName: "CARNES BBQ & PARRILLA",
+        categoryDescription: "",
+        plates: [
+          { name: "Hamburguesas 4oz", description: "100% Ternera" },
+          { name: "Costillas de Cerdo", description: "6 o 12 unidades" },
+          { name: "Chuletas de Cerdo", description: "280 gramos" },
+          { name: "Filete de Ternera", description: "170 gramos" },
+          { name: "Chuletas de Cerdo", description: "Individual" },
+          { name: "Salchichas", description: "Por kilogramo" },
+          { name: "Kebab de Ternera", description: "" },
+          { name: "Kebab de Pollo", description: "" },
+          { name: "Filetes de Pollo", description: "170 gramos" },
+        ],
+      },
     ];
 
     setCategories(categoriasDeComida);
@@ -91,6 +124,7 @@ export default function Home(props) {
           <div className={classes.resultsContainer}>
             {categories.map((category) => {
               if (categories.indexOf(category) % 2 === 0) {
+                console.log("asd");
                 if (
                   categories.indexOf(category) !== 0 &&
                   categories.indexOf(category) % 3 === 0
@@ -158,7 +192,6 @@ export default function Home(props) {
             })}
           </div>
         </div>
-        <div></div>
         <ReviewCarousel />
       </div>
       <Footer />
