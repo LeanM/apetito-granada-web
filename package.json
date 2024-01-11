@@ -3,11 +3,13 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@emotion/react": "^11.11.3",
     "@emotion/styled": "^11.11.0",
     "@fortawesome/fontawesome-svg-core": "^6.4.0",
     "@fortawesome/free-solid-svg-icons": "^6.4.0",
     "@fortawesome/react-fontawesome": "^0.2.0",
     "@mercadopago/sdk-react": "^0.0.11",
+    "@mui/material": "^5.15.4",
     "@paypal/react-paypal-js": "^8.1.1",
     "@ramonak/react-progress-bar": "^5.1.1",
     "@react-email/components": "^0.0.12",
