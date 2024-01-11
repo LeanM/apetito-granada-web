@@ -83,7 +83,14 @@ export default function MenuModal(props) {
             </div>
           </div>
         </div>
-        <div className={classes.bottom}></div>
+        <div className={classes.bottom}>
+          <button
+            className={classes.closeButton}
+            onClick={() => props.onClose()}
+          >
+            Close
+          </button>
+        </div>
       </div>
     </Modal>
   );
@@ -135,7 +142,6 @@ const useStyles = createUseStyles({
   },
   body: {
     width: "100%",
-    minHeight: "40rem",
     display: "flex",
     position: "relative",
     flexDirection: "column",
@@ -145,7 +151,6 @@ const useStyles = createUseStyles({
   },
   platesContainer: {
     width: "70%",
-    minHeight: "3rem",
     position: "relative",
     borderRadius: "2px",
     border: `solid 2px ${colors.nav}`,
@@ -154,7 +159,8 @@ const useStyles = createUseStyles({
     flexDirection: "column",
     justifyContent: "flex-start",
     alignItems: "center",
-    paddingBottom: "2rem",
+    paddingBottom: "2.5rem",
+    paddingTop: "1rem",
   },
   platesContainerTitle: {
     position: "absolute",
@@ -192,11 +198,12 @@ const useStyles = createUseStyles({
   bottom: {
     display: "flex",
     justifyContent: "center",
+    position: "relative",
     alignItems: "center",
     flexDirection: "column",
     width: "100%",
-    height: "20rem",
     backgroundColor: colors.nav,
+    paddingTop: "7rem",
   },
   upperCloseButton: {
     right: 0,
@@ -217,7 +224,8 @@ const useStyles = createUseStyles({
   closeButton: {
     width: "5rem",
     height: "2rem",
-
+    position: "absolute",
+    top: "45%",
     border: `solid 1px ${colors.navLight}`,
     borderRadius: "20px",
     backgroundColor: colors.nav,
