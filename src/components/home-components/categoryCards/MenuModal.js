@@ -14,6 +14,12 @@ export default function MenuModal(props) {
   return (
     <Modal open={open} onClose={props.onClose}>
       <div className={classes.container}>
+        <button
+          className={classes.upperCloseButton}
+          onClick={() => props.onClose()}
+        >
+          X
+        </button>
         <div className={classes.header}>
           <div className={classes.headerLine}></div>
           <span className={classes.subTitle}>{data}</span>
@@ -84,12 +90,14 @@ export default function MenuModal(props) {
           </div>
         </div>
         <div className={classes.bottom}>
-          <button
-            className={classes.closeButton}
-            onClick={() => props.onClose()}
-          >
-            Close
-          </button>
+          <div className={classes.bottomInner}>
+            <button
+              className={classes.closeButton}
+              onClick={() => props.onClose()}
+            >
+              Close
+            </button>
+          </div>
         </div>
       </div>
     </Modal>
@@ -196,36 +204,36 @@ const useStyles = createUseStyles({
     fontSize: "0.9rem",
   },
   bottom: {
-    display: "flex",
-    justifyContent: "center",
-    position: "relative",
-    alignItems: "center",
-    flexDirection: "column",
     width: "100%",
     backgroundColor: colors.nav,
-    paddingTop: "7rem",
+  },
+  bottomInner: {
+    width: "100%",
+    height: "15rem",
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
   },
   upperCloseButton: {
-    right: 0,
+    right: "10px",
+    top: "10px",
     position: "absolute",
     fontWeight: "700",
-    backgroundColor: colors.nav,
-    color: colors.white,
+    backgroundColor: colors.textNav,
+    color: colors.nav,
     borderRadius: "100%",
     border: `solid 1px ${colors.navLight}`,
 
     transition: "background 0.5s, border 0.5s",
 
     "&:hover": {
-      backgroundColor: colors.textNav,
-      color: colors.nav,
+      backgroundColor: colors.nav,
+      color: colors.white,
     },
   },
   closeButton: {
-    width: "5rem",
-    height: "2rem",
-    position: "absolute",
-    top: "45%",
+    width: "8rem",
+    height: "3rem",
     border: `solid 1px ${colors.navLight}`,
     borderRadius: "20px",
     backgroundColor: colors.nav,
