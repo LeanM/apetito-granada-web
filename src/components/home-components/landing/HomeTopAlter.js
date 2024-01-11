@@ -16,27 +16,18 @@ export default function HomeTopAlter() {
       <div className={classes.subContainer}>
         <Reveal animationVariant="left" styles={classes.dataContainer}>
           <div className={classes.dataFirstRow}>
-            <p
-              style={{
-                fontSize: "0.9rem",
-                fontWeight: "300",
-                //fontStyle: "italic",
-                color: colors.textNav,
-                marginLeft: "0.5rem",
-                height: "1rem",
-              }}
-            >
-              Bienvenidos a
-            </p>
-            <p className={classes.titleText}>Apetito Granada</p>
+            <p className={classes.titleText}>APETITO GRANADA</p>
           </div>
-          <div className={classes.dataFirstRow} style={{ paddingLeft: "10px" }}>
+          <div
+            className={classes.dataFirstRow}
+            style={{ marginLeft: "1rem", marginTop: "2rem" }}
+          >
             <p
               style={{
-                fontSize: "0.9rem",
-                fontWeight: "300",
+                fontSize: "1rem",
+                fontWeight: "200",
                 color: colors.textNav,
-                marginTop: "2rem",
+                marginTop: "0rem",
               }}
             >
               Servicio de catering para la ciudad de Granada y alrededores!
@@ -47,7 +38,7 @@ export default function HomeTopAlter() {
                 navigate("/contact");
               }}
             >
-              BOOK NOW
+              Book now
             </Button>
           </div>
         </Reveal>
@@ -143,7 +134,8 @@ const useStyles = createUseStyles({
   titleText: {
     width: "100%",
     fontWeight: "800",
-    fontSize: "4rem",
+    fontSize: "6.3rem",
+    lineHeight: "4.7rem",
     color: colors.secondary,
 
     "@media screen and (max-width: 1000px)": {
@@ -165,7 +157,8 @@ const useStyles = createUseStyles({
   },
   bookButton: {
     marginTop: "1rem",
-
+    fontSize: "1rem",
+    fontWeight: "200",
     backgroundColor: colors.nav,
     color: colors.textNav,
     border: `solid 1px ${colors.textNav}`,
