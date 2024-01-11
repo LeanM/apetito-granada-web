@@ -13,7 +13,10 @@ export default function MenuModal(props) {
 
   return (
     <Modal open={open} onClose={props.onClose}>
-      <div className={classes.container}>
+      <div
+        className={classes.container}
+        style={{ backgroundImage: `url(./images/backgroundMenu2.png)` }}
+      >
         <button
           className={classes.upperCloseButton}
           onClick={() => props.onClose()}
@@ -117,11 +120,22 @@ const useStyles = createUseStyles({
     left: "50%",
     transform: "translate(-50%, -50%)",
     backgroundColor: colors.textNav,
+    backgroundSize: "cover",
     border: `solid 1px ${colors.nav}`,
     borderRadius: "5px",
     boxShadow: "0 0 5px black",
     overflowY: "scroll",
     fontFamily: "Poppins",
+  },
+  background: {
+    position: "absolute",
+    backgroundSize: "cover",
+
+    top: 0,
+    right: 0,
+    left: 0,
+    bottom: 0,
+    opacity: 0.2,
   },
   header: {
     width: "100%",
