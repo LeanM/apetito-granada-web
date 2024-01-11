@@ -23,7 +23,7 @@ export default function FormInput(props) {
   }, []);
 
   const biggerInput = {
-    height: "5rem",
+    height: "3rem",
     borderRadius: 0,
   };
 
@@ -58,7 +58,8 @@ const useStyles = createUseStyles({
     flexDirection: "column",
     justifyContent: "center",
     alignItems: "flex-start",
-    width: "30rem",
+    width: "80%",
+
     borderRadius: 0,
 
     "@media screen and (max-width: 700px)": {
@@ -70,7 +71,7 @@ const useStyles = createUseStyles({
     },
   },
   input: {
-    margin: "5px 0px",
+    margin: "5px 2px",
     width: "100%",
     borderRadius: 0,
     outline: "none",
