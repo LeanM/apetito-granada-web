@@ -4,7 +4,6 @@ import { createUseStyles } from "react-jss";
 import logo from "../../assets/apetito.png";
 import { colors } from "../../assets/colors";
 import { useNavigate } from "react-router-dom";
-import DropdownNav from "./DropdownNav";
 
 export default function PageWrapper(props) {
   const [showScrollButton, setShowScrollButton] = useState(false);
