@@ -101,7 +101,7 @@ export default function Contact() {
         <div
           className={classes.subContainer}
           style={{
-            backgroundImage: `url(./contactImage.jpg)`,
+            backgroundImage: `url(./images/contactImage.jpg)`,
             backgroundSize: "cover",
           }}
         >

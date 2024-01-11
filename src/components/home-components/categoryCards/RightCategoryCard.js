@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import asado from "../../../assets/ASADO.jpg";
 import { createUseStyles } from "react-jss";
 import styles from "./styles";
 import { colors } from "../../../assets/colors";
