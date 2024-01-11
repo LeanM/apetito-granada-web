@@ -39,34 +39,26 @@ export default function MenuList() {
 
 const useStyles = createUseStyles({
   container: {
-    width: "25rem",
-    height: "15rem",
+    width: "90%",
+    height: "100%",
     borderRadius: "10px",
     display: "flex",
     flexDirection: "column",
     justifyContent: "flex-start",
-    border: `solid 2px ${colors.nav}`,
     backgroundColor: colors.nav,
     overflowY: "scroll",
     padding: "10px",
     fontFamily: "Poppins",
-
-    "@media screen and (max-width: 700px)": {
-      width: "20rem",
-    },
-
-    "@media screen and (max-width: 400px)": {
-      width: "15rem",
-    },
+    border: `solid 2px ${colors.navLight}`,
   },
   itemContainer: {
     width: "100%",
-    minHeight: "3.5rem",
+    minHeight: "4rem",
     display: "flex",
     padding: "5px",
     justifyContent: "flex-start",
     alignItems: "center",
-    fontSize: "0.9rem",
+    fontSize: "0.7rem",
     fontWeight: "700",
     borderRadius: "5px",
     backgroundColor: colors.nav,
@@ -74,15 +66,16 @@ const useStyles = createUseStyles({
   },
   item: {
     width: "90%",
-    minHeight: "3.5rem",
+    minHeight: "4rem",
     display: "flex",
     padding: "5px",
     justifyContent: "flex-start",
     alignItems: "center",
     borderRadius: "5px",
+
     backgroundColor: colors.nav,
-    gap: "1rem",
     color: colors.white,
+    gap: "1rem",
 
     transition: "background 0.5s, color 0.5s",
 
@@ -98,15 +91,15 @@ const useStyles = createUseStyles({
     border: `solid 2px ${colors.navLight}`,
   },
   itemText: {
-    textAlign: "center",
-
+    textAlign: "start",
+    fontSize: "0.7rem",
     "@media screen and (max-width: 700px)": {
       fontSize: "0.7rem",
     },
   },
   removeButton: {
-    width: "10%",
-    height: "80%",
+    width: "1.5rem",
+    height: "1.5rem",
 
     textAlign: "center",
 
@@ -114,6 +107,8 @@ const useStyles = createUseStyles({
     border: `solid 1px ${colors.textNav}`,
     backgroundColor: colors.nav,
     color: colors.white,
+
+    transition: "background 0.2s, color 0.2s",
 
     "&:hover": {
       backgroundColor: colors.textNav,
