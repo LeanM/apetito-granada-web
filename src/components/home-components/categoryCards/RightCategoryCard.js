@@ -9,7 +9,7 @@ import { Whisper, Tooltip } from "rsuite";
 export default function RightCategoryCard(props) {
   const classes = styles();
   const specificClasses = specificStyle();
-  const { addToCart } = useContext(CartContext);
+  const { addToCart, emptyCart } = useContext(CartContext);
   const firstWord = props.categoryData?.categoryName.split(" ")[0];
   return (
     <div
@@ -57,7 +57,9 @@ export default function RightCategoryCard(props) {
             >
               <button
                 className={classes.addButton}
-                onClick={() => addToCart(props.categoryData?.categoryName)}
+                onClick={() => {
+                  addToCart(props.categoryData);
+                }}
               >
                 +
               </button>

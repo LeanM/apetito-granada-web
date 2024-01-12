@@ -19,8 +19,6 @@ import HomeTopAlter from "./landing/HomeTopAlter";
 export default function Home(props) {
   const { loading } = props;
 
-  const navigate = useNavigate();
-  const [packages, setPackages] = useState([]);
   const [categories, setCategories] = useState([]);
 
   const [actualMenu, setActualMenu] = useState({

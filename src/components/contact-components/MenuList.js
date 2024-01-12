@@ -11,7 +11,7 @@ export default function MenuList() {
   return (
     <div className={classes.container}>
       {cart.map((menu) => {
-        const firstWord = menu.categoryMenu?.categoryName.split(" ")[0];
+        const firstWord = menu?.categoryName.split(" ")[0];
         return (
           <div className={classes.itemContainer}>
             <div className={classes.item}>
@@ -19,9 +19,7 @@ export default function MenuList() {
                 className={classes.itemImage}
                 src={"./categories/" + firstWord + ".jpg"}
               ></img>
-              <p className={classes.itemText}>
-                {menu.categoryMenu?.categoryName}
-              </p>
+              <p className={classes.itemText}>{menu?.categoryName}</p>
             </div>
             <button
               className={classes.removeButton}
