@@ -15,9 +15,13 @@ import Nav from "../pagewrappers/Nav";
 import MenuModal from "./categoryCards/MenuModal";
 import Footer from "../pagewrappers/Footer";
 import HomeTopAlter from "./landing/HomeTopAlter";
+import { useContext } from "react";
+import CartContext from "../../context/CartProvider";
 
 export default function Home(props) {
   const { loading } = props;
+
+  const { emptyCart } = useContext(CartContext);
 
   const [categories, setCategories] = useState([]);
 
@@ -37,6 +41,7 @@ export default function Home(props) {
 
   useEffect(() => {
     loadPage();
+    emptyCart();
   }, []);
 
   useEffect(() => {
