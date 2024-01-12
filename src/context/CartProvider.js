@@ -17,17 +17,15 @@ export const CartProvider = ({ children }) => {
 
   const addToCart = (selectedMenu) => {
     let updatedCart = [];
-    if (selectedMenu !== "") {
+    if (selectedMenu?.categoryName !== "") {
       if (!isMenuAlreadyInCart(selectedMenu)) {
         cart.map((menu) => {
           updatedCart.push(menu);
           return 0;
         });
         //Now push the new Menu
-        updatedCart.push({
-          categoryMenu: selectedMenu,
-        });
-        console.log(updatedCart);
+        updatedCart.push(selectedMenu);
+
         setCart(updatedCart);
         toast.success("Menu succesfully added to the selections!");
       } else toast.error("The menu is already in the selection!");
@@ -36,9 +34,10 @@ export const CartProvider = ({ children }) => {
 
   const removeFromCart = (menuToDelete) => {
     let updatedCart = [];
-    if (menuToDelete !== "") {
+    if (menuToDelete.categoryName !== "") {
       cart.map((menu) => {
-        if (menu !== menuToDelete) updatedCart.push(menu);
+        if (menu?.categoryName !== menuToDelete?.categoryName)
+          updatedCart.push(menu);
         return 0;
       });
     }
@@ -52,7 +51,8 @@ export const CartProvider = ({ children }) => {
 
   const isMenuAlreadyInCart = (selectedMenu) => {
     return cart.find(
-      (categoryMenu) => categoryMenu.categoryMenu === selectedMenu
+      (categoryMenu) =>
+        categoryMenu?.categoryName === selectedMenu?.categoryName
     );
   };
 
