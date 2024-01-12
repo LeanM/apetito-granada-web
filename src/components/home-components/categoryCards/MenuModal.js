@@ -9,7 +9,7 @@ import logo from "../../../assets/apetito.png";
 export default function MenuModal(props) {
   const { open, data } = props;
   const classes = useStyles();
-  const firstWord = data?.split(" ")[0];
+  console.log(data);
 
   return (
     <Modal open={open} onClose={props.onClose}>
@@ -25,71 +25,26 @@ export default function MenuModal(props) {
         </button>
         <div className={classes.header}>
           <div className={classes.headerLine}></div>
-          <span className={classes.subTitle}>{data}</span>
+          <span className={classes.subTitle}>{data?.categoryName}</span>
           <span className={classes.title}>MENU</span>
           <span className={classes.subTitle}>Apetito Granada</span>
         </div>
         <div className={classes.body}>
           <div className={classes.platesContainer}>
-            <div className={classes.platesContainerTitle}>Title 1</div>
-            <div className={classes.plateItem}>
-              <span className={classes.plateName}>Plato numero 1</span>
-              <span className={classes.platePrice}>$500</span>
-            </div>
-            <div className={classes.plateItem}>
-              <span className={classes.plateName}>Plato numero 1</span>
-              <span className={classes.platePrice}>$500</span>
-            </div>
-            <div className={classes.plateItem}>
-              <span className={classes.plateName}>Plato numero 1</span>
-              <span className={classes.platePrice}>$500</span>
-            </div>
-          </div>
-          <div className={classes.platesContainer}>
-            <div className={classes.platesContainerTitle}>Title 1</div>
-            <div className={classes.plateItem}>
-              <span className={classes.plateName}>Plato numero 1</span>
-              <span className={classes.platePrice}>$500</span>
-            </div>
-            <div className={classes.plateItem}>
-              <span className={classes.plateName}>Plato numero 1</span>
-              <span className={classes.platePrice}>$500</span>
-            </div>
-            <div className={classes.plateItem}>
-              <span className={classes.plateName}>Plato numero 1</span>
-              <span className={classes.platePrice}>$500</span>
-            </div>
-          </div>
-          <div className={classes.platesContainer}>
-            <div className={classes.platesContainerTitle}>Title 2</div>
-            <div className={classes.plateItem}>
-              <span className={classes.plateName}>Plato numero 1</span>
-              <span className={classes.platePrice}>$500</span>
-            </div>
-
-            <div className={classes.plateItem}>
-              <span className={classes.plateName}>Plato numero 1</span>
-              <span className={classes.platePrice}>$500</span>
-            </div>
-            <div className={classes.plateItem}>
-              <span className={classes.plateName}>Plato numero 1</span>
-              <span className={classes.platePrice}>$500</span>
-            </div>
-          </div>
-          <div className={classes.platesContainer}>
-            <div className={classes.platesContainerTitle}>Title 1</div>
-            <div className={classes.plateItem}>
-              <span className={classes.plateName}>Plato numero 1</span>
-              <span className={classes.platePrice}>$500</span>
-            </div>
-            <div className={classes.plateItem}>
-              <span className={classes.plateName}>Plato numero 1</span>
-              <span className={classes.platePrice}>$500</span>
-            </div>
-            <div className={classes.plateItem}>
-              <span className={classes.plateName}>Plato numero 1</span>
-              <span className={classes.platePrice}>$500</span>
-            </div>
+            <div className={classes.platesContainerTitle}>Platos</div>
+            {data.plates.map((plate) => {
+              return (
+                <div className={classes.plateItem}>
+                  <div className={classes.plateInfoContainer}>
+                    <span className={classes.plateName}>{plate.name}</span>
+                    <span className={classes.plateDescription}>
+                      {plate.description}
+                    </span>
+                  </div>
+                  <span className={classes.platePrice}>$500</span>
+                </div>
+              );
+            })}
           </div>
         </div>
         <div className={classes.bottom}>
@@ -170,18 +125,19 @@ const useStyles = createUseStyles({
     justifyContent: "flex-start",
     alignItems: "center",
     paddingTop: "5rem",
+    marginBottom: "5rem",
   },
   platesContainer: {
     width: "70%",
     position: "relative",
     borderRadius: "2px",
     border: `solid 2px ${colors.nav}`,
-    borderBottom: "none",
+    //borderBottom: "none",
     display: "flex",
     flexDirection: "column",
     justifyContent: "flex-start",
     alignItems: "center",
-    paddingBottom: "2.5rem",
+    //paddingBottom: "2.5rem",
     paddingTop: "1rem",
   },
   platesContainerTitle: {
@@ -207,10 +163,23 @@ const useStyles = createUseStyles({
     alignItems: "center",
     gap: "1.5rem",
   },
+  plateInfoContainer: {
+    display: "flex",
+    width: "80%",
+    height: "100%",
+    flexDirection: "column",
+    justifyContent: "center",
+    alignItems: "start",
+  },
   plateName: {
     color: colors.black,
     fontWeight: "300",
     fontSize: "0.9rem",
+  },
+  plateDescription: {
+    color: colors.grey,
+    fontWeight: "200",
+    fontSize: "0.8rem",
   },
   platePrice: {
     color: colors.price,
@@ -223,7 +192,7 @@ const useStyles = createUseStyles({
   },
   bottomInner: {
     width: "100%",
-    height: "15rem",
+    height: "7rem",
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
