@@ -21,14 +21,7 @@ export default function HomeTopAlter() {
             className={classes.dataFirstRow}
             style={{ marginLeft: "1rem", marginTop: "2rem" }}
           >
-            <p
-              style={{
-                fontSize: "1rem",
-                fontWeight: "200",
-                color: colors.textNav,
-                marginTop: "0rem",
-              }}
-            >
+            <p className={classes.subText}>
               Servicio de catering para la ciudad de Granada y alrededores!
             </p>
             <Button
@@ -71,6 +64,11 @@ const useStyles = createUseStyles({
     justifyContent: "center",
     alignItems: "center",
     marginTop: "8rem",
+
+    "@media screen and (max-width: 800px)": {
+      flexDirection: "column",
+      marginTop: "15rem",
+    },
   },
   visualContainer: {
     width: "45%",
@@ -80,6 +78,12 @@ const useStyles = createUseStyles({
     justifyContent: "center",
     alignItems: "center",
     marginTop: "auto",
+
+    "@media screen and (max-width: 800px)": {
+      width: "80%",
+      height: "45%",
+      marginTop: 0,
+    },
   },
   dishImage: {
     width: "95%",
@@ -89,6 +93,20 @@ const useStyles = createUseStyles({
     bottom: "-6rem",
     right: "0rem",
     zIndex: "100",
+
+    "@media screen and (max-width: 800px)": {
+      bottom: 0,
+      width: "18rem",
+      height: "18rem",
+      marginLeft: "auto",
+      marginRight: "auto",
+    },
+
+    "@media screen and (max-width: 700px)": {
+      bottom: 0,
+      width: "14rem",
+      height: "14rem",
+    },
   },
   splatImage: {
     width: "80%",
@@ -98,12 +116,16 @@ const useStyles = createUseStyles({
     position: "absolute",
     zIndex: "50",
     opacity: 1,
+
+    "@media screen and (max-width: 800px)": {
+      left: 0,
+    },
   },
   dataContainer: {
     width: "45%",
     height: "90%",
     paddingLeft: "3rem",
-    zIndex: 20,
+    zIndex: 80,
 
     textAlign: "start",
     display: "flex",
@@ -112,16 +134,12 @@ const useStyles = createUseStyles({
     alignItems: "flex-start",
     gap: "1rem",
 
-    "@media screen and (max-width: 1000px)": {
-      width: "30rem",
-      height: "20rem",
-      fontSize: "1.8rem",
-    },
-
-    "@media screen and (max-width: 500px)": {
-      width: "20rem",
-      height: "18rem",
-      fontSize: "1.7rem",
+    "@media screen and (max-width: 800px)": {
+      width: "80%",
+      height: "45%",
+      gap: 0,
+      alignItems: "center",
+      paddingLeft: "0",
     },
   },
   dataFirstRow: {
@@ -130,6 +148,21 @@ const useStyles = createUseStyles({
     justifyContent: "center",
     alignItems: "flex-start",
     flexDirection: "column",
+
+    "@media screen and (max-width: 800px)": {
+      alignItems: "center",
+    },
+  },
+  subText: {
+    fontSize: "1rem",
+    fontWeight: "200",
+    color: colors.textNav,
+    marginTop: "0rem",
+
+    "@media screen and (max-width: 600px)": {
+      fontSize: "0.8rem",
+      textAlign: "center",
+    },
   },
   titleText: {
     width: "100%",
@@ -138,12 +171,20 @@ const useStyles = createUseStyles({
     lineHeight: "4.7rem",
     color: colors.secondary,
 
-    "@media screen and (max-width: 1000px)": {
-      fontSize: "1rem",
+    "@media screen and (max-width: 1200px)": {
+      fontSize: "5.3rem",
+      lineHeight: "3.7rem",
     },
 
-    "@media screen and (max-width: 500px)": {
-      fontSize: "0.9rem",
+    "@media screen and (max-width: 800px)": {
+      fontSize: "4.3rem",
+      lineHeight: "2.7rem",
+      textAlign: "center",
+    },
+
+    "@media screen and (max-width: 600px)": {
+      fontSize: "3.3rem",
+      lineHeight: "2.5rem",
     },
   },
   background: {

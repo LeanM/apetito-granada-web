@@ -59,6 +59,26 @@ const useStyles = createUseStyles({
     textAlign: "center",
     lineHeight: "3rem",
     color: colors.secondary,
+
+    "@media screen and (max-width: 1200px)": {
+      fontSize: "2.5rem",
+      lineHeight: "2rem",
+    },
+
+    "@media screen and (max-width: 800px)": {
+      fontSize: "2rem",
+      lineHeight: "1.5rem",
+    },
+
+    "@media screen and (max-width: 800px)": {
+      fontSize: "1.5rem",
+      lineHeight: "1rem",
+    },
+
+    "@media screen and (max-width: 500px)": {
+      fontSize: "1.2rem",
+      lineHeight: "1rem",
+    },
   },
   infoText: {
     fontWeight: "300",
@@ -66,5 +86,17 @@ const useStyles = createUseStyles({
     fontSize: "1.1rem",
     textAlign: "center",
     color: colors.textNav,
+
+    "@media screen and (max-width: 1200px)": {
+      fontSize: "0.9rem",
+    },
+
+    "@media screen and (max-width: 800px)": {
+      fontSize: "0.7rem",
+    },
+
+    "@media screen and (max-width: 800px)": {
+      fontSize: "0.6rem",
+    },
   },
 });
