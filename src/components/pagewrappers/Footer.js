@@ -29,7 +29,7 @@ export default function Footer() {
             className={classes.button}
             onClick={() => navigate("/contact")}
           >
-            BOOK NOW
+            CONTACTANOS
           </Button>
         </div>
       </div>

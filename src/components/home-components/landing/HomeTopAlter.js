@@ -37,7 +37,7 @@ export default function HomeTopAlter() {
                 navigate("/contact");
               }}
             >
-              Book now
+              Contactanos
             </Button>
           </div>
         </Reveal>
