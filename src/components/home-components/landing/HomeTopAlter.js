@@ -59,8 +59,9 @@ const useStyles = createUseStyles({
     justifyContent: "center",
     background: `linear-gradient(${colors.navSecondary},${colors.nav})`,
     alignItems: "center",
-    boxShadow: "black 0 0 5px",
-    overflow: "hidden",
+    //borderBottom: `solid 1px ${colors.secondary}`,
+    //boxShadow: "black 0 0 5px",
+    //overflow: "hidden",
     zIndex: "10",
   },
   subContainer: {
@@ -81,12 +82,12 @@ const useStyles = createUseStyles({
     marginTop: "auto",
   },
   dishImage: {
-    width: "100%",
-    height: "100%",
+    width: "95%",
+    height: "95%",
     objectFit: "contain",
     position: "absolute",
     bottom: "-6rem",
-    right: "-5rem",
+    right: "0rem",
     zIndex: "100",
   },
   splatImage: {

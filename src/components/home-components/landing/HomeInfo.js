@@ -34,9 +34,8 @@ export default function HomeInfo() {
             <div className={classes.numberContainer}>3.</div>
             <div className={classes.textContainer}>
               <p className={classes.text}>
-                Una vez analizado las posibilidades y seleccionado los menus de
-                interes, comuniquese con nosotros a traves de la seccion de
-                contacto, especificando los datos necesarios.
+                Comuniquese con nosotros a traves de la seccion de contacto,
+                especificando los datos necesarios.
               </p>
             </div>
           </div>

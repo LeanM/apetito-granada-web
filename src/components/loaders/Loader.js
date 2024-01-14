@@ -11,7 +11,7 @@ const Loader = () => {
       <div className={classes.subContainer}>
         <img className={classes.image} src={load}></img>
         <ClockLoader color={colors.black} aria-label="Loading..." />
-        <p className={classes.text}>Loading...</p>
+        <p className={classes.text}>Cargando...</p>
       </div>
     </div>
   );
