@@ -28,8 +28,7 @@ export default function InfoCarousel() {
   }, []);
 
   useEffect(() => {
-    if (viewportSize.width < 400) setSlidesToShow(1);
-    else if (viewportSize.width < 800) setSlidesToShow(1);
+    if (viewportSize.width < 1200) setSlidesToShow(1);
     else setSlidesToShow(2);
   }, [viewportSize]);
 
@@ -88,6 +87,10 @@ const useStyles = createUseStyles({
     zIndex: "1000",
     backgroundColor: "white",
     borderTop: `solid ${colors.grey} 1px`,
+
+    "@media screen and (max-width: 800px)": {
+      display: "none",
+    },
   },
   slider: {
     width: "100%",
