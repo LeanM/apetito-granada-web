@@ -25,10 +25,10 @@ export default function Contact() {
       id: 1,
       name: "name",
       type: "text",
-      placeholder: "Your name",
+      placeholder: "Tu nombre",
       errorMessage:
         "Your name should be 3-16 characters and shouldn't include any special character!",
-      label: "Name",
+      label: "Nombre",
       pattern: "/^[a-z ,.'-]+$/i",
       required: true,
     },
@@ -36,7 +36,7 @@ export default function Contact() {
       id: 2,
       name: "email",
       type: "email",
-      placeholder: "Email",
+      placeholder: "Tu email",
       errorMessage: "It should be a valid email address!",
       label: "Email",
       required: true,
@@ -45,8 +45,8 @@ export default function Contact() {
       id: 3,
       name: "date",
       type: "date",
-      placeholder: "Select Event Date",
-      label: "Event Date",
+      placeholder: "Elija fecha del evento",
+      label: "Fecha del evento",
       required: true,
     },
 
@@ -54,16 +54,16 @@ export default function Contact() {
       id: 4,
       name: "people",
       type: "text",
-      placeholder: "Specify aproximated number of people",
-      label: "People Number",
+      placeholder: "Cantidad aprox. de personas",
+      label: "Cantidad de personas",
       required: true,
     },
     {
       id: 5,
       name: "description",
       type: "text",
-      placeholder: "Anything you want to say...",
-      label: "Description",
+      placeholder: "Algo que desee especificar...",
+      label: "Informacion extra",
     },
   ];
 
@@ -114,7 +114,7 @@ export default function Contact() {
                 alignItems: "center",
               }}
             >
-              <h1 className={classes.title}>Book Now!</h1>
+              <h1 className={classes.title}>Contactanos!</h1>
             </div>
             <form
               className={classes.form}
@@ -160,7 +160,7 @@ export default function Contact() {
                 </div>
               </div>
 
-              <button className={classes.submitButton}>Submit</button>
+              <button className={classes.submitButton}>Enviar</button>
             </form>
           </div>
           <div className={classes.infoContainer}>
@@ -172,7 +172,7 @@ export default function Contact() {
             </div>
             <div className={classes.progessContainer}>
               <p style={{ fontWeight: "400", color: colors.textNav }}>
-                Information required completion
+                Completitud de informacion requerida
               </p>
               <ProgressBar
                 className={classes.progressBar}

@@ -15,6 +15,7 @@ import Nav from "../pagewrappers/Nav";
 import MenuModal from "./categoryCards/MenuModal";
 import Footer from "../pagewrappers/Footer";
 import HomeTopAlter from "./landing/HomeTopAlter";
+import About from "./landing/About";
 
 export default function Home(props) {
   const { loading } = props;
@@ -230,7 +231,7 @@ export default function Home(props) {
       <MenuModal data={actualMenu} open={open} onClose={handleClose} />
       <div className={classes.container}>
         <HomeTopAlter />
-
+        <About />
         <HomeInfo />
         <div className={classes.homeBody}>
           <div className={classes.categoryCarouselContainer}>

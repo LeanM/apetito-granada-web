@@ -53,7 +53,7 @@ export default function MenuModal(props) {
               className={classes.closeButton}
               onClick={() => props.onClose()}
             >
-              Close
+              Cerrar
             </button>
           </div>
         </div>

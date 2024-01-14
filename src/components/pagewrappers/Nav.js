@@ -115,7 +115,7 @@ export default function Nav(props) {
             }}
           >
             <div className={classes.navBarListItemTextContainer}>
-              <p className={classes.navBarListItemText}>Home</p>
+              <p className={classes.navBarListItemText}>Inicio</p>
             </div>
           </div>
           <div
@@ -126,7 +126,7 @@ export default function Nav(props) {
             style={navButtonStyle}
           >
             <div className={classes.navBarListItemTextContainer}>
-              <p className={classes.navBarListItemText}>Book</p>
+              <p className={classes.navBarListItemText}>Contacto</p>
             </div>
           </div>
           <div
@@ -137,7 +137,7 @@ export default function Nav(props) {
             }}
           >
             <div className={classes.navBarListItemTextContainer}>
-              <p className={classes.navBarListItemText}>Gallery</p>
+              <p className={classes.navBarListItemText}>Galeria</p>
             </div>
           </div>
         </div>
