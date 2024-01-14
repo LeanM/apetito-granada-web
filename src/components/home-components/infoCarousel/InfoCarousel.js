@@ -45,7 +45,7 @@ export default function InfoCarousel() {
       //"La experiencia de chef está disponible previa solicitud. Requiere depósito previo del 50%.",
       //"La entrega se cobrará por kilómetro desde nuestra unidad de cocina.",
       "Nuestros platos proporcionarán instrucciones para almacenar, recalentar, cocinar y servir correctamente.",
-      "El personal encargado de preparar alimentos debe conocer los requisitos de seguridad alimentaria, garantizando seguridad.",
+      "El personal encargado de preparar alimentos debe conocer los requisitos de seguridad alimentaria.",
       "Se puede verificar la calidad de nuestros proveedores de productos, garantizando su origen local.",
     ]);
   }, []);
@@ -53,7 +53,7 @@ export default function InfoCarousel() {
   let settings = {
     dots: false,
     infinite: true,
-    speed: 5000,
+    speed: 15000,
     slidesToShow: slidesToShow,
     slidesToScroll: 1,
   };
@@ -65,7 +65,7 @@ export default function InfoCarousel() {
         {...settings}
         arrows={false}
         autoplay={true}
-        autoplaySpeed={7000}
+        autoplaySpeed={0}
         draggable={false}
       >
         {infoItems.map((item) => {
@@ -90,7 +90,7 @@ const useStyles = createUseStyles({
     borderTop: `solid ${colors.grey} 1px`,
   },
   slider: {
-    width: "95%",
+    width: "100%",
     height: "100%",
   },
 });
