@@ -5,7 +5,6 @@ import LeftCategoryCard from "./categoryCards/LeftCategoryCard";
 import RightCategoryCard from "./categoryCards/RightCategoryCard";
 import CategoryCarousel from "./carousel/CategoryCarousel";
 import { colors } from "../../assets/colors";
-import ReviewCarousel from "./reviewCarousel/ReviewCarousel";
 import HomeInfo from "./landing/HomeInfo";
 import BookSection from "./categoryCards/BookSection";
 import { createUseStyles } from "react-jss";
@@ -16,6 +15,7 @@ import MenuModal from "./categoryCards/MenuModal";
 import Footer from "../pagewrappers/Footer";
 import HomeTopAlter from "./landing/HomeTopAlter";
 import About from "./landing/About";
+import InfoCarousel from "./infoCarousel/InfoCarousel";
 
 export default function Home(props) {
   const { loading } = props;
@@ -311,7 +311,7 @@ export default function Home(props) {
             })}
           </div>
         </div>
-        <ReviewCarousel />
+        <InfoCarousel />
       </div>
       <Footer />
     </>

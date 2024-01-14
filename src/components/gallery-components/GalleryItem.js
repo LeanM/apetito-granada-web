@@ -52,7 +52,7 @@ const useStyles = createUseStyles({
 
     zIndex: "100",
 
-    transition: "transform 0.3s",
+    transition: "transform 0.5s",
 
     "&:hover": {
       transform: "scale(1.05)",
@@ -81,7 +81,7 @@ const useStyles = createUseStyles({
 
     backgroundColor: colors.nav,
 
-    transition: "height 0.3s, opacity 0.3s",
+    transition: "height 0.5s, opacity 0.5s",
 
     "&:hover": {
       opacity: 1,
