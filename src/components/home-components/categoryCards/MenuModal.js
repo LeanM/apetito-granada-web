@@ -81,6 +81,10 @@ const useStyles = createUseStyles({
     boxShadow: "0 0 5px black",
     overflowY: "scroll",
     fontFamily: "Poppins",
+
+    "@media screen and (max-width: 800px)": {
+      width: "95%",
+    },
   },
   background: {
     position: "absolute",
@@ -139,6 +143,10 @@ const useStyles = createUseStyles({
     alignItems: "center",
     //paddingBottom: "2.5rem",
     paddingTop: "1rem",
+
+    "@media screen and (max-width: 800px)": {
+      width: "85%",
+    },
   },
   platesContainerTitle: {
     position: "absolute",

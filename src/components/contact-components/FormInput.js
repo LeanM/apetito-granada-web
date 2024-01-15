@@ -61,14 +61,6 @@ const useStyles = createUseStyles({
     width: "80%",
 
     borderRadius: 0,
-
-    "@media screen and (max-width: 700px)": {
-      width: "20rem",
-    },
-
-    "@media screen and (max-width: 400px)": {
-      width: "15rem",
-    },
   },
   input: {
     margin: "5px 2px",
@@ -77,10 +69,6 @@ const useStyles = createUseStyles({
     outline: "none",
     border: "none",
     borderBottom: `solid 1px ${colors.grey}`,
-
-    "@media screen and (max-width: 1000px)": {
-      width: "100%",
-    },
   },
   label: {
     fontSize: "1.1rem",
