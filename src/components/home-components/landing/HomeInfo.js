@@ -64,18 +64,18 @@ const useStyles = createUseStyles({
     flexDirection: "column",
     justifyContent: "center",
     alignItems: "center",
-    marginTop: "2rem",
+    marginTop: "3rem",
     //backgroundColor: colors.navUltraLight,
     backgroundColor: "white",
     //borderTop: `solid 3px ${colors.nav}`,
     borderBottom: `solid 3px ${colors.nav}`,
 
     "@media screen and (max-width: 1000px)": {
-      height: "110vh",
+      height: "120vh",
     },
 
     "@media screen and (max-width: 750px)": {
-      height: "120vh",
+      height: "130vh",
     },
   },
   titleText: {
@@ -83,6 +83,7 @@ const useStyles = createUseStyles({
     fontWeight: "800",
     color: colors.black,
     marginTop: "1rem",
+    marginBottom: "1rem",
     fontFamily: "Poppins",
   },
   container: {
@@ -95,7 +96,6 @@ const useStyles = createUseStyles({
 
     "@media screen and (max-width: 1000px)": {
       flexWrap: "wrap",
-      height: "100vh",
     },
 
     "@media screen and (max-width: 750px)": {

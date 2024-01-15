@@ -1,23 +1,36 @@
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Drawer, ButtonToolbar, Button, Placeholder } from "rsuite";
 import { createUseStyles } from "react-jss";
 import { MDBBtnGroup, MDBIcon } from "mdb-react-ui-kit";
 import { colors } from "../../assets/colors";
 import { useNavigate } from "react-router-dom";
 
-export default function SideNav() {
+export default function SideNav(props) {
   const navigate = useNavigate();
   const [open, setOpen] = useState(false);
   const classes = useStyles();
+  const [navStyle, setNavStyle] = useState({ color: colors.secondary });
 
   const closeDrawer = () => {
     setOpen(false);
   };
 
+  useEffect(() => {
+    if (props?.type === "alter") {
+      setNavStyle({
+        color: colors.nav,
+      });
+    }
+  }, []);
+
   return (
     <>
       <MDBBtnGroup className={classes.openButton} onClick={() => setOpen(true)}>
-        <MDBIcon icon="bars" className={classes.foldedNavIcon} />
+        <MDBIcon
+          icon="bars"
+          className={classes.foldedNavIcon}
+          style={navStyle}
+        />
       </MDBBtnGroup>
       <Drawer size="full" open={open} onClose={() => setOpen(false)}>
         <Drawer.Body className={classes.drawer}>
@@ -67,7 +80,6 @@ const useStyles = createUseStyles({
     },
   },
   foldedNavIcon: {
-    color: colors.secondary,
     textShadow: `0 0 2px ${colors.textNav}`,
     fontSize: "2rem",
     marginTop: "1rem",

@@ -104,7 +104,7 @@ export default function AlterNav(props) {
               ></img>
             </div>
           </div>
-          <SideNav />
+          <SideNav type="alter" />
         </div>
         <div className={classes.navBarLowList}>
           <div

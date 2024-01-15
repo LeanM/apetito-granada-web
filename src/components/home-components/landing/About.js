@@ -1,22 +1,24 @@
 import { createUseStyles } from "react-jss";
 import { colors } from "../../../assets/colors";
+import Reveal from "../../animation/Reveal";
 
 export default function About() {
   const classes = useStyles();
   return (
     <div className={classes.container}>
-      <div className={classes.leftContainer}>
+      <Reveal styles={classes.leftContainer}>
         <span className={classes.aboutUsText}>SOBRE NOSOTROS</span>
-      </div>
+      </Reveal>
       <div className={classes.middleLine}></div>
-      <div className={classes.rightContainer}>
+
+      <Reveal styles={classes.rightContainer}>
         <span className={classes.infoText}>
           Nuestro objetivo es llevar la experiencia del restaurante a la
           familia, actividades de ocio y negocios corporativos. Suministrada en
           formato de menú preparado estilo bufete o menús de barbacoa listos
           para cocinar y satisfacer todos los gustos.
         </span>
-      </div>
+      </Reveal>
     </div>
   );
 }
@@ -34,14 +36,14 @@ const useStyles = createUseStyles({
     //backgroundImage: `-webkit-linear-gradient(30deg, ${colors.secondary} 50%, ${colors.nav} 50%)`,
   },
   leftContainer: {
-    width: "45%",
+    width: "48%",
     height: "90%",
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
   },
   rightContainer: {
-    width: "45%",
+    width: "48%",
     height: "90%",
     display: "flex",
     justifyContent: "center",
@@ -71,10 +73,10 @@ const useStyles = createUseStyles({
 
     "@media screen and (max-width: 800px)": {
       fontSize: "2rem",
-      lineHeight: "1.5rem",
+      lineHeight: "1.8rem",
     },
 
-    "@media screen and (max-width: 800px)": {
+    "@media screen and (max-width: 600px)": {
       fontSize: "1.5rem",
       lineHeight: "1rem",
     },
@@ -99,8 +101,12 @@ const useStyles = createUseStyles({
       fontSize: "0.7rem",
     },
 
-    "@media screen and (max-width: 800px)": {
+    "@media screen and (max-width: 600px)": {
       fontSize: "0.6rem",
+    },
+
+    "@media screen and (max-width: 500px)": {
+      fontSize: "0.5rem",
     },
   },
 });
