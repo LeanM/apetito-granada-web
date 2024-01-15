@@ -2,10 +2,8 @@ import { createUseStyles } from "react-jss";
 import React, { useEffect, useRef, useState } from "react";
 import AlterNav from "../pagewrappers/AlterNav";
 import FormInput from "./FormInput";
-import { MDBIcon } from "mdb-react-ui-kit";
 import { colors } from "../../assets/colors";
 import ProgressBar from "@ramonak/react-progress-bar";
-import { Button } from "rsuite";
 import MenuList from "./MenuList";
 import Footer from "../pagewrappers/Footer";
 

@@ -15,7 +15,6 @@ export default function FormInput(props) {
   };
 
   useEffect(() => {
-    console.log(label);
     if (label === "Description") {
       setLines(3);
       setStyle(biggerInput);

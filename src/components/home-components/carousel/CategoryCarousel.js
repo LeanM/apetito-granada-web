@@ -39,8 +39,6 @@ export default function CategoryCarousel(props) {
     else setSlidesToShow(4);
 
     if (viewportSize.width < 800) setDraggable(true);
-
-    console.log(viewportSize);
   }, [viewportSize]);
 
   let settings = {

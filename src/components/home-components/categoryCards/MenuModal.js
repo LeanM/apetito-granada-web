@@ -9,7 +9,6 @@ import logo from "../../../assets/apetito.png";
 export default function MenuModal(props) {
   const { open, data } = props;
   const classes = useStyles();
-  console.log(data);
 
   return (
     <Modal open={open} onClose={props.onClose}>
@@ -34,7 +33,7 @@ export default function MenuModal(props) {
             <div className={classes.platesContainerTitle}>Platos</div>
             {data.plates.map((plate) => {
               return (
-                <div className={classes.plateItem}>
+                <div key={plate.name} className={classes.plateItem}>
                   <div className={classes.plateInfoContainer}>
                     <span className={classes.plateName}>{plate.name}</span>
                     <span className={classes.plateDescription}>
