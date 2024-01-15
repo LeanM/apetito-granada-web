@@ -207,6 +207,10 @@ const useStyles = createUseStyles({
     justifyContent: "center",
     alignItems: "center",
     paddingTop: "10rem",
+
+    "@media screen and (max-width: 900px)": {
+      height: "250vh",
+    },
   },
   subContainer: {
     width: "95%",
@@ -216,8 +220,13 @@ const useStyles = createUseStyles({
     alignItems: "center",
     overflow: "hidden",
 
-    "@media screen and (max-width: 1100px)": {
-      borderLeft: `solid 20px ${colors.nav}`,
+    "@media screen and (max-width: 1000px)": {
+      width: "100%",
+    },
+
+    "@media screen and (max-width: 900px)": {
+      flexDirection: "column",
+      height: "95%",
     },
   },
   dataContainer: {
@@ -232,9 +241,14 @@ const useStyles = createUseStyles({
 
     alignItems: "center",
 
-    "@media screen and (max-width: 1100px)": {
-      width: "80%",
-      paddingRight: "20px",
+    "@media screen and (max-width: 900px)": {
+      height: "65%",
+      width: "70%",
+      borderRadius: "20px 20px 0px 0px",
+    },
+
+    "@media screen and (max-width: 600px)": {
+      width: "90%",
     },
   },
   infoContainer: {
@@ -246,13 +260,26 @@ const useStyles = createUseStyles({
     alignItems: "center",
     backgroundColor: colors.nav,
     gap: "2rem",
+
+    "@media screen and (max-width: 900px)": {
+      height: "30%",
+      width: "70%",
+      flexDirection: "column-reverse",
+      borderRadius: "0px 0 20px 20px",
+    },
+
+    "@media screen and (max-width: 600px)": {
+      width: "90%",
+    },
   },
   title: {
     color: colors.nav,
     fontSize: "3rem",
-    marginTop: "1rem",
-    "@media screen and (max-width: 700px)": {
-      fontSize: "2.2rem",
+    marginTop: "3rem",
+    fontWeight: "800",
+
+    "@media screen and (max-width: 450px)": {
+      fontSize: "2.5rem",
     },
   },
   form: {
@@ -272,6 +299,11 @@ const useStyles = createUseStyles({
     width: "100%",
     height: "70%",
     gap: "0.2rem",
+
+    "@media screen and (max-width: 900px)": {
+      flexDirection: "column",
+      flexWrap: "nowrap",
+    },
   },
   inputsContainer: {
     display: "flex",
@@ -281,6 +313,15 @@ const useStyles = createUseStyles({
     width: "45%",
     height: "70%",
     gap: "0.2rem",
+
+    "@media screen and (max-width: 900px)": {
+      width: "80%",
+      height: "50%",
+    },
+
+    "@media screen and (max-width: 450px)": {
+      width: "95%",
+    },
   },
   interestMenusContainter: {
     width: "95%",
@@ -316,6 +357,7 @@ const useStyles = createUseStyles({
     flexDirection: "column",
     justifyContent: "center",
     alignItems: "center",
+    textAlign: "center",
     gap: "1rem",
   },
   progressBar: {

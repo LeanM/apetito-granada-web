@@ -51,6 +51,10 @@ const useStyles = createUseStyles({
     width: "1px",
     height: "50%",
     backgroundColor: colors.secondary,
+
+    "@media screen and (max-width: 800px)": {
+      height: "30%",
+    },
   },
   aboutUsText: {
     fontWeight: "800",
