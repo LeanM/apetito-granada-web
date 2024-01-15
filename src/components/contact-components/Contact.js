@@ -331,6 +331,10 @@ const useStyles = createUseStyles({
     justifyContent: "center",
     alignItems: "center",
     gap: "1rem",
+
+    "@media screen and (max-width: 900px)": {
+      height: "12rem",
+    },
   },
   submitButton: {
     width: "8rem",
@@ -359,6 +363,11 @@ const useStyles = createUseStyles({
     alignItems: "center",
     textAlign: "center",
     gap: "1rem",
+
+    "@media screen and (max-width: 900px)": {
+      gap: "0.5rem",
+      height: "4rem",
+    },
   },
   progressBar: {
     width: "70%",
