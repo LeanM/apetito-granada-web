@@ -243,7 +243,6 @@ export default function Home(props) {
           <div className={classes.resultsContainer}>
             {categories.map((category) => {
               if (categories.indexOf(category) % 2 === 0) {
-                console.log("asd");
                 if (
                   categories.indexOf(category) !== 0 &&
                   categories.indexOf(category) % 3 === 0
@@ -252,13 +251,14 @@ export default function Home(props) {
                     <Reveal
                       animationVariant="bottom"
                       styles={classes.resultItem}
+                      key={categories.indexOf(category)}
                     >
                       <LeftCategoryCard
-                        key={category}
+                        key={0}
                         categoryData={category}
                         onOpenMenu={(categoryData) => handleOpen(categoryData)}
                       />
-                      <BookSection />
+                      <BookSection key={1} />
                     </Reveal>
                   );
                 } else {
@@ -266,9 +266,9 @@ export default function Home(props) {
                     <Reveal
                       animationVariant="bottom"
                       styles={classes.resultItem}
+                      key={categories.indexOf(category)}
                     >
                       <LeftCategoryCard
-                        key={category}
                         categoryData={category}
                         onOpenMenu={(categoryData) => handleOpen(categoryData)}
                       />
@@ -284,9 +284,9 @@ export default function Home(props) {
                     <Reveal
                       animationVariant="bottom"
                       styles={classes.resultItem}
+                      key={categories.indexOf(category)}
                     >
                       <RightCategoryCard
-                        key={category}
                         categoryData={category}
                         onOpenMenu={(categoryData) => handleOpen(categoryData)}
                       />
@@ -298,9 +298,9 @@ export default function Home(props) {
                     <Reveal
                       animationVariant="bottom"
                       styles={classes.resultItem}
+                      key={categories.indexOf(category)}
                     >
                       <RightCategoryCard
-                        key={category}
                         categoryData={category}
                         onOpenMenu={(categoryData) => handleOpen(categoryData)}
                       />

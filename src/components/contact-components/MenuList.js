@@ -13,7 +13,7 @@ export default function MenuList() {
       {cart.map((menu) => {
         const firstWord = menu?.categoryName.split(" ")[0];
         return (
-          <div className={classes.itemContainer}>
+          <div key={cart.indexOf(menu)} className={classes.itemContainer}>
             <div className={classes.item}>
               <img
                 className={classes.itemImage}

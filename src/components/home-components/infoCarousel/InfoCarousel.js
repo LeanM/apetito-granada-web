@@ -68,7 +68,9 @@ export default function InfoCarousel() {
         draggable={false}
       >
         {infoItems.map((item) => {
-          return <InfoItem data={item}></InfoItem>;
+          return (
+            <InfoItem key={infoItems.indexOf(item)} data={item}></InfoItem>
+          );
         })}
       </Slider>
     </div>
