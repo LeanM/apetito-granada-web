@@ -36,7 +36,7 @@ export default function RightCategoryCard(props) {
       <div className={classes.innerRightContainer}>
         <div className={specificClasses.dataContainer} style={{}}>
           <div className={specificClasses.infoContainer}>
-            <div style={{ fontWeight: "300", fontSize: "3rem" }}>
+            <div style={{ fontWeight: "200", fontSize: "3rem" }}>
               {props.categoryData?.categoryName}
             </div>
           </div>
@@ -112,11 +112,13 @@ const specificStyle = createUseStyles({
     alignItems: "center",
     fontSize: "0.9rem",
     backgroundColor: colors.white,
-    borderRadius: "100em 10em 10em 100em",
+    borderRadius: "100em 5em 5em 100em",
     color: colors.nav,
     zIndex: "50",
     borderLeft: `solid 20px ${colors.nav}`,
-    border: `solid 2px ${colors.nav}`,
+    //borderTop: `solid 3px ${colors.nav}`,
+    //borderBottom: `solid 3px ${colors.nav}`,
+    borderRight: `solid 3px ${colors.nav}`,
 
     "@media screen and (max-width: 1100px)": {
       width: "80%",
@@ -138,9 +140,9 @@ const specificStyle = createUseStyles({
   infoContainer: {
     width: "90%",
     height: "60%",
-    backgroundColor: colors.textNav,
-    padding: "10px",
-    borderRadius: "100em 100em 100em 100em",
+    //backgroundColor: colors.textNav,
+    paddingLeft: "15px",
+    borderRadius: "1em",
     //borderRight: `solid 15px ${colors.nav}`,
     color: colors.nav,
     display: "flex",

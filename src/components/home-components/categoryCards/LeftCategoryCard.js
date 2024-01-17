@@ -114,7 +114,7 @@ const specificStyle = createUseStyles({
     alignItems: "center",
     fontSize: "0.9rem",
     fontFamily: "Poppins",
-    backgroundColor: colors.textNav,
+    backgroundColor: colors.white,
     borderRadius: "10em 100em 100em 10em",
     zIndex: "50",
     borderRight: `solid 20px ${colors.nav}`,
