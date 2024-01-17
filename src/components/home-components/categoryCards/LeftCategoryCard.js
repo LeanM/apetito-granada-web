@@ -41,14 +41,9 @@ export default function LeftCategoryCard(props) {
 
         <div className={specificClasses.dataContainer} style={{}}>
           <div className={specificClasses.infoContainer}>
-            <div
-              style={{ fontWeight: "800", fontSize: "1.7rem", height: "50%" }}
-            >
+            <div style={{ fontWeight: "800", fontSize: "3rem" }}>
               {props.categoryData?.categoryName}
             </div>
-            <p style={{ height: "40%" }}>
-              {props.categoryData?.categoryDescription}
-            </p>
           </div>
           <div className={classes.buttonsContainer}>
             <button
@@ -119,8 +114,8 @@ const specificStyle = createUseStyles({
     alignItems: "center",
     fontSize: "0.9rem",
     fontFamily: "Poppins",
-    backgroundColor: colors.white,
-    borderRadius: "20px 20px 20px 20px",
+    backgroundColor: colors.textNav,
+    borderRadius: "10em 100em 100em 10em",
     zIndex: "50",
     borderRight: `solid 20px ${colors.nav}`,
     border: `solid 2px ${colors.nav}`,
@@ -144,10 +139,10 @@ const specificStyle = createUseStyles({
 
   infoContainer: {
     width: "90%",
-    height: "50%",
+    height: "60%",
     padding: "10px",
-    backgroundColor: colors.textNav,
-    borderRadius: "20px",
+    //backgroundColor: colors.nav,
+    borderRadius: "20em",
     borderLeft: `solid 15px ${colors.nav}`,
     color: colors.nav,
     display: "flex",

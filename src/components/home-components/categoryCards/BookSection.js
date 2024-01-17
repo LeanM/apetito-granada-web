@@ -53,12 +53,12 @@ const useStyles = createUseStyles({
     flexDirection: "column",
     paddingTop: "4rem",
 
-    borderRadius: "20px",
+    borderRadius: "20em",
 
     borderLeft: `solid 20px ${colors.nav}`,
     borderRight: `solid 20px ${colors.nav}`,
-    borderTop: `solid 2px ${colors.nav}`,
-    borderBottom: `solid 2px ${colors.nav}`,
+    borderTop: `solid 3px ${colors.nav}`,
+    borderBottom: `solid 3px ${colors.nav}`,
     //boxShadow: "black 0 0 10px",
   },
   image: {
