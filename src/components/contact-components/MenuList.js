@@ -8,17 +8,26 @@ export default function MenuList() {
   const classes = useStyles();
   const { cart, removeFromCart } = useContext(CartContext);
 
+  const importImages = require.context(
+    "../../assets/images/categories",
+    false,
+    /\.(webp)$/
+  );
+  const imagenesDisponibles = importImages
+    .keys()
+    .map((importImages) => importImages.substring(2));
+
+  //const availableImage = imagenesDisponibles.includes(`${firstWord}.webp`);
+
   return (
     <div className={classes.container}>
       {cart.map((menu) => {
         const firstWord = menu?.categoryName.split(" ")[0];
+        const image = importImages(`./${firstWord}.webp`);
         return (
           <div key={cart.indexOf(menu)} className={classes.itemContainer}>
             <div className={classes.item}>
-              <img
-                className={classes.itemImage}
-                src={"./categories/" + firstWord + ".jpg"}
-              ></img>
+              <img className={classes.itemImage} src={image}></img>
               <p className={classes.itemText}>{menu?.categoryName}</p>
             </div>
             <button
