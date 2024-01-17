@@ -8,7 +8,7 @@ export default function BookSection() {
   const classes = useStyles();
   return (
     <div className={classes.container}>
-      <img src={"./images/apetito.png"} className={classes.image}></img>
+      <img src={"./images/apetito.webp"} className={classes.image}></img>
       <div className={classes.subContainer}>
         <div className={classes.textContainer}>
           <p className={classes.text}>Te gustan los menus que estas viendo?</p>

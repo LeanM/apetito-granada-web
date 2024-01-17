@@ -23,7 +23,7 @@ export default function Footer() {
         </div>
         <div className={classes.separation}></div>
         <div className={classes.bookContainer}>
-          <img src={"./images/apetito.png"} className={classes.image}></img>
+          <img src={"./images/apetito.webp"} className={classes.image}></img>
           <Button
             className={classes.button}
             onClick={() => navigate("/contact")}
