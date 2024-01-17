@@ -1,8 +1,6 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, Suspense, lazy } from "react";
 
 import { useNavigate } from "react-router-dom";
-import LeftCategoryCard from "./categoryCards/LeftCategoryCard";
-import RightCategoryCard from "./categoryCards/RightCategoryCard";
 import CategoryCarousel from "./carousel/CategoryCarousel";
 import { colors } from "../../assets/colors";
 import HomeInfo from "./landing/HomeInfo";
@@ -16,6 +14,11 @@ import Footer from "../pagewrappers/Footer";
 import HomeTopAlter from "./landing/HomeTopAlter";
 import About from "./landing/About";
 import InfoCarousel from "./infoCarousel/InfoCarousel";
+
+const LeftCategoryCard = lazy(() => import("./categoryCards/LeftCategoryCard"));
+const RightCategoryCard = lazy(() =>
+  import("./categoryCards/RightCategoryCard")
+);
 
 export default function Home(props) {
   const { loading } = props;
@@ -248,31 +251,39 @@ export default function Home(props) {
                   categories.indexOf(category) % 3 === 0
                 ) {
                   return (
-                    <Reveal
-                      animationVariant="bottom"
-                      styles={classes.resultItem}
-                      key={categories.indexOf(category)}
-                    >
-                      <LeftCategoryCard
-                        key={0}
-                        categoryData={category}
-                        onOpenMenu={(categoryData) => handleOpen(categoryData)}
-                      />
-                      <BookSection key={1} />
-                    </Reveal>
+                    <Suspense>
+                      <Reveal
+                        animationVariant="bottom"
+                        styles={classes.resultItem}
+                        key={categories.indexOf(category)}
+                      >
+                        <LeftCategoryCard
+                          key={0}
+                          categoryData={category}
+                          onOpenMenu={(categoryData) =>
+                            handleOpen(categoryData)
+                          }
+                        />
+                        <BookSection key={1} />
+                      </Reveal>
+                    </Suspense>
                   );
                 } else {
                   return (
-                    <Reveal
-                      animationVariant="bottom"
-                      styles={classes.resultItem}
-                      key={categories.indexOf(category)}
-                    >
-                      <LeftCategoryCard
-                        categoryData={category}
-                        onOpenMenu={(categoryData) => handleOpen(categoryData)}
-                      />
-                    </Reveal>
+                    <Suspense>
+                      <Reveal
+                        animationVariant="bottom"
+                        styles={classes.resultItem}
+                        key={categories.indexOf(category)}
+                      >
+                        <LeftCategoryCard
+                          categoryData={category}
+                          onOpenMenu={(categoryData) =>
+                            handleOpen(categoryData)
+                          }
+                        />
+                      </Reveal>
+                    </Suspense>
                   );
                 }
               } else {
@@ -281,30 +292,38 @@ export default function Home(props) {
                   categories.indexOf(category) % 3 === 0
                 ) {
                   return (
-                    <Reveal
-                      animationVariant="bottom"
-                      styles={classes.resultItem}
-                      key={categories.indexOf(category)}
-                    >
-                      <RightCategoryCard
-                        categoryData={category}
-                        onOpenMenu={(categoryData) => handleOpen(categoryData)}
-                      />
-                      <BookSection />
-                    </Reveal>
+                    <Suspense>
+                      <Reveal
+                        animationVariant="bottom"
+                        styles={classes.resultItem}
+                        key={categories.indexOf(category)}
+                      >
+                        <RightCategoryCard
+                          categoryData={category}
+                          onOpenMenu={(categoryData) =>
+                            handleOpen(categoryData)
+                          }
+                        />
+                        <BookSection />
+                      </Reveal>
+                    </Suspense>
                   );
                 } else {
                   return (
-                    <Reveal
-                      animationVariant="bottom"
-                      styles={classes.resultItem}
-                      key={categories.indexOf(category)}
-                    >
-                      <RightCategoryCard
-                        categoryData={category}
-                        onOpenMenu={(categoryData) => handleOpen(categoryData)}
-                      />
-                    </Reveal>
+                    <Suspense>
+                      <Reveal
+                        animationVariant="bottom"
+                        styles={classes.resultItem}
+                        key={categories.indexOf(category)}
+                      >
+                        <RightCategoryCard
+                          categoryData={category}
+                          onOpenMenu={(categoryData) =>
+                            handleOpen(categoryData)
+                          }
+                        />
+                      </Reveal>
+                    </Suspense>
                   );
                 }
               }

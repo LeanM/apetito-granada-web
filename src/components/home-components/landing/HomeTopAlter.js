@@ -3,8 +3,6 @@ import { createUseStyles } from "react-jss";
 import { Button } from "rsuite";
 import Reveal from "../../animation/Reveal";
 import { useNavigate } from "react-router-dom";
-import splat from "../../../assets/splat2.png";
-import dish from "../../../assets/dish.png";
 
 export default function HomeTopAlter() {
   const navigate = useNavigate();
@@ -35,8 +33,11 @@ export default function HomeTopAlter() {
           </div>
         </Reveal>
         <Reveal animationVariant="right" styles={classes.visualContainer}>
-          <img className={classes.dishImage} src={dish}></img>
-          <img className={classes.splatImage} src={splat}></img>
+          <img className={classes.dishImage} src={"./images/dish.webp"}></img>
+          <img
+            className={classes.splatImage}
+            src={"./images/splat2.webp"}
+          ></img>
         </Reveal>
       </div>
     </div>

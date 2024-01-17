@@ -1,7 +1,6 @@
 import { useContext, useEffect, useState } from "react";
 import useAuth from "../../hooks/useAuth";
 import { createUseStyles } from "react-jss";
-import logo from "../../assets/apetito.png";
 import { colors } from "../../assets/colors";
 import { useNavigate } from "react-router-dom";
 

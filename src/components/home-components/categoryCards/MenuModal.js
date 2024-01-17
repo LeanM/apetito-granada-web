@@ -4,7 +4,6 @@ import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import Modal from "@mui/material/Modal";
-import logo from "../../../assets/apetito.png";
 
 export default function MenuModal(props) {
   const { open, data } = props;
@@ -14,7 +13,7 @@ export default function MenuModal(props) {
     <Modal open={open} onClose={props.onClose}>
       <div
         className={classes.container}
-        style={{ backgroundImage: `url(./images/backgroundMenu2.png)` }}
+        style={{ backgroundImage: `url(./images/backgroundMenu2.webp)` }}
       >
         <button
           className={classes.upperCloseButton}

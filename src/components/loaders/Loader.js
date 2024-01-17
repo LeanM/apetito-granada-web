@@ -1,5 +1,4 @@
 import React from "react";
-import load from "../../assets/load.png";
 import { createUseStyles } from "react-jss";
 import { colors } from "../../assets/colors";
 import { ClockLoader } from "react-spinners";
@@ -9,7 +8,7 @@ const Loader = () => {
   return (
     <div className={classes.container}>
       <div className={classes.subContainer}>
-        <img className={classes.image} src={load}></img>
+        <img className={classes.image} src={"./images/load.webp"}></img>
         <ClockLoader color={colors.black} aria-label="Loading..." />
         <p className={classes.text}>Cargando...</p>
       </div>
