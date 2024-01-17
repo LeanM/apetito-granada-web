@@ -52,7 +52,7 @@ export default function Home(props) {
   const loadPage = async () => {
     setTimeout(() => {
       props.onLoad();
-    }, 2500);
+    }, 3000);
   };
 
   const getStartupData = async () => {

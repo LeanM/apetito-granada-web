@@ -13,14 +13,15 @@ export default function GalleryItem(props) {
   const importImages = require.context(
     "../../assets/images/categories",
     false,
-    /\.(jpg)$/
+    /\.(webp)$/
   );
   const imagenesDisponibles = importImages
     .keys()
     .map((importImages) => importImages.substring(2));
 
-  //const availableImage = imagenesDisponibles.includes(`${firstWord}.jpg`);
-  const image = importImages(`./${firstWord}.jpg`);
+  //const availableImage = imagenesDisponibles.includes(`${firstWord}.webp`);
+
+  const image = importImages(`./${firstWord}.webp`);
 
   const overlayHover = {
     height: "3.5rem",
