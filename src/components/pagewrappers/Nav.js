@@ -1,7 +1,6 @@
 import { useContext, useEffect, useState } from "react";
 import useAuth from "../../hooks/useAuth";
 import { createUseStyles } from "react-jss";
-import logo from "../../assets/apetito.png";
 import { colors } from "../../assets/colors";
 import { useNavigate } from "react-router-dom";
 import SideNav from "./SideNav";
@@ -99,7 +98,7 @@ export default function Nav(props) {
               <img
                 className={classes.logo}
                 style={logoStyle}
-                src={logo}
+                src={"./images/apetito.webp"}
                 onClick={() => navigate("/")}
               ></img>
             </div>

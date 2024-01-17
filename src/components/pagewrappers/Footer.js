@@ -1,7 +1,6 @@
 import { createUseStyles } from "react-jss";
 import { colors } from "../../assets/colors";
 import { Button } from "rsuite";
-import logo from "../../assets/apetito.png";
 import { useNavigate } from "react-router-dom";
 
 export default function Footer() {
@@ -24,7 +23,7 @@ export default function Footer() {
         </div>
         <div className={classes.separation}></div>
         <div className={classes.bookContainer}>
-          <img src={logo} className={classes.image}></img>
+          <img src={"./images/apetito.png"} className={classes.image}></img>
           <Button
             className={classes.button}
             onClick={() => navigate("/contact")}

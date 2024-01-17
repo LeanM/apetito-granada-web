@@ -10,6 +10,18 @@ export default function GalleryItem(props) {
   const firstWord = photo.split(" ")[0];
   const [overlayStyle, setOverlayStyle] = useState({ opacity: 0 });
 
+  const importImages = require.context(
+    "../../assets/images/categories",
+    false,
+    /\.(jpg)$/
+  );
+  const imagenesDisponibles = importImages
+    .keys()
+    .map((importImages) => importImages.substring(2));
+
+  //const availableImage = imagenesDisponibles.includes(`${firstWord}.jpg`);
+  const image = importImages(`./${firstWord}.jpg`);
+
   const overlayHover = {
     height: "3.5rem",
     opacity: 0.7,
@@ -26,10 +38,7 @@ export default function GalleryItem(props) {
       onMouseOver={() => setOverlayStyle(overlayHover)}
       onMouseOut={() => setOverlayStyle({ opacity: 0 })}
     >
-      <img
-        className={classes.galleryPhoto}
-        src={"./categories/" + firstWord + ".jpg"}
-      />
+      <img className={classes.galleryPhoto} src={image} />
       <div className={classes.photoOverlay} style={overlayStyle}>
         <p>{photo}</p>
       </div>

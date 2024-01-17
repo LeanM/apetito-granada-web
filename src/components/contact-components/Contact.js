@@ -99,7 +99,7 @@ export default function Contact() {
         <div
           className={classes.subContainer}
           style={{
-            backgroundImage: `url(./images/contactImage.jpg)`,
+            backgroundImage: `url(./images/contactImage.webp)`,
             backgroundSize: "cover",
           }}
         >
@@ -255,6 +255,7 @@ const useStyles = createUseStyles({
     display: "flex",
     flexDirection: "column",
     justifyContent: "center",
+    borderRadius: "0 20px 20px 0",
     alignItems: "center",
     backgroundColor: colors.nav,
     gap: "2rem",

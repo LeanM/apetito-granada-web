@@ -2,14 +2,13 @@ import { Button } from "rsuite";
 import { createUseStyles } from "react-jss";
 import { colors } from "../../../assets/colors";
 import { useNavigate } from "react-router-dom";
-import logo from "../../../assets/apetito.png";
 
 export default function BookSection() {
   const navigate = useNavigate();
   const classes = useStyles();
   return (
     <div className={classes.container}>
-      <img src={logo} className={classes.image}></img>
+      <img src={"./images/apetito.png"} className={classes.image}></img>
       <div className={classes.subContainer}>
         <div className={classes.textContainer}>
           <p className={classes.text}>Te gustan los menus que estas viendo?</p>

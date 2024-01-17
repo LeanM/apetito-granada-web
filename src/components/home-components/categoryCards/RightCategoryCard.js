@@ -11,6 +11,19 @@ export default function RightCategoryCard(props) {
   const specificClasses = specificStyle();
   const { addToCart, emptyCart } = useContext(CartContext);
   const firstWord = props.categoryData?.categoryName.split(" ")[0];
+
+  const importImages = require.context(
+    "../../../assets/images/categories",
+    false,
+    /\.(jpg)$/
+  );
+  const imagenesDisponibles = importImages
+    .keys()
+    .map((importImages) => importImages.substring(2));
+
+  //const availableImage = imagenesDisponibles.includes(`${firstWord}.jpg`);
+  const image = importImages(`./${firstWord}.jpg`);
+
   return (
     <div
       id={props.categoryData?.categoryName}
@@ -18,7 +31,7 @@ export default function RightCategoryCard(props) {
     >
       <div
         className={classes.background}
-        style={{ backgroundImage: `url(./categories/${firstWord}.jpg)` }}
+        style={{ backgroundImage: `url(${image})` }}
       ></div>
       <div className={classes.innerRightContainer}>
         <div className={specificClasses.dataContainer} style={{}}>
@@ -67,10 +80,7 @@ export default function RightCategoryCard(props) {
           </div>
         </div>
         <div className={classes.imageContainer}>
-          <img
-            src={"./categories/" + firstWord + ".jpg"}
-            className={classes.imageStyle}
-          />
+          <img src={image} className={classes.imageStyle} />
         </div>
       </div>
     </div>
