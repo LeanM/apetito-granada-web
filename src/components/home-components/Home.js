@@ -15,12 +15,8 @@ import HomeTopAlter from "./landing/HomeTopAlter";
 import About from "./landing/About";
 import InfoCarousel from "./infoCarousel/InfoCarousel";
 import { CardElement } from "@stripe/react-stripe-js";
-import CategoryCard from "./categoryCards/CategoryCard";
 
-const LeftCategoryCard = lazy(() => import("./categoryCards/LeftCategoryCard"));
-const RightCategoryCard = lazy(() =>
-  import("./categoryCards/RightCategoryCard")
-);
+const CategoryCard = lazy(() => import("./categoryCards/CategoryCard"));
 
 export default function Home(props) {
   const { loading } = props;

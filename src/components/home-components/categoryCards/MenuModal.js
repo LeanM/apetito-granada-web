@@ -75,7 +75,7 @@ const useStyles = createUseStyles({
     backgroundColor: colors.textNav,
     backgroundSize: "cover",
     border: `solid 1px ${colors.nav}`,
-    borderRadius: "5px",
+    borderRadius: "20px",
     boxShadow: "0 0 5px black",
     overflowY: "scroll",
     fontFamily: "Poppins",
@@ -132,7 +132,7 @@ const useStyles = createUseStyles({
   platesContainer: {
     width: "70%",
     position: "relative",
-    borderRadius: "2px",
+    borderRadius: "20px",
     border: `solid 2px ${colors.nav}`,
     //borderBottom: "none",
     display: "flex",
