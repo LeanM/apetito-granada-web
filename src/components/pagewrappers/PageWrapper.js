@@ -66,7 +66,7 @@ const useStyles = createUseStyles({
     right: "20px",
     borderRadius: "100%",
     zIndex: 150,
-    border: "solid 1px " + colors.navLight,
+    border: "solid 1px " + colors.transparent,
     transition: "background 0.3s, border 0.3s, color 0.3s",
 
     "&:hover": {

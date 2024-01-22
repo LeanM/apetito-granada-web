@@ -165,8 +165,8 @@ const generalStyles = createUseStyles({
     gap: "0.1rem",
   },
   menuButton: {
-    width: "6rem",
-    height: "3.5rem",
+    width: "5rem",
+    height: "4rem",
     borderRadius: "20px 4px 4px 20px",
     backgroundColor: colors.nav,
     color: colors.textNav,
@@ -178,8 +178,8 @@ const generalStyles = createUseStyles({
     },
   },
   addButton: {
-    width: "2.5rem",
-    height: "3.5rem",
+    width: "2rem",
+    height: "4rem",
     borderRadius: "4px 20px 20px 4px",
     fontWeight: "600",
     backgroundColor: colors.nav,
@@ -214,7 +214,7 @@ const specificStyleRight = createUseStyles({
     alignItems: "center",
     fontSize: "0.9rem",
     backgroundColor: colors.white,
-    borderRadius: "100em 5em 5em 100em",
+    borderRadius: "100rem 20rem 20rem 100rem",
     color: colors.nav,
     zIndex: "50",
     borderLeft: `solid 20px ${colors.nav}`,
@@ -267,7 +267,7 @@ const specificStyleRight = createUseStyles({
     transition:
       "transform 0.5s, border 0.5s ease-in-out, border-radius 0.5s, box-shadow 0.8s",
     zIndex: "101",
-    borderRadius: "10em 100em 100em 10em",
+    borderRadius: "20em 100em 100em 20em",
     //border:`solid 2px ${colors.navSemiTransparent}`,
 
     "&:hover": {
@@ -307,7 +307,7 @@ const specificStyleLeft = createUseStyles({
     fontSize: "0.9rem",
     fontFamily: "Poppins",
     backgroundColor: colors.white,
-    borderRadius: "10em 100em 100em 10em",
+    borderRadius: "20em 100em 100em 20em",
     zIndex: "50",
     borderRight: `solid 20px ${colors.nav}`,
     //borderTop: `solid 3px ${colors.nav}`,
@@ -356,7 +356,7 @@ const specificStyleLeft = createUseStyles({
     transition:
       "transform 0.5s, border 0.5s ease-in-out, border-radius 0.5s, box-shadow 0.8s",
     zIndex: "101",
-    borderRadius: "100em 10em 10em 100em",
+    borderRadius: "100em 20em 20em 100em",
     //border:`solid 2px ${colors.navSemiTransparent}`,
 
     "&:hover": {
