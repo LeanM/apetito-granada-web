@@ -14,11 +14,9 @@ import Footer from "../pagewrappers/Footer";
 import HomeTopAlter from "./landing/HomeTopAlter";
 import About from "./landing/About";
 import InfoCarousel from "./infoCarousel/InfoCarousel";
+import { CardElement } from "@stripe/react-stripe-js";
 
-const LeftCategoryCard = lazy(() => import("./categoryCards/LeftCategoryCard"));
-const RightCategoryCard = lazy(() =>
-  import("./categoryCards/RightCategoryCard")
-);
+const CategoryCard = lazy(() => import("./categoryCards/CategoryCard"));
 
 export default function Home(props) {
   const { loading } = props;
@@ -257,13 +255,15 @@ export default function Home(props) {
                         styles={classes.resultItem}
                         key={categories.indexOf(category)}
                       >
-                        <LeftCategoryCard
+                        <CategoryCard
                           key={0}
+                          type="left"
                           categoryData={category}
                           onOpenMenu={(categoryData) =>
                             handleOpen(categoryData)
                           }
-                        />
+                        ></CategoryCard>
+
                         <BookSection key={1} />
                       </Reveal>
                     </Suspense>
@@ -276,8 +276,9 @@ export default function Home(props) {
                         styles={classes.resultItem}
                         key={categories.indexOf(category)}
                       >
-                        <LeftCategoryCard
+                        <CategoryCard
                           categoryData={category}
+                          type="left"
                           onOpenMenu={(categoryData) =>
                             handleOpen(categoryData)
                           }
@@ -298,7 +299,8 @@ export default function Home(props) {
                         styles={classes.resultItem}
                         key={categories.indexOf(category)}
                       >
-                        <RightCategoryCard
+                        <CategoryCard
+                          type="right"
                           categoryData={category}
                           onOpenMenu={(categoryData) =>
                             handleOpen(categoryData)
@@ -316,7 +318,8 @@ export default function Home(props) {
                         styles={classes.resultItem}
                         key={categories.indexOf(category)}
                       >
-                        <RightCategoryCard
+                        <CategoryCard
+                          type="right"
                           categoryData={category}
                           onOpenMenu={(categoryData) =>
                             handleOpen(categoryData)

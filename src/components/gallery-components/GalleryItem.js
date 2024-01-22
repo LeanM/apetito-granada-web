@@ -30,7 +30,6 @@ export default function GalleryItem(props) {
 
   return (
     <motion.div
-      layout
       animate={{ opacity: 1 }}
       initial={{ opacity: 0 }}
       exit={{ opacity: 0 }}
@@ -39,7 +38,11 @@ export default function GalleryItem(props) {
       onMouseOver={() => setOverlayStyle(overlayHover)}
       onMouseOut={() => setOverlayStyle({ opacity: 0 })}
     >
-      <img className={classes.galleryPhoto} src={image} />
+      <img
+        className={classes.galleryPhoto}
+        alt={"Gallery food " + photo}
+        src={image}
+      />
       <div className={classes.photoOverlay} style={overlayStyle}>
         <p>{photo}</p>
       </div>
