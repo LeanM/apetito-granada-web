@@ -33,7 +33,11 @@ export default function HomeTopAlter() {
           </div>
         </Reveal>
         <Reveal animationVariant="right" styles={classes.visualContainer}>
-          <img className={classes.dishImage} src={"./images/dish.webp"}></img>
+          <img
+            className={classes.dishImage}
+            alt="Apetito granada catering dish"
+            src={"./images/dish.webp"}
+          ></img>
           <img
             className={classes.splatImage}
             src={"./images/splat2.webp"}

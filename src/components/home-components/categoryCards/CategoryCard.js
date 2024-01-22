@@ -93,6 +93,10 @@ export default function CategoryCard(props) {
         <div className={classes.imageContainer}>
           <img
             src={image}
+            alt={
+              "Apetito Granada catering menu " +
+              props?.categoryData?.categoryName
+            }
             className={
               type === "left" ? classesLeft.imageStyle : classesRight.imageStyle
             }
