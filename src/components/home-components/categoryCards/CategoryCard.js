@@ -232,13 +232,15 @@ const specificStyleRight = createUseStyles({
       color: colors.white,
       border: `solid 1px ${colors.nav}`,
       borderLeft: `solid 20px ${colors.nav}`,
+      borderRadius: "1rem 1rem 1rem 1rem",
 
       backgroundColor: colors.textNavSemiTransparent,
     },
 
-    "@media screen and (max-width: 500px)": {
+    "@media screen and (max-width: 800px)": {
       width: "95%",
       padding: "10px",
+
       //borderTop:`solid 5px ${colors.nav}`,
     },
   },
@@ -322,6 +324,7 @@ const specificStyleLeft = createUseStyles({
       width: "80%",
       height: "80%",
       borderRight: `solid 20px ${colors.nav}`,
+      borderRadius: "1rem 1rem 1rem 1rem",
       border: `solid 1px ${colors.nav}`,
       color: colors.white,
       backgroundColor: colors.textNavSemiTransparent,

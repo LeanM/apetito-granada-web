@@ -1,9 +1,6 @@
 import { createUseStyles } from "react-jss";
 import { colors } from "../../../assets/colors";
-import Box from "@mui/material/Box";
-import Button from "@mui/material/Button";
-import Typography from "@mui/material/Typography";
-import Modal from "@mui/material/Modal";
+import { Modal } from "@mui/material";
 
 export default function MenuModal(props) {
   const { open, data } = props;

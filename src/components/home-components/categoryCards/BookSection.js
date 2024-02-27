@@ -31,6 +31,7 @@ const useStyles = createUseStyles({
     width: "100%",
     height: "35vh",
     display: "flex",
+    position: "relative",
     justifyContent: "center",
     alignItems: "center",
     marginBottom: "5rem",
@@ -66,6 +67,7 @@ const useStyles = createUseStyles({
     width: "7rem",
     height: "7rem",
     marginBottom: "10rem",
+    top: "-2rem",
 
     "@media screen and (max-width: 800px)": {
       height: "6rem",
@@ -95,13 +97,14 @@ const useStyles = createUseStyles({
     fontSize: "2rem",
     fontWeight: "200",
     height: "50%",
+    textAlign: "center",
 
     "@media screen and (max-width: 900px)": {
-      fontSize: "1.7rem",
+      fontSize: "1.5rem",
     },
 
     "@media screen and (max-width: 500px)": {
-      fontSize: "1.2rem",
+      fontSize: "1rem",
     },
   },
   buttonContainer: {
@@ -113,7 +116,7 @@ const useStyles = createUseStyles({
   },
   button: {
     width: "10rem",
-
+    fontSize: "0.8rem",
     border: `solid 1px ${colors.navLight}`,
     backgroundColor: colors.nav,
     color: colors.textNav,
